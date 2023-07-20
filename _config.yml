@@ -20,6 +20,11 @@
 
 title: CYB3RL4NG
 url: "https://gems-cyberlang.github.io"
+contact:
+  name: Somebody # todo is it the team liaison's job?
+  email: something@umd.edu
 
 # Build settings
 theme: minima
+minima:
+  skin: auto

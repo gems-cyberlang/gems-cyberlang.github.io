@@ -1,0 +1,68 @@
+<footer class="site-footer h-card">
+  <data class="u-url" href="{{ "/" | relative_url }}"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+      <h3>Contact</h3>
+        <ul class="contact-list">
+          <li class="p-name">{{ site.contact.name | escape }}</li>
+          <li><a class="u-email" href="mailto:{{ site.contact.email }}">{{ site.contact.email }}</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="cookie-popup">
+    <p class="cookie-message">Would you like to accept cookies to help personalize your experience?</p>
+    <div class="cookie-popup-buttons">
+      <div class="cookie-popup-button" onclick="closeCookiePopup(false)" style="background-color: #d80606">Maybe later</div>
+      <div class="cookie-popup-button" onclick="closeCookiePopup(true)" style="background-color: #20c020">Yes please!</div>
+    </div>
+  </div>
+
+  <style>
+    .cookie-popup {
+      position: fixed;
+      bottom: 0px;
+      left: 0px;
+      width: 100vw;
+      background-color: #2525be;
+      color: white;
+      padding-top: 25px;
+      padding-bottom: 20px;
+      padding-left: 30px;
+      font-family: Noto Sans, sans-serif;
+    }
+
+    .cookie-message {
+      float: left;
+      font-weight: 400;
+      font-size: large;
+    }
+
+    .cookie-popup-buttons {
+      display: flex;
+      align-items: end;
+      float: right;
+      padding-right: 50px;
+    }
+
+    .cookie-popup-button {
+      margin-left: 30px;
+      padding: 5px;
+      cursor: pointer;
+    }
+  </style>
+
+  <script>
+    function closeCookiePopup(wantCookies) {
+      document.getElementsByClassName("cookie-popup")[0].style.display = "none";
+      if (wantCookies) {
+        alert("Sorry, I have no idea how to set cookies.");
+      }
+    }
+  </script>
+
+</footer>
