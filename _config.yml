@@ -19,12 +19,21 @@
 # in the templates via {{ site.myvariable }}.
 
 title: CYB3RL4NG
-url: "https://gems-cyberlang.github.io"
-contact:
-  name: Somebody # todo is it the team liaison's job?
-  email: something@umd.edu
+url: "https://gems-cyberlang.github.io/"
+base_url: ""
 
 # Build settings
-theme: minima
-minima:
-  skin: auto
+theme: academic-jekyll-theme
+data:
+  settings:
+    menu:
+      - name: About
+        url: about
+      - name: Timeline
+        url: timeline
+    social:
+      - icon: github
+        link: "https://github.com/gems-cyberlang/"
+    contact:
+      title: Team Liaison
+      email: something@umd.edu
