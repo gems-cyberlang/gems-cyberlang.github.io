@@ -31,6 +31,8 @@ data:
         url: about
       - name: Timeline
         url: timeline
+      - name: Blog
+        url: blog
     social:
       - icon: github
         link: "https://github.com/gems-cyberlang/"
