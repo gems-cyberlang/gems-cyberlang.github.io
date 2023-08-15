@@ -21,6 +21,7 @@
 title: CYB3RL4NG
 url: "https://gems-cyberlang.github.io/"
 base_url: ""
+permalink: /:title/
 
 # Build settings
 theme: academic-jekyll-theme
@@ -28,11 +29,11 @@ data:
   settings:
     menu:
       - name: About
-        url: about
+        url: /about
       - name: Timeline
-        url: timeline
+        url: /timeline
       - name: Blog
-        url: blog
+        url: /blog
     social:
       - icon: github
         link: "https://github.com/gems-cyberlang/"
