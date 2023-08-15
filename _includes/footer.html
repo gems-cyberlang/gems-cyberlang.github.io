@@ -4,9 +4,4 @@
     <p>{{ site.data.settings.contact.title }}</p>
     <p>Email: <a href="mailto:{{ site.data.settings.contact.email }}">{{ site.data.settings.contact.email }}</a></p>
   </div>
-  <div class="text-start social-media-icons">
-    {% for item in site.data.settings.social %}
-      <a href="{{ item.link }}" class="ms-3 fs-5"><i class="fab fa-{{ item.icon }}"></i></a>
-    {% endfor %}
-  </div>
 </footer>
