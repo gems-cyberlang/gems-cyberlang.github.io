@@ -37,6 +37,8 @@ data:
     social:
       - icon: github
         link: "https://github.com/gems-cyberlang/"
+      - icon: instagram
+        link: "https://instagram.com/cyb3rl4ng?igshid=OGQ5ZDc2ODk2ZA=="
     contact:
       title: Team Liaison
       email: something@umd.edu
