@@ -20,6 +20,6 @@ We aim to ???
 <br>
 
 <div style="display: flex; width: 100%; align-items: center; justify-content: space-around;">
-  <div><a href="https://gemstone.umd.edu/"><img src="/assets/gemstone.png" alt="Gemstone logo"></a></div>
-  <div><a href="https://honors.umd.edu/"><img src="/assets/umdhonors.png" alt="Honors College logo"></a></div>
+  <div><a href="https://gemstone.umd.edu/"><img src="/assets/img/gemstone.png" alt="Gemstone logo"></a></div>
+  <div><a href="https://honors.umd.edu/"><img src="/assets/img/umdhonors.png" alt="Honors College logo"></a></div>
 </div>

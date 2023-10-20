@@ -9,7 +9,13 @@
   </div>
   <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
     {% for item in site.data.settings.menu %}
-      <a class="me-3 py-2 text-decoration-none" href="{{ site.github.url }}{{ item.url }}">{{ item.name }}</a>
+      {% if page.title == item.name %}
+        <a class="me-3 py-2 text-decoration-none fw-bold menu-underline-no-animation" href="{{ site.github.url }}{{ item.url }}">{{ item.name }}</a>
+      {% elsif item.name == "Blog" and page.layout == "post" %}
+        <a class="me-3 py-2 text-decoration-none fw-bold menu-underline-no-animation" href="{{ site.github.url }}{{ item.url }}">{{ item.name }}</a>
+      {% else %}
+        <a class="me-3 py-2 text-decoration-none menu-underline-animation" href="{{ site.github.url }}{{ item.url }}">{{ item.name }}</a>
+      {% endif %}
     {% endfor %}
   </nav>
   <div class="text-start social-media-icons">
