@@ -21,7 +21,7 @@
   </nav>
   <div class="text-start social-media-icons">
     {% for item in site.data.settings.social %}
-      <a href="{{ item.link }}" class="ms-3 fs-5"><i class="fab fa-{{ item.icon }}"></i></a>
+      <a href="{{ item.link }}" class="ms-3 fs-5"><i class="{{ item.fa-class }}" title="{{ item.title }}"></i></a>
     {% endfor %}
   </div>
 </header>
