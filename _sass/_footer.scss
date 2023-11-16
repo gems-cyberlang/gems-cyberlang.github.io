@@ -1,6 +1,7 @@
 footer {
   margin-top: auto;
-  color: rgba($bodyColor, 0.7);
+  color: rgba($bodyColor, 0.7); // Mute the text
   border-top: solid;
-  padding-top: 3rem;
+  border-color: $bodyColor; // Don't mute the border
+  padding-top: 2.5rem;
 }
