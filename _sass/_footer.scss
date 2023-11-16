@@ -1,8 +1,8 @@
 footer {
   margin-top: auto;
-  color: rgba($bodyColor, 0.7); // Mute the text
+  color: rgba(var(--body-color), 0.7); // Mute the text
   border-top: solid;
-  border-color: $bodyColor; // Don't mute the border
+  border-color: var(--body-color); // Don't mute the border
   padding-top: 2.5rem;
   margin-top: 2rem;
 }

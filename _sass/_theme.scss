@@ -1,14 +1,30 @@
 // Adapted from lenpaul's academic theme's sass
 // https://github.com/LeNPaul/academic/blob/gh-pages/_sass/main.scss
 
-$backgroundColor: #175241;
-$bodyColor: #eb89f0;
+// $backgroundColor: #175241;
+// $bodyColor: #eb89f0;
 $bodyFont: Roboto, Consolas, sans-serif; //-apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 $linkColor: #27d8ac;
 
+:root {
+  --body-color: #175241;
+  --body-bg: #eb89f0;
+}
+
+// Automatically switch to dark mode based on preferences
+$color-mode-type: media-query;
+
+// Switch colors for dark mode
+@include color-mode(dark) {
+  :root {
+    --body-color: #eb89f0;
+    --body-bg: #175241;
+  }
+}
+
 body {
-  background: $backgroundColor;
-  color: $bodyColor;
+  background: var(--body-bg);
+  color: var(--body-color);
   font-family: $bodyFont;
   margin: 0 auto;
   padding-top: 2.5rem;
@@ -33,32 +49,3 @@ body a {
 p {
   font-size: large;
 }
-
-@font-face {
-  font-family: "PixeloidMono";
-  src: url("/fonts/pixeloid/woff/PixeloidMono.woff");
-  src: url("/fonts/pixeloid/woff/PixeloidMono.woff") format("woff"),
-    url("/fonts/pixeloid/woff/PixeloidMono.woff2") format("woff2"),
-    url("/fonts/pixeloid/otf/PixeloidMono.otf") format("opentype"),
-    url("/fonts/pixeloid/ttf/PixeloidMono.ttf") format("truetype");
-}
-
-@font-face {
-  font-family: "PixeloidSans";
-  src: url("/fonts/pixeloid/woff/PixeloidSans.woff");
-  src: url("/fonts/pixeloid/woff/PixeloidSans.woff") format("woff"),
-    url("/fonts/pixeloid/woff/PixeloidSans.woff2") format("woff2"),
-    url("/fonts/pixeloid/otf/PixeloidSans.otf") format("opentype"),
-    url("/fonts/pixeloid/ttf/PixeloidSans.ttf") format("truetype");
-}
-
-@font-face {
-  font-family: "PixeloidSans";
-  font-weight: bold;
-  src: url("/fonts/pixeloid/woff/PixeloidSans-Bold.woff");
-  src: url("/fonts/pixeloid/woff/PixeloidSans-Bold.woff") format("woff"),
-    url("/fonts/pixeloid/woff/PixeloidSans-Bold.woff2") format("woff2"),
-    url("/fonts/pixeloid/otf/PixeloidSans-Bold.otf") format("opentype"),
-    url("/fonts/pixeloid/ttf/PixeloidSans-Bold.ttf") format("truetype");
-}
-
