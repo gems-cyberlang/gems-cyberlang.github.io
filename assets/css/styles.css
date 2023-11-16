@@ -3,8 +3,8 @@
   src: url("fonts/pixeloid/woff/PixeloidMono.woff");
   src: url("fonts/pixeloid/woff/PixeloidMono.woff") format("woff"),
        url("fonts/pixeloid/woff/PixeloidMono.woff2") format("woff2"),
-       url("fonts/pixeloid/woff/PixeloidMono.otf") format("otf"),
-       url("fonts/pixeloid/woff/PixeloidMono.ttf") format("ttf");
+       url("fonts/pixeloid/otf/PixeloidMono.otf") format("opentype"),
+       url("fonts/pixeloid/ttf/PixeloidMono.ttf") format("truetype");
 }
 
 /* From https://www.30secondsofcode.org/css/s/hover-underline-animation/ */
