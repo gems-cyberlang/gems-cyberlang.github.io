@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Blog
+title: B10G
 ---
 
 {% for post in site.posts %}
