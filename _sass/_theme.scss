@@ -24,8 +24,9 @@ body a {
   color: $linkColor;
 }
 
+// This is so the footer stays at the bottom
+// See _layouts/default.html for usage
 #content {
-  // This is so the footer stays at the bottom
   flex: 1;
 }
 
