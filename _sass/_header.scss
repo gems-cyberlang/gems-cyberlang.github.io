@@ -3,6 +3,12 @@
 // menu-underline-animation makes a line show up below menu items on hover
 // menu-underline-no-animation is for the current page
 
+.site-title {
+  font-family: "PixeloidMono";
+  font-weight: bold;
+  font-size: xx-large;
+}
+
 %menu-item {
   font-family: "PixeloidMono";
   display: inline-block;
