@@ -2,17 +2,17 @@
   <div>
     <a href="{{ site.github.url }}/" class="d-flex align-items-center text-decoration-none" title="Home">
       <img src="/assets/img/cyberlang-logo.png" alt="CYB3RL4NG logo" width="30" style="margin-right: 10px;">
-      <span class="fs-4 fw-bold">{{ site.title }}</span>
+      <span class="fs-4 fw-bold" style="font-family: 'PixeloidMono'">{{ site.title }}</span>
     </a>
   </div>
   <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
     {% for item in site.data.settings.menu %}
       {% if page.title == item.name %}
-        <a class="me-3 py-2 text-decoration-none menu-underline-no-animation" href="{{ site.github.url }}{{ item.url }}">{{ item.name }}</a>
+        <a class="me-3 py-2 text-decoration-none menu-underline-no-animation" href="{{ site.github.url }}{{ item.url }}">{{ item.leet-name }}</a>
       {% elsif item.name == "Blog" and page.layout == "post" %}
-        <a class="me-3 py-2 text-decoration-none menu-underline-no-animation" href="{{ site.github.url }}{{ item.url }}">{{ item.name }}</a>
+        <a class="me-3 py-2 text-decoration-none menu-underline-no-animation" href="{{ site.github.url }}{{ item.url }}">{{ item.leet-name }}</a>
       {% else %}
-        <a class="me-3 py-2 text-decoration-none menu-underline-animation" href="{{ site.github.url }}{{ item.url }}">{{ item.name }}</a>
+        <a class="me-3 py-2 text-decoration-none menu-underline-animation" href="{{ site.github.url }}{{ item.url }}">{{ item.leet-name }}</a>
       {% endif %}
     {% endfor %}
   </nav>
