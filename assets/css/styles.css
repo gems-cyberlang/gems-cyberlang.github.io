@@ -1,3 +1,12 @@
+@font-face {
+  font-family: "PixeloidMono";
+  src: url("fonts/pixeloid/woff/PixeloidMono.woff");
+  src: url("fonts/pixeloid/woff/PixeloidMono.woff") format("woff"),
+       url("fonts/pixeloid/woff/PixeloidMono.woff2") format("woff2"),
+       url("fonts/pixeloid/woff/PixeloidMono.otf") format("otf"),
+       url("fonts/pixeloid/woff/PixeloidMono.ttf") format("ttf");
+}
+
 /* From https://www.30secondsofcode.org/css/s/hover-underline-animation/ */
 /* menu-underline-animation makes a line show up below menu items on hover */
 /* menu-underline-no-animation is for the current page */
@@ -6,6 +15,7 @@
   display: inline-block;
   position: relative;
   color: #000000;
+  font-family: "PixeloidMono";
   font-weight: bold;
 }
 
@@ -24,6 +34,7 @@
   display: inline-block;
   position: relative;
   color: #000000;
+  font-family: "PixeloidMono";
 }
 
 .menu-underline-animation::after {
@@ -43,3 +54,4 @@
   transform: scaleX(1);
   transform-origin: bottom center;
 }
+
