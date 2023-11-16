@@ -1,14 +1,12 @@
 // Adapted from lenpaul's academic theme's sass
 // https://github.com/LeNPaul/academic/blob/gh-pages/_sass/main.scss
 
-// $backgroundColor: #175241;
-// $bodyColor: #eb89f0;
 $bodyFont: Roboto, Consolas, sans-serif; //-apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-$linkColor: #27d8ac;
 
 :root {
   --body-color: #175241;
   --body-bg: #eb89f0;
+  --link-color: rgb(27, 172, 135);
 }
 
 // Automatically switch to dark mode based on preferences
@@ -19,6 +17,7 @@ $color-mode-type: media-query;
   :root {
     --body-color: #eb89f0;
     --body-bg: #175241;
+    --link-color: #27d8ac;
   }
 }
 
