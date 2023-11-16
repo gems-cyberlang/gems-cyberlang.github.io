@@ -10,12 +10,18 @@ body {
   background: $backgroundColor;
   color: $bodyColor;
   font-family: $bodyFont;
+  // The flexing is so the footer stays at the bottom
   display: flex;
   min-height: 100vh;
 }
 
 body a {
   color: $linkColor;
+}
+
+#content {
+  // This is so the footer stays at the bottom
+  flex: 1;
 }
 
 p {
