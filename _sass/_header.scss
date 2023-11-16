@@ -40,7 +40,7 @@ header {
 
 .menu-item-selected {
   @extend %menu-item;
-  font-weight: bolder;
+  font-weight: 900;
 }
 
 .menu-item-selected::after {

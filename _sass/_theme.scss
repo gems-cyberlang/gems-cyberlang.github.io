@@ -11,8 +11,9 @@ body {
   color: $bodyColor;
   font-family: $bodyFont;
   margin: 0 auto;
-  padding-left: 5vw;
-  padding-right: 5vw;
+  padding-top: 3rem;
+  padding-left: 15vw;
+  padding-right: 15vw;
   // The flexing is so the footer stays at the bottom
   display: flex;
   flex-direction: column;
