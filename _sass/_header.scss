@@ -1,7 +1,9 @@
 // CSS for underlines on hover from
 // https://www.30secondsofcode.org/css/s/hover-underline-animation/
-// menu-underline-animation makes a line show up below menu items on hover
-// menu-underline-no-animation is for the current page
+// menu-item-unselected makes a line show up below menu items on hover
+// menu-item-selected is for the current page
+
+@use "theme";
 
 .site-title {
   font-family: "PixeloidMono";
@@ -15,8 +17,10 @@
   position: relative;
   color: $bodyColor;
   text-decoration: none;
+  font-size: larger;
 }
 
+// Style for the underline pseudo-element
 %menu-item-underline {
   content: '';
   position: absolute;
@@ -27,28 +31,28 @@
   background-color: $bodyColor;
 }
 
-.menu-underline-no-animation {
+.menu-item-selected {
   @extend %menu-item;
   font-weight: bold;
 }
 
-.menu-underline-no-animation::after {
+.menu-item-selected::after {
   @extend %menu-item-underline;
   transform: scaleX(1);
 }
 
-.menu-underline-animation {
+.menu-item-unselected {
   @extend %menu-item;
 }
 
-.menu-underline-animation::after {
+.menu-item-unselected::after {
   @extend %menu-item-underline;
   transform: scaleX(0);
   transform-origin: bottom center;
   transition: transform 0.25s ease-out;
 }
 
-.menu-underline-animation:hover::after {
+.menu-item-unselected:hover::after {
   transform: scaleX(1);
   transform-origin: bottom center;
 }

@@ -8,11 +8,17 @@
   <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
     {% for item in site.data.settings.menu %}
       {% if page.title == item.name %}
-        <a class="me-3 py-2 menu-underline-no-animation" href="{{ site.github.url }}{{ item.url }}">{{ item.leet-name }}</a>
+        <a class="me-3 py-2 menu-item-selected" href="{{ site.github.url }}{{ item.url }}" title="{{ item.name }}">
+          {{ item.leet-name }}
+        </a>
       {% elsif item.name == "Blog" and page.layout == "post" %}
-        <a class="me-3 py-2 menu-underline-no-animation" href="{{ site.github.url }}{{ item.url }}">{{ item.leet-name }}</a>
+        <a class="me-3 py-2 menu-item-unselected" href="{{ site.github.url }}{{ item.url }}" title="{{ item.name }}">
+          {{ item.leet-name }}
+        </a>
       {% else %}
-        <a class="me-3 py-2 menu-underline-animation" href="{{ site.github.url }}{{ item.url }}">{{ item.leet-name }}</a>
+        <a class="me-3 py-2 menu-item-unselected" href="{{ site.github.url }}{{ item.url }}" title="{{ item.name }}">
+          {{ item.leet-name }}
+        </a>
       {% endif %}
     {% endfor %}
   </nav>
