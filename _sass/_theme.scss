@@ -16,6 +16,10 @@ body a {
   color: $linkColor
 }
 
+p {
+  font-size: large;
+}
+
 @font-face {
   font-family: "PixeloidMono";
   src: url("/fonts/pixeloid/woff/PixeloidMono.woff");
