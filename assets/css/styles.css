@@ -7,6 +7,30 @@
        url("/fonts/pixeloid/ttf/PixeloidMono.ttf") format("truetype");
 }
 
+@font-face {
+  font-family: "PixeloidSans";
+  src: url("/fonts/pixeloid/woff/PixeloidSans.woff");
+  src: url("/fonts/pixeloid/woff/PixeloidSans.woff") format("woff"),
+       url("/fonts/pixeloid/woff/PixeloidSans.woff2") format("woff2"),
+       url("/fonts/pixeloid/otf/PixeloidSans.otf") format("opentype"),
+       url("/fonts/pixeloid/ttf/PixeloidSans.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "PixeloidSans";
+  font-weight: bold;
+  src: url("/fonts/pixeloid/woff/PixeloidSans-Bold.woff");
+  src: url("/fonts/pixeloid/woff/PixeloidSans-Bold.woff") format("woff"),
+       url("/fonts/pixeloid/woff/PixeloidSans-Bold.woff2") format("woff2"),
+       url("/fonts/pixeloid/otf/PixeloidSans-Bold.otf") format("opentype"),
+       url("/fonts/pixeloid/ttf/PixeloidSans-Bold.ttf") format("truetype");
+}
+
+.menu-item {
+  font-family: "PixeloidMono";
+  text-decoration: none;
+}
+
 /* From https://www.30secondsofcode.org/css/s/hover-underline-animation/ */
 /* menu-underline-animation makes a line show up below menu items on hover */
 /* menu-underline-no-animation is for the current page */
