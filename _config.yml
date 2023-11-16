@@ -28,11 +28,11 @@ theme: academic-jekyll-theme
 data:
   settings:
     menu:
-      - name: About
+      - name: AB0UT
         url: /about
-      - name: Timeline
+      - name: T1M3L1N3
         url: /timeline
-      - name: Blog
+      - name: B10G
         url: /blog
     social:
       # fa-class is the Font Awesome class for the icon
