@@ -33,7 +33,7 @@
 
 .menu-item-selected {
   @extend %menu-item;
-  font-weight: bold;
+  font-weight: bolder;
 }
 
 .menu-item-selected::after {
