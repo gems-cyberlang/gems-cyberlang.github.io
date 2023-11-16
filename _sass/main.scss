@@ -4,7 +4,9 @@
 $backgroundColor: #ffffff;
 $bodyColor: #000000;
 $bodyFont: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-$linkColor: #212529 !important;
+$linkColor: #096850 !important;
+
+@import "menu.scss";
 
 body {
   background: $backgroundColor;
@@ -44,55 +46,3 @@ body a {
     url("/fonts/pixeloid/ttf/PixeloidSans-Bold.ttf") format("truetype");
 }
 
-.menu-item {
-  font-family: "PixeloidMono";
-  text-decoration: none;
-}
-
-/* From https://www.30secondsofcode.org/css/s/hover-underline-animation/ */
-/* menu-underline-animation makes a line show up below menu items on hover */
-/* menu-underline-no-animation is for the current page */
-
-.menu-underline-no-animation {
-  display: inline-block;
-  position: relative;
-  color: #000000;
-  font-family: "PixeloidMono";
-  font-weight: bold;
-}
-
-.menu-underline-no-animation::after {
-  content: '';
-  position: absolute;
-  width: 100%;
-  transform: scaleX(1);
-  height: 2px;
-  bottom: 0;
-  left: 0;
-  background-color: #000000;
-}
-
-.menu-underline-animation {
-  display: inline-block;
-  position: relative;
-  color: #000000;
-  font-family: "PixeloidMono";
-}
-
-.menu-underline-animation::after {
-  content: '';
-  position: absolute;
-  width: 100%;
-  transform: scaleX(0);
-  height: 2px;
-  bottom: 0;
-  left: 0;
-  background-color: #000000;
-  transform-origin: bottom center;
-  transition: transform 0.25s ease-out;
-}
-
-.menu-underline-animation:hover::after {
-  transform: scaleX(1);
-  transform-origin: bottom center;
-}
