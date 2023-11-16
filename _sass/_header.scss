@@ -5,6 +5,13 @@
 
 @use "theme";
 
+header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-bottom: solid;
+}
+
 .site-title {
   font-family: "PixeloidMono";
   font-weight: bold;
