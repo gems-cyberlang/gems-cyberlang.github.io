@@ -23,8 +23,11 @@ $color-mode-type: media-query;
 
 body {
   // Text gradient
-  background: -webkit-linear-gradient(#e00e0e, #c77706, #fcf003, #06c710, #078891, #330791, #910751);
+  // background: -webkit-linear-gradient(left, red, orange, yellow, green, blue, purple);
+  //  background: -moz-linear-gradient(right, red, orange, yellow, green, blue, purple);
+   background: linear-gradient(to right, red, orange, yellow, green, blue, purple); 
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 
   // background: var(--body-bg);
