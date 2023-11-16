@@ -10,6 +10,8 @@ body {
   background: $backgroundColor;
   color: $bodyColor;
   font-family: $bodyFont;
+  display: flex;
+  min-height: 100vh;
 }
 
 body a {
