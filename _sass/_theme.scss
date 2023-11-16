@@ -5,7 +5,7 @@ $bodyFont: Roboto, Consolas, sans-serif; //-apple-system, BlinkMacSystemFont, "S
 
 :root {
   --body-color: #175241;
-  --body-bg: #eb89f0;
+  --body-bg: #e5b8e7;
   --link-color: rgb(27, 172, 135);
 }
 
@@ -22,8 +22,13 @@ $color-mode-type: media-query;
 }
 
 body {
-  background: var(--body-bg);
-  color: var(--body-color);
+  // Text gradient
+  background: -webkit-linear-gradient(#e00e0e, #c77706, #fcf003, #06c710, #078891, #330791, #910751);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  // background: var(--body-bg);
+  // color: var(--body-color);
   font-family: $bodyFont;
   margin: 0 auto;
   padding-top: 2.5rem;
