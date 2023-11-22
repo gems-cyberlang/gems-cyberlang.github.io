@@ -16,6 +16,15 @@ header {
   font-size: xx-large;
 }
 
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 %menu-item {
   font-family: "PixeloidMono";
   display: inline-block;
@@ -34,6 +43,11 @@ header {
   bottom: 0;
   left: 0;
   background-color: var(--body-color);
+}
+
+header * :hover {
+  animation-name: rotate;
+  animation-duration: 0.7s;
 }
 
 .menu-item-selected {
