@@ -2,10 +2,12 @@
 <html lang="{{ site.lang | default: "en-US" }}">
   {% include head.html %}
   <body>
-    <!-- It's very important you don't wrap these three in another div, because
-      they need to be direct children of the body (the content element, at least)-->
-    {% include header.html %}
-    <div id="content">{{ content }}</div>
-    {% include footer.html %}
+    <div>
+      <!-- It's very important you don't wrap these three in another div, because
+        they need to be direct children of the body (the content element, at least)-->
+      {% include header.html %}
+      <div id="content">{{ content }}</div>
+      {% include footer.html %}
+    </div>
   </body>
 </html>
