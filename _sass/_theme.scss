@@ -53,6 +53,14 @@ body:hover {
   transition-duration: 360s;
 }
 
+p {
+  transition: font-size 3s;
+}
+
+p:hover {
+  font-size: xx-large;
+}
+
 div:hover {
   transform: skew(10deg);
   transition: transform 5s;
