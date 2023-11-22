@@ -48,6 +48,11 @@ body a {
   color: var(--link-color);
 }
 
+div:hover {
+  transform: skew(10deg);
+  transition: transform 5s;
+}
+
 // This is so the footer stays at the bottom
 // See _layouts/default.html for usage
 #content {
