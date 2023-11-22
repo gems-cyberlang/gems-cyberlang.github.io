@@ -48,6 +48,11 @@ body a {
   color: var(--link-color);
 }
 
+body:hover {
+  transform: rotate3d(1, 1, 1, 360deg);
+  transition-duration: 360s;
+}
+
 div:hover {
   transform: skew(10deg);
   transition: transform 5s;
