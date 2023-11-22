@@ -9,7 +9,7 @@ source "https://rubygems.org"
 # Happy Jekylling!
 
 # This is the default theme for new Jekyll sites. You may change this to anything you like.
-gem "academic-jekyll-theme", "~> 1.0"
+# gem "academic-jekyll-theme", "~> 1.0"
 
 gem 'jekyll-feed'
 

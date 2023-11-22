@@ -24,7 +24,7 @@ base_url: ""
 permalink: /:title/
 
 # Build settings
-theme: academic-jekyll-theme
+# theme: academic-jekyll-theme
 data:
   settings:
     menu:
