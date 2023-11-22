@@ -8,9 +8,6 @@ source "https://rubygems.org"
 # This will help ensure the proper Jekyll version is running.
 # Happy Jekylling!
 
-# This is the default theme for new Jekyll sites. You may change this to anything you like.
-# gem "academic-jekyll-theme", "~> 1.0"
-
 gem 'jekyll-feed'
 
 gem "jekyll", group: :jekyll_plugins
