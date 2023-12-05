@@ -1,6 +1,4 @@
-# gems-cyberlang.github.io
-
-Theme based on https://github.com/lenpaul/academic/
+# Team CYB3RL4NG's Website
 
 The weird classes named like text-start and pt-5 are provided by Bootstrap.
 
