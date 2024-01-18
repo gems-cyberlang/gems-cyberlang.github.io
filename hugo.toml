@@ -1,0 +1,3 @@
+baseURL = 'https://cyberlang.umd.edu/'
+languageCode = 'en-us'
+title = 'My New Hugo Site'
