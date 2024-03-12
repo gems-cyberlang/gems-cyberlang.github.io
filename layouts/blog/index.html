@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  {{ partial "partials/head.html" . }}
+  <body>
+    <div>
+      <!-- It's very important you don't wrap these three in another div, because
+        they need to be direct children of the body (the content element, at least)-->
+      {{ partial "partials/header.html" . }}
+      <div id="content">{{ .Content }}</div>
+      {{ partial "partials/footer.html" . }}
+    </div>
+  </body>
+</html>
