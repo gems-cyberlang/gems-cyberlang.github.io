@@ -5,7 +5,7 @@ $bodyFont: "Comic Sans MS", "Comic Sans", "Comic Neue", cursive; //Roboto, Conso
 
 :root {
   --body-color: #175241;
-  --body-bg: #FF7AF6;
+  --body-bg: #fdfcf7;
   --link-color: rgb(27, 172, 135);
 }
 
@@ -17,7 +17,7 @@ $color-mode-type: media-query;
   :root {
     --body-color: #FF7AF6;
     --body-bg: #175241;
-    --link-color: #27d8ac;
+    --link-color: #18aa85;
   }
 }
 
@@ -26,17 +26,8 @@ body {
 }
 
 body > div {
-  // Text gradient
-  // background: -webkit-linear-gradient(left, red, orange, yellow, green, blue, purple);
-  //  background: -moz-linear-gradient(right, red, orange, yellow, green, blue, purple);
-  background: linear-gradient(to right, red, orange, yellow, green, blue, purple); 
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-
-  // Uncomment this to get a somewhat more normal background back
-  // background: var(--body-bg);
-  // color: var(--body-color);
+  background: var(--body-bg);
+  color: var(--body-color);
   font-family: $bodyFont;
   margin: 0 auto;
   padding-top: 2.5rem;
@@ -50,24 +41,6 @@ body > div {
 
 body a {
   color: var(--link-color);
-}
-
-body:hover {
-  transform: rotate3d(1, 1, 1, 360deg);
-  transition-duration: 360s;
-}
-
-p {
-  transition: font-size 3s;
-}
-
-p:hover {
-  font-size: xx-large;
-}
-
-div:hover {
-  transform: skew(10deg);
-  transition: transform 5s;
 }
 
 // This is so the footer stays at the bottom

@@ -6,25 +6,28 @@
     </a>
   </div>
   <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
+    {{ $currPage := .Page }}
+    {{ $site := .Site }}
     {{ range .Site.Data.settings.menu }}
-      {{ if eq .Page.Title .name }}
-        <a class="me-3 py-2 menu-item-selected" href="{{ .Site.BaseURL }}{{ .url }}" title="{{ .name }}">
-          {{ .leet_name }}
+      {{ $targetPage := ($site.GetPage .name) }}
+      {{ if eq $currPage.Title .name }}
+        <a class="me-3 py-2 menu-item-selected" href="{{ $targetPage.RelPermalink }}" title="{{ .name }}">
+          {{ .leetName }}
         </a>
-      {{ else if and (eq .name "Blog") (eq .Page.layout "post") }}
-        <a class="me-3 py-2 menu-item-unselected" href="{{ .Site.BaseURL }}{{ .url }}" title="{{ .name }}">
-          {{ .leet_name }}
+      {{ else if and (eq .name "Blog") (eq $currPage.Section "posts") }}
+        <a class="me-3 py-2 menu-item-unselected" href="{{ $targetPage.RelPermalink }}" title="{{ .name }}">
+          {{ .leetName }}
         </a>
       {{ else }}
-        <a class="me-3 py-2 menu-item-unselected" href="{{ .Site.BaseURL }}{{ .url }}" title="{{ .name }}">
-          {{ .leet_name }}
+        <a class="me-3 py-2 menu-item-unselected" href="{{ $targetPage.RelPermalink }}" title="{{ .name }}">
+          {{ .leetName }}
         </a>
       {{ end }}
     {{ end }}
   </nav>
   <div class="text-start social-media-icons">
     {{ range .Site.Data.settings.social }}
-      <a href="{{ .link }}" class="ms-3 fs-5"><i class="{{ .fa_class }}" title="{{ .title }}"></i></a>
+      <a href="{{ .link }}" class="ms-3 fs-5"><i class="{{ .faClass }}" title="{{ .title }}"></i></a>
     {{ end }}
   </div>
 </header>
