@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  {{ partial "partials/head.html" . }}
+  <body>
+    <div>
+      <!-- It's very important you don't wrap these three in another div, because
+        they need to be direct children of the body (the content element, at least)-->
+      {{ partial "partials/header.html" . }}
+      {{ range .Pages }}
+        <div>
+          <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+          Posted {{ .Date.Format "1 Jan 2000" }}
+          <p>{{ .Summary }}</p>
+        </div>
+      {{ end }}
+      {{ partial "partials/footer.html" . }}
+    </div>
+  </body>
+</html>

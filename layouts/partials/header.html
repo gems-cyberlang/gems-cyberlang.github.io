@@ -1,0 +1,38 @@
+<header class="pb-3 mb-5">
+  <div>
+    <a href="{{ .Site.BaseURL }}" class="d-flex align-items-center text-decoration-none" title="Home">
+      <img src="/img/cyberlang-logo.png" alt="CYB3RL4NG logo" width="30" style="margin-right: 10px;">
+      <span class="site-title">{{ .Site.Title }}</span>
+    </a>
+  </div>
+  <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
+    {{ $currPage := .Page }}
+    {{ $site := .Site }}
+    {{ range .Site.Data.settings.menu }}
+      {{ $targetPage := ($site.GetPage .name) }}
+      {{ if eq $currPage.Title .name }}
+        <a class="me-3 py-2 menu-item-selected" href="{{ $targetPage.RelPermalink }}" title="{{ .name }}">
+          {{ .leetName }}
+        </a>
+      {{ else if and (eq .name "Blog") (eq $currPage.Section "blog") }}
+        <a class="me-3 py-2 menu-item-selected" href="{{ $targetPage.RelPermalink }}" title="{{ .name }}">
+          {{ .leetName }}
+        </a>
+      {{ else if eq .name "Blog" }}
+        <!-- TODO avoid hardcoding blog URL -->
+        <a class="me-3 py-2 menu-item-unselected" href="/blog" title="{{ .name }}">
+          {{ .leetName }}
+        </a>
+      {{ else }}
+        <a class="me-3 py-2 menu-item-unselected" href="{{ $targetPage.RelPermalink }}" title="{{ .name }}">
+          {{ .leetName }}
+        </a>
+      {{ end }}
+    {{ end }}
+  </nav>
+  <div class="text-start social-media-icons">
+    {{ range .Site.Data.settings.social }}
+      <a href="{{ .link }}" class="ms-3 fs-5"><i class="{{ .faClass }}" title="{{ .title }}"></i></a>
+    {{ end }}
+  </div>
+</header>
