@@ -14,12 +14,13 @@
         <a class="me-3 py-2 menu-item-selected" href="{{ $targetPage.RelPermalink }}" title="{{ .name }}">
           {{ .leetName }}
         </a>
-      {{ else if and (eq .name "Blog") (eq $currPage.Section "posts") }}
+      {{ else if and (eq .name "Blog") (eq $currPage.Section "blog") }}
         <a class="me-3 py-2 menu-item-selected" href="{{ $targetPage.RelPermalink }}" title="{{ .name }}">
           {{ .leetName }}
         </a>
       {{ else if eq .name "Blog" }}
-        <a class="me-3 py-2 menu-item-selected" href="/blog" title="{{ .name }}">
+        <!-- TODO avoid hardcoding blog URL -->
+        <a class="me-3 py-2 menu-item-unselected" href="/blog" title="{{ .name }}">
           {{ .leetName }}
         </a>
       {{ else }}
