@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html lang="en-US">
-  <!-- {% include head.html %} -->
   <body>
     <div>
       <!-- It's very important you don't wrap these three in another div, because
         they need to be direct children of the body (the content element, at least)-->
-      <!-- {% include header.html %} -->
+      {{ partial "partials/header.html" . }}
       <div id="content">{{ .Content }}</div>
-      <!-- {% include footer.html %} -->
+      {{ partial "partials/footer.html" . }}
     </div>
   </body>
 </html>

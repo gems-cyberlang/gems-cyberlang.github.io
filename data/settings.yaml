@@ -1,0 +1,24 @@
+menu:
+  - name: About
+    leet-name: AB0UT
+    url: /about
+  - name: Timeline
+    leet-name: T1M3L1N3
+    url: /timeline
+  - name: Blog
+    leet-name: B10G
+    url: /blog
+social:
+  # fa-class is the Font Awesome class for the icon
+  - fa-class: fab fa-github
+    link: https://github.com/gems-cyberlang
+    title: CYB3RL4NG's GitHub organization
+  - fa-class: fab fa-instagram
+    link: https://instagram.com/cyb3rl4ng
+    title: CYB3RL4NG's Instagram
+  - fa-class: fa-solid fa-rss
+    link: /feed.xml
+    title: Atom (RSS-like) feed
+contact:
+  title: Team Liaison
+  email: something@umd.edu
