@@ -1,3 +1,6 @@
 baseURL = 'https://cyberlang.umd.edu/'
 languageCode = 'en-us'
 title = 'CYB3RL4NG'
+
+[markup.goldmark.renderer]
+unsafe = true # To allow raw HTML

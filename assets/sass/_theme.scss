@@ -4,9 +4,10 @@
 $bodyFont: "Comic Sans MS", "Comic Sans", "Comic Neue", cursive; //Roboto, Consolas, sans-serif; //-apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 
 :root {
-  --body-color: #175241;
-  --body-bg: #fdfcf7;
-  --link-color: rgb(27, 172, 135);
+  --body-color: #3d3b49;
+  --body-bg: #fdfdff;
+  --link-color: rgb(30, 161, 129);
+  --link-color-visited: rgb(11, 112, 87);
 }
 
 // Automatically switch to dark mode based on preferences
@@ -25,7 +26,7 @@ body {
   background: var(--body-bg);
 }
 
-body > div {
+body>div {
   background: var(--body-bg);
   color: var(--body-color);
   font-family: $bodyFont;
@@ -41,6 +42,10 @@ body > div {
 
 body a {
   color: var(--link-color);
+}
+
+body a:visited {
+  color: var(--link-color-visited);
 }
 
 // This is so the footer stays at the bottom

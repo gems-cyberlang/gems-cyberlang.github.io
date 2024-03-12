@@ -14,13 +14,13 @@ header {
   font-family: "PixeloidMono";
   font-weight: bold;
   font-size: xx-large;
+  color: var(--link-color);
 }
 
 %menu-item {
   font-family: "PixeloidMono";
   display: inline-block;
   position: relative;
-  color: var(--body-color);
   text-decoration: none;
   font-size: larger;
 }
@@ -30,28 +30,31 @@ header {
   content: '';
   position: absolute;
   width: 100%;
-  height: 2px;
   bottom: 0;
   left: 0;
-  background-color: var(--body-color);
+  background-color: var(--link-color);
 }
 
 .menu-item-selected {
   @extend %menu-item;
   font-weight: 900;
+  color: var(--link-color-visited) !important;
 }
 
 .menu-item-selected::after {
   @extend %menu-item-underline;
+  height: 3px;
   transform: scaleX(1);
 }
 
 .menu-item-unselected {
   @extend %menu-item;
+  color: var(--link-color) !important;
 }
 
 .menu-item-unselected::after {
   @extend %menu-item-underline;
+  height: 2px;
   transform: scaleX(0);
   transform-origin: bottom center;
   transition: transform 0.25s ease-out;

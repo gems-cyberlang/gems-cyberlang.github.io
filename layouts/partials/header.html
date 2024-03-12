@@ -1,6 +1,6 @@
 <header class="pb-3 mb-5">
   <div>
-    <a href="{{ .Site.BaseURL }}/" class="d-flex align-items-center text-decoration-none" title="Home">
+    <a href="{{ .Site.BaseURL }}" class="d-flex align-items-center text-decoration-none" title="Home">
       <img src="/img/cyberlang-logo.png" alt="CYB3RL4NG logo" width="30" style="margin-right: 10px;">
       <span class="site-title">{{ .Site.Title }}</span>
     </a>
@@ -15,7 +15,11 @@
           {{ .leetName }}
         </a>
       {{ else if and (eq .name "Blog") (eq $currPage.Section "posts") }}
-        <a class="me-3 py-2 menu-item-unselected" href="{{ $targetPage.RelPermalink }}" title="{{ .name }}">
+        <a class="me-3 py-2 menu-item-selected" href="{{ $targetPage.RelPermalink }}" title="{{ .name }}">
+          {{ .leetName }}
+        </a>
+      {{ else if eq .name "Blog" }}
+        <a class="me-3 py-2 menu-item-selected" href="/blog" title="{{ .name }}">
           {{ .leetName }}
         </a>
       {{ else }}

@@ -1,9 +1,0 @@
-{{ define "main" }}
-  {{ range .Pages }}
-    <div>
-      <h2><a href="{{ .Url }}">{{ .Title }}</a></h2>
-      {{ .Date }}
-      {{ .excerpt }}
-    </div>
-  {{ end }}
-{{ end }}
