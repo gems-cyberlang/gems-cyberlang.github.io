@@ -2,18 +2,16 @@
 title: Home
 ---
 
-Team CYB3RL4NG is an undergraduate research team at the University of Maryland. Our goal is to analyze trends in internet slang.
+Team CYB3RL4NG is an undergraduate research team that is part of the Gemstone Program at the University of Maryland.
+Our goal is to study semantic bleaching of mental health terms used online.
 
 ## Research Problem
 
-"The internet" as a construct is not a monolith, and to understand how language has evolved online, it is important to understand the technical aspects of communication users have had to accommodate for, as well as changing demographics and evolving uses of the internet. Current social media is a series of interconnected platforms that aim to incorporate as many elements as possible, such as text, image, emoji, audio, and video, instead of just one of two. Older, forum style social media has mostly become obsolete, with the exception of Reddit, and blogging and vlogging have lost popularity. The T9 system, Twitter character limits, l337 speak, and forum-threading, are all examples of informal language in online spaces/dependent on digital context that have had long standing effects on how we communicate online (respectively: incorporating more numbers for faster typing speed, more acronyms to fit character limits, using stylistic spellings to avoid censorship, and the replacement of traditional lexical referents with the “@” feature.) Even with the introduction of sticky keyboards and increased flexibility in methods of communication, slang and grammatical standards from past eras have carried over.
+Our research aims to map the shifting semantic context and usage of mental health jargon using both word embeddings and general statistical analysis. We posit that informal communication online and the rise of social media has resulted in patterned semantic change, specifically through the trivialization, tonal shifts, and broadening. With this rise, there has been widespread use of jargon previously contained to niche online communities, notably with socio-cultural topics such as mental health issues. A common methodology to track semantic change in recent years is to generate word embeddings from data from a specific social group, after which these embeddings are analyzed and compared to a baseline meaning. This approach has shown success when using a subreddit as a proxy for a social group applicable to the examination. Our research aims to build on prior work showing the viability of word embeddings for detecting semantic and tonal shifts in the usage of mental health related language, focusing changes over time with a consideration to the communities who are producing the data.
 
-We aim to ???
+## Methodology
 
-## Research Questions
-
-- Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua?
-- Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat?
+We will download comments from Reddit and use embeddings and co-word analysis to study semantic bleaching or whatever.
 
 <br>
 <br>
