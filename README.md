@@ -1,8 +1,8 @@
 # Team CYB3RL4NG's Website
 
-The weird classes named like text-start and pt-5 are provided by Bootstrap.
+The weird classes named like text-start and pt-5 are provided by [Bootstrap](https://getbootstrap.com/docs/5.0/).
 
-Use `hugo server` to try out locally.
+We use [Hugo](https://gohugo.io/) to generate the website. Use `hugo server` to try out locally.
 
 Project structure:
 - If you want to change the actual text content of the website, go to [`content`](/content)
@@ -10,7 +10,7 @@ Project structure:
   - About page: [`content/about.md`](/content/about.md)
   - Timeline: [`content/timeline.md`](/content/timeline.md)
   - Blogs: [`content/blog`](/content/blog/)
-- Styling (Sass) is in [`assets/sass`](/assets/sass)
+- Styling ([Sass](https://sass-lang.com/)) is in [`assets/sass`](/assets/sass)
   - Avoid touching [`assets/sass/bootstrap`](/assets/sass/bootstrap/) if possible,
     unless you need to update Bootstrap
     - We should use a Git submodule or something for that
