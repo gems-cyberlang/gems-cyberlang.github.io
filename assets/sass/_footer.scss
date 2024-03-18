@@ -5,4 +5,12 @@ footer {
   border-color: var(--fg-color); // Don't mute the border
   padding-top: 2.5rem;
   margin-top: 2rem;
+
+  .contact-header {
+    font-size: x-large;
+  }
+
+  .contact-name {
+    margin: 0;
+  }
 }

@@ -1,11 +1,11 @@
-<header class="pb-3 mb-5">
+<header>
   <div>
-    <a href="{{ .Site.BaseURL }}" class="d-flex align-items-center text-decoration-none" title="Home">
+    <a href="{{ .Site.BaseURL }}" class="site-title-link" title="Home">
       <img src="/img/cyberlang-logo.png" alt="CYB3RL4NG logo" width="30" style="margin-right: 10px;">
       <span class="site-title">{{ .Site.Title }}</span>
     </a>
   </div>
-  <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
+  <nav class="menu mt-md-0 ms-md-auto">
     {{ $currPage := .Page }}
     {{ $site := .Site }}
     {{ range .Site.Data.settings.menu }}

@@ -1,69 +1,78 @@
-// CSS for underlines on hover from
-// https://www.30secondsofcode.org/css/s/hover-underline-animation/
-// menu-item-unselected makes a line show up below menu items on hover
-// menu-item-selected is for the current page
+// CSS for underlines on hover from https://www.30secondsofcode.org/css/s/hover-underline-animation/
 
 header {
   display: flex;
   flex-direction: row;
   align-items: center;
   border-bottom: solid;
-}
+  padding-bottom: 0.75rem;
+  margin-bottom: 1.5rem;
 
-.site-title {
-  font-family: "PixeloidMono";
-  font-weight: bold;
-  font-size: xx-large;
-  color: var(--fg-color);
-}
+  .site-title-link {
+    @include hover-color-transition(var(--fg-color) !important, var(--link-color) !important);
+    display: flex;
+    text-decoration: none;
+    align-items: center;
+  }
 
-%menu-item {
-  font-family: "PixeloidMono";
-  display: inline-block;
-  position: relative;
-  text-decoration: none;
-  font-size: larger;
-  color: var(--fg-color) !important;
-}
+  .site-title {
+    font-family: "PixeloidMono";
+    font-weight: bold;
+    font-size: xx-large;
+  }
 
-// Style for the underline pseudo-element
-%menu-item-underline {
-  content: '';
-  position: absolute;
-  width: 100%;
-  bottom: 0;
-  left: 0;
-  background-color: var(--link-color);
-}
+  .menu {
+    display: inline-flex;
+  }
 
-.menu-item-selected {
-  @extend %menu-item;
-  font-weight: 900;
-}
+  %menu-item {
+    @include hover-color-transition(var(--fg-color) !important, var(--link-color) !important);
+    font-family: "PixeloidMono";
+    display: inline-block;
+    position: relative;
+    text-decoration: none;
+    font-size: larger;
+  }
 
-.menu-item-selected::after {
-  @extend %menu-item-underline;
-  height: 3px;
-  transform: scaleX(1);
-}
+  // Style for the underline pseudo-element
+  %menu-item-underline {
+    content: "";
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    background-color: var(--highlight-color);
+  }
 
-.menu-item-unselected {
-  @extend %menu-item;
-}
+  .menu-item-selected {
+    @extend %menu-item;
+    font-weight: 900;
+  }
 
-.menu-item-unselected::after {
-  @extend %menu-item-underline;
-  height: 2px;
-  transform: scaleX(0);
-  transform-origin: bottom center;
-  transition: transform 0.25s ease-out;
-}
+  .menu-item-selected::after {
+    @extend %menu-item-underline;
+    height: 3px;
+    transform: scaleX(1);
+  }
 
-.menu-item-unselected:hover::after {
-  transform: scaleX(1);
-  transform-origin: bottom center;
-}
+  .menu-item-unselected {
+    @extend %menu-item;
+  }
 
-.menu-icon {
-  color: var(--fg-color);
+  .menu-item-unselected::after {
+    @extend %menu-item-underline;
+    height: 2px;
+    transform: scaleX(0);
+    transform-origin: bottom center;
+    transition: transform 0.25s ease-out;
+  }
+
+  .menu-item-unselected:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom center;
+  }
+
+  .menu-icon {
+    @include hover-color-transition(var(--fg-color), var(--link-color));
+  }
 }
