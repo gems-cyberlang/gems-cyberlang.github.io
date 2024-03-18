@@ -14,7 +14,7 @@ header {
   font-family: "PixeloidMono";
   font-weight: bold;
   font-size: xx-large;
-  color: var(--link-color);
+  color: var(--fg-color);
 }
 
 %menu-item {
@@ -23,6 +23,7 @@ header {
   position: relative;
   text-decoration: none;
   font-size: larger;
+  color: var(--fg-color) !important;
 }
 
 // Style for the underline pseudo-element
@@ -38,7 +39,6 @@ header {
 .menu-item-selected {
   @extend %menu-item;
   font-weight: 900;
-  color: var(--link-color-visited) !important;
 }
 
 .menu-item-selected::after {
@@ -49,7 +49,6 @@ header {
 
 .menu-item-unselected {
   @extend %menu-item;
-  color: var(--link-color) !important;
 }
 
 .menu-item-unselected::after {
@@ -63,4 +62,8 @@ header {
 .menu-item-unselected:hover::after {
   transform: scaleX(1);
   transform-origin: bottom center;
+}
+
+.menu-icon {
+  color: var(--fg-color);
 }

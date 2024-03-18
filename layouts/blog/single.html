@@ -7,11 +7,11 @@
     <!-- It's very important you don't wrap these three in another div, because
         they need to be direct children of the body (the content element, at least)-->
     {{ partial "partials/header.html" . }}
+    <a href="/blog">
+      <i class="fa-solid fa-arrow-left"></i> Back to all blogs
+    </a>
     <div id="content">
-      <a href="/blog">
-        <i class="fa-solid fa-arrow-left"></i> Back to all blogs
-      </a>
-      <br><br>
+      <h1>{{ .Page.Title }}</h1>
       {{ .Content }}
     </div>
     {{ partial "partials/footer.html" . }}
