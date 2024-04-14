@@ -5,13 +5,17 @@ title: Home
 Team CYB3RL4NG is an undergraduate research team that is part of the Gemstone Program at the University of Maryland.
 Our goal is to study semantic bleaching of mental health terms used online.
 
-## Research Problem
+## Research Question
 
-Our research aims to map the shifting semantic context and usage of mental health jargon using both word embeddings and general statistical analysis. We posit that informal communication online and the rise of social media has resulted in patterned semantic change, specifically through the trivialization, tonal shifts, and broadening. With this rise, there has been widespread use of jargon previously contained to niche online communities, notably with socio-cultural topics such as mental health issues. A common methodology to track semantic change in recent years is to generate word embeddings from data from a specific social group, after which these embeddings are analyzed and compared to a baseline meaning. This approach has shown success when using a subreddit as a proxy for a social group applicable to the examination. Our research aims to build on prior work showing the viability of word embeddings for detecting semantic and tonal shifts in the usage of mental health related language, focusing changes over time with a consideration to the communities who are producing the data.
+How has the internet affected the use of language? This is a question that has sent Team CYB3RL4NG into its current direction. The internet has rapidly increased the flow of information from one person to another, and from one place to another. Language patterns are beginning to spread at faster rates than we could have ever predicted due to the growth of the internet. 
+
+As different uses of language spread more rapidly throughout the internet, we begin to see the popularization of different words and concepts to mainstream audiences. Wider populations have adopted political lingo, medical terms, and other jargon previously contained to small subsections of people. Yet, when complex concepts are introduced to a wider and more diverse range of people, are they able to maintain the weight and nuance of these topics?
+
+Team CYB3RL4NG aims to explore this concept with mental health terminology coined by professionals in the field of psychology.
 
 ## Methodology
 
-We will download comments from Reddit and use embeddings and co-word analysis to study semantic bleaching or whatever.
+We will download comments from all of Reddit and use embeddings and co-word analysis to study semantic bleaching.
 
 <br>
 <br>
