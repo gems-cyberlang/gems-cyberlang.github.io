@@ -1,20 +1,7 @@
-// Store the CSS class for the theme in localStorage under this name
+// Store the CSS class for the theme in localStorage under this key
 const themeKey = "theme";
 const lightTheme = "theme-light";
 const darkTheme = "theme-dark";
-
-// Maps CSS class names for themes to their names and icons
-const themes = {
-  [lightTheme]: {
-    name: "Light"
-  },
-  [darkTheme]: {
-    name: "Dark"
-  },
-  "theme-ugly": {
-    name: "Experimental"
-  }
-};
 
 function getTheme() {
   const stored = localStorage.getItem(themeKey);

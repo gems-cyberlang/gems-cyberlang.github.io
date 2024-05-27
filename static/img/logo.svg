@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Adapted from https://upload.wikimedia.org/wikipedia/commons/c/c4/Globe_icon.svg -->
-<svg xmlns="http://www.w3.org/2000/svg" width="430" height="420">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 430 420">
   <defs>
     <style type="text/css">
       @font-face {
@@ -14,10 +14,10 @@
     </style>
 
     <filter id="text-shadow">
-      <feDropShadow dx="-5" dy="0" stdDeviation="0" flood-color="#ffffff" flood-opacity="1.0" />
-      <feDropShadow dx="5" dy="0" stdDeviation="0" flood-color="#ffffff" flood-opacity="1.0" />
-      <feDropShadow dx="0" dy="-5" stdDeviation="0" flood-color="#ffffff" flood-opacity="1.0" />
-      <feDropShadow dx="0" dy="5" stdDeviation="0" flood-color="#ffffff" flood-opacity="1.0" />
+      <feDropShadow dx="-5" dy="0" stdDeviation="0" flood-color="currentColor" flood-opacity="1.0" />
+      <feDropShadow dx="5" dy="0" stdDeviation="0" flood-color="currentColor" flood-opacity="1.0" />
+      <feDropShadow dx="0" dy="-5" stdDeviation="0" flood-color="currentColor" flood-opacity="1.0" />
+      <feDropShadow dx="0" dy="5" stdDeviation="0" flood-color="currentColor" flood-opacity="1.0" />
     </filter>
   </defs>
   <g stroke="#23324e" stroke-width="20" fill="none" transform="translate(10)">
@@ -31,7 +31,7 @@
   </g>
   <text
       x="220" y="210" text-anchor="middle" dominant-baseline="central"
-      fill="#ca3148" font-size="48" style="font-family: SuperLegendBoy; filter:url(#text-shadow);">
+      fill="#ca3148" stroke="currentColor" font-size="48" style="font-family: SuperLegendBoy; filter:url(#text-shadow);">
     CYB3RL4NG
   </text>
 </svg>

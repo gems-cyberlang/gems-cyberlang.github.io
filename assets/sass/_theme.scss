@@ -9,6 +9,7 @@ $bodyFont: Roboto, Consolas, sans-serif; //-apple-system, BlinkMacSystemFont, "S
   --highlight-color: rgb(34, 168, 135);
   --link-color: rgb(34, 154, 124);
   --link-color-visited: rgb(11, 112, 87);
+  --divider-color: var(--fg-color);
 }
 
 .theme-dark {
@@ -17,6 +18,16 @@ $bodyFont: Roboto, Consolas, sans-serif; //-apple-system, BlinkMacSystemFont, "S
   --highlight-color: rgb(34, 168, 135);
   --link-color: #18aa85;
   --link-color-visited: rgb(11, 112, 87);
+  --divider-color: var(--fg-color);
+}
+
+.theme-ugly {
+  --fg-color: #ED7797;
+  --bg-color: #fdfdff;
+  --highlight-color: rgb(34, 168, 135);
+  --link-color: rgb(34, 154, 124);
+  --link-color-visited: rgb(11, 112, 87);
+  --divider-color: #273146;
 }
 
 body {

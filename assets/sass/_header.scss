@@ -5,8 +5,18 @@ header {
   flex-direction: row;
   align-items: center;
   border-bottom: solid;
+  border-color: var(--divider-color);
   padding-bottom: 0.75rem;
   margin-bottom: 1.5rem;
+
+  .svg-logo {
+    margin-right: 10px;
+    color: var(--fg-color);
+  }
+
+  .svg-logo > #text-shadow {
+    flood-color: var(--bg-color);
+  }
 
   .site-title-link {
     @include hover-color-transition(var(--fg-color) !important, var(--link-color) !important);
