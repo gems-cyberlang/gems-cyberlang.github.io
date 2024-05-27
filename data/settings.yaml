@@ -14,8 +14,8 @@ social:
     link: https://instagram.com/cyb3rl4ng
     title: CYB3RL4NG's Instagram
   - faClass: fa-solid fa-rss
-    link: /feed.xml
-    title: Atom (RSS-like) feed
+    link: /index.xml
+    title: RSS feed
 contact:
   title: Team Liaison
   email: something@umd.edu
