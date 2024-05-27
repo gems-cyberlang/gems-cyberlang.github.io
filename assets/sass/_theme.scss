@@ -3,7 +3,7 @@
 
 $bodyFont: Roboto, Consolas, sans-serif; //-apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 
-:root {
+.theme-light {
   --fg-color: #3d3b49;
   --bg-color: #fdfdff;
   --highlight-color: rgb(34, 168, 135);
@@ -11,16 +11,12 @@ $bodyFont: Roboto, Consolas, sans-serif; //-apple-system, BlinkMacSystemFont, "S
   --link-color-visited: rgb(11, 112, 87);
 }
 
-// Automatically switch to dark mode based on preferences
-$color-mode-type: media-query;
-
-// Switch colors for dark mode
-@include color-mode(dark) {
-  :root {
-    --fg-color: #FF7AF6;
-    --bg-color: #175241;
-    --link-color: #18aa85;
-  }
+.theme-dark {
+  --fg-color: #FF7AF6;
+  --bg-color: #175241;
+  --highlight-color: rgb(34, 168, 135);
+  --link-color: #18aa85;
+  --link-color-visited: rgb(11, 112, 87);
 }
 
 body {

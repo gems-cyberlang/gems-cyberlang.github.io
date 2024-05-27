@@ -75,4 +75,22 @@ header {
   .menu-icon {
     @include hover-color-transition(var(--fg-color), var(--link-color));
   }
+
+  #theme-dropdown {
+    display: inline-block;
+    #theme-options {
+      display: none;
+      position: absolute;
+
+      .theme-option {
+        z-index: 1;
+      }
+    }
+
+    &:hover {
+      #theme-options {
+        display: block;
+      }
+    }
+  }
 }

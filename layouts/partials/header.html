@@ -35,4 +35,12 @@
       <a href="{{ .link }}" class="ms-3 fs-5"><i class="menu-icon {{ .faClass }}" title="{{ .title }}"></i></a>
     {{ end }}
   </div>
+  <div id="theme-dropdown">
+    <div>Theme:</div>
+    <div id="theme-options">
+      <div class="theme-option" onclick="setTheme('theme-light')">Light</div>
+      <div class="theme-option" onclick="setTheme('theme-dark')">Dark</div>
+      <div class="theme-option" onclick="setTheme('theme-ugly')">Ugly</div>
+    </div>
+  </div>
 </header>
