@@ -11,11 +11,20 @@ header {
 
   .svg-logo {
     margin-right: 10px;
-    color: var(--fg-color);
-  }
+    color: var(--logo-text-bg);
 
-  .svg-logo > #text-shadow {
-    flood-color: var(--bg-color);
+    g {
+      color: var(--logo-path);
+      transition: color $menuTransitionTime;
+    }
+    &:hover>g {
+      color: var(--link-color);
+      transition: color $menuTransitionTime;
+    }
+
+    text {
+      fill: var(--logo-text);
+    }
   }
 
   .site-title-link {
@@ -88,6 +97,7 @@ header {
 
   #theme-dropdown {
     display: inline-block;
+
     #theme-options {
       display: none;
       position: absolute;

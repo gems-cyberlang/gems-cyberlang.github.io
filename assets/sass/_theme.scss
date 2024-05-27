@@ -3,6 +3,8 @@
 
 $bodyFont: Roboto, Consolas, sans-serif; //-apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 
+$menuTransitionTime: 0.5s;
+
 .theme-light {
   --fg-color: #3d3b49;
   --bg-color: #fdfdff;
@@ -10,6 +12,10 @@ $bodyFont: Roboto, Consolas, sans-serif; //-apple-system, BlinkMacSystemFont, "S
   --link-color: rgb(34, 154, 124);
   --link-color-visited: rgb(11, 112, 87);
   --divider-color: var(--fg-color);
+
+  --logo-path: #23324e;
+  --logo-text: #ca3148;
+  --logo-text-bg: var(--bg-color);
 }
 
 .theme-dark {
@@ -19,6 +25,10 @@ $bodyFont: Roboto, Consolas, sans-serif; //-apple-system, BlinkMacSystemFont, "S
   --link-color: #18aa85;
   --link-color-visited: rgb(11, 112, 87);
   --divider-color: var(--fg-color);
+
+  --logo-path: var(--fg-color);
+  --logo-text: #fa0d64;
+  --logo-text-bg: var(--bg-color);
 }
 
 .theme-ugly {
@@ -28,6 +38,10 @@ $bodyFont: Roboto, Consolas, sans-serif; //-apple-system, BlinkMacSystemFont, "S
   --link-color: rgb(34, 154, 124);
   --link-color-visited: rgb(11, 112, 87);
   --divider-color: #273146;
+
+  --logo-path: #23324e;
+  --logo-text: #ca3148;
+  --logo-text-bg: var(--bg-color);
 }
 
 body {
@@ -69,10 +83,10 @@ p {
 /// For links that change color on hover
 @mixin hover-color-transition($from, $to) {
   color: $from;
-  transition: color 0.5s;
+  transition: color $menuTransitionTime;
 
   &:hover {
     color: $to;
-    transition: color 0.5s;
+    transition: color $menuTransitionTime;
   }
 }
