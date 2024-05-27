@@ -19,14 +19,14 @@ $menuTransitionTime: 0.5s;
 }
 
 .theme-dark {
-  --fg-color: #FF7AF6;
-  --bg-color: #175241;
+  --fg-color: #ddddd7;
+  --bg-color: #0f0f23;
   --highlight-color: rgb(34, 168, 135);
-  --link-color: #18aa85;
-  --link-color-visited: rgb(11, 112, 87);
+  --link-color: #1bc097;
+  --link-color-visited: rgb(13, 143, 110);
   --divider-color: var(--fg-color);
 
-  --logo-path: var(--fg-color);
+  --logo-path: #FF7AF6;
   --logo-text: #fa0d64;
   --logo-text-bg: var(--bg-color);
 }

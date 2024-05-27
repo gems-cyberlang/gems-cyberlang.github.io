@@ -17,10 +17,6 @@ header {
       color: var(--logo-path);
       transition: color $menuTransitionTime;
     }
-    &:hover>g {
-      color: var(--link-color);
-      transition: color $menuTransitionTime;
-    }
 
     text {
       fill: var(--logo-text);
@@ -32,6 +28,11 @@ header {
     display: flex;
     text-decoration: none;
     align-items: center;
+
+    &:hover>.svg-logo>g {
+      color: var(--link-color);
+      transition: color $menuTransitionTime;
+    }
   }
 
   .site-title {
