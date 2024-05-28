@@ -1,30 +1,31 @@
 <header>
   <div>
     <a href="{{ .Site.BaseURL }}" class="site-title-link" title="Home">
-      <img src="/img/cyberlang-logo.png" alt="CYB3RL4NG logo" width="30" style="margin-right: 10px;">
+      <!-- The logo -->
+      {{ partial "partials/logo.svg" . }}
       <span class="site-title">{{ .Site.Title }}</span>
     </a>
   </div>
-  <nav class="menu mt-md-0 ms-md-auto">
+  <nav class="menu">
     {{ $currPage := .Page }}
     {{ $site := .Site }}
     {{ range .Site.Data.settings.menu }}
       {{ $targetPage := ($site.GetPage .name) }}
       {{ if eq $currPage.Title .name }}
-        <a class="me-3 py-2 menu-item-selected" href="{{ $targetPage.RelPermalink }}" title="{{ .name }}">
+        <a class="menu-item-selected" href="{{ $targetPage.RelPermalink }}" title="{{ .name }}">
           {{ .leetName }}
         </a>
       {{ else if and (eq .name "Blog") (eq $currPage.Section "blog") }}
-        <a class="me-3 py-2 menu-item-selected" href="{{ $targetPage.RelPermalink }}" title="{{ .name }}">
+        <a class="menu-item-selected" href="{{ $targetPage.RelPermalink }}" title="{{ .name }}">
           {{ .leetName }}
         </a>
       {{ else if eq .name "Blog" }}
         <!-- TODO avoid hardcoding blog URL -->
-        <a class="me-3 py-2 menu-item-unselected" href="/blog" title="{{ .name }}">
+        <a class="menu-item-unselected" href="/blog" title="{{ .name }}">
           {{ .leetName }}
         </a>
       {{ else }}
-        <a class="me-3 py-2 menu-item-unselected" href="{{ $targetPage.RelPermalink }}" title="{{ .name }}">
+        <a class="menu-item-unselected" href="{{ $targetPage.RelPermalink }}" title="{{ .name }}">
           {{ .leetName }}
         </a>
       {{ end }}
@@ -32,7 +33,34 @@
   </nav>
   <div class="text-start social-media-icons">
     {{ range .Site.Data.settings.social }}
-      <a href="{{ .link }}" class="ms-3 fs-5"><i class="menu-icon {{ .faClass }}" title="{{ .title }}"></i></a>
+    <a href="{{ .link }}" class="fs-5"><i class="menu-icon {{ .faClass }}" title="{{ .title }}"></i></a>
     {{ end }}
+  </div>
+
+  <!-- TODO add aria attributes? I assume changing the theme *probably* won't be too useful
+  if you're using assistive technologies so not a huge priority -->
+  <div id="theme-dropdown">
+    <div id="theme-display">
+      Theme
+      <i id="theme-dropdown-arrow" class="fa-solid fa-chevron-down"></i>
+    </div>
+    <div id="theme-options">
+      <div class="theme-option" onclick="setTheme(null)">
+        <i class="fa-solid fa-circle-half-stroke system-theme-icon"></i>
+        Sync with system
+      </div>
+      <div class="theme-option" onclick="setTheme('theme-light')" theme="theme-light">
+        <i class="fa-solid fa-circle light-theme-icon"></i>
+        Light
+      </div>
+      <div class="theme-option" onclick="setTheme('theme-dark')" theme="theme-dark">
+        <i class="fa-solid fa-circle dark-theme-icon"></i>
+        Dark
+      </div>
+      <div class="theme-option" onclick="setTheme('theme-ugly')" theme="theme-ugly">
+        <i class="fa-solid fa-circle ugly-theme-icon"></i>
+        Ugly
+      </div>
+    </div>
   </div>
 </header>

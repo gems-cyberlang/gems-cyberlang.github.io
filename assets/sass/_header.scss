@@ -5,14 +5,35 @@ header {
   flex-direction: row;
   align-items: center;
   border-bottom: solid;
+  border-color: var(--divider-color);
   padding-bottom: 0.75rem;
   margin-bottom: 1.5rem;
+  gap: 1.7rem;
+
+  .svg-logo {
+    margin-right: 10px;
+    color: var(--logo-text-bg);
+
+    g {
+      color: var(--logo-path);
+      transition: color $menuTransitionTime;
+    }
+
+    text {
+      fill: var(--logo-text);
+    }
+  }
 
   .site-title-link {
     @include hover-color-transition(var(--fg-color) !important, var(--link-color) !important);
     display: flex;
     text-decoration: none;
     align-items: center;
+
+    &:hover>.svg-logo>g {
+      color: var(--link-color);
+      transition: color $menuTransitionTime;
+    }
   }
 
   .site-title {
@@ -23,6 +44,8 @@ header {
 
   .menu {
     display: inline-flex;
+    margin-left: auto;
+    gap: 1rem;
   }
 
   %menu-item {
@@ -32,6 +55,8 @@ header {
     position: relative;
     text-decoration: none;
     font-size: larger;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
   }
 
   // Style for the underline pseudo-element
@@ -72,7 +97,105 @@ header {
     transform-origin: bottom center;
   }
 
+  .social-media-icons {
+    display: inline-flex;
+    gap: 0.8rem;
+  }
+
   .menu-icon {
     @include hover-color-transition(var(--fg-color), var(--link-color));
+  }
+
+  #theme-dropdown {
+    display: inline-block;
+    position: relative;
+
+    #theme-display {
+      @include button-unselected();
+
+      cursor: default;
+
+      padding: 0.2rem 0.4rem;
+    }
+
+    &:hover>#theme-display {
+      @include button-hover();
+    }
+
+    #theme-options {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      right: 0;
+      background-color: var(--bg-color);
+      border-radius: 5px;
+
+      // TODO this wipe is pretty janky
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s;
+
+      .theme-option {
+        // display: none;
+        cursor: pointer;
+        z-index: 1;
+        background-color: var(--bg-hoverable);
+        padding: 0.3rem 0.5rem;
+        white-space: nowrap;
+        transition: background-color 0.3s;
+
+        &:hover {
+          background-color: var(--bg-hover);
+          transition: background-color 0.3s;
+        }
+
+        &.selected {
+          background-color: var(--bg-selected);
+        }
+
+        &:hover.selected {
+          background-color: var(--bg-selected-hover);
+          transition: background-color 0.3s;
+        }
+      }
+    }
+
+    #theme-dropdown-arrow {
+      transition: transform 0.5s;
+    }
+
+    &:hover {
+      #theme-options {
+        max-height: 200px;
+        transition: max-height 0.5s;
+      }
+
+      #theme-dropdown-arrow {
+        transform: rotate(180deg);
+        transition: transform 0.5s;
+      }
+    }
+  }
+
+  @mixin themeIcon($stroke, $fill) {
+    color: $stroke;
+    background-color: $fill;
+    clip-path: circle();
+  }
+
+  .system-theme-icon {
+    @include themeIcon(var(--dark-bg), var(--light-bg));
+  }
+
+  .light-theme-icon {
+    @include themeIcon(var(--light-bg), var(--bg-color));
+  }
+
+  .dark-theme-icon {
+    @include themeIcon(var(--dark-bg), var(--bg-color));
+  }
+
+  .ugly-theme-icon {
+    @include themeIcon(var(--ugly-fg), var(--bg-color));
   }
 }

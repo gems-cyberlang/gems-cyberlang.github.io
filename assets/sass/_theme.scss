@@ -3,42 +3,105 @@
 
 $bodyFont: Roboto, Consolas, sans-serif; //-apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 
-:root {
-  --fg-color: #3d3b49;
-  --bg-color: #fdfdff;
-  --highlight-color: rgb(34, 168, 135);
-  --link-color: rgb(34, 154, 124);
-  --link-color-visited: rgb(11, 112, 87);
+$menuTransitionTime: 0.5s;
+
+@mixin themeCommon {
+  --light-bg: #fdfdff;
+  --dark-bg: #0f0f23;
+  --ugly-fg: #ED7797;
+
+  --divider-color: var(--fg-color);
+  --logo-text-bg: var(--bg-color);
 }
 
-// Automatically switch to dark mode based on preferences
-$color-mode-type: media-query;
+@mixin lightCommon {
+  @include themeCommon();
+  --fg-color: var(--dark-color);
+  --bg-color: var(--light-color);
 
-// Switch colors for dark mode
-@include color-mode(dark) {
-  :root {
-    --fg-color: #FF7AF6;
-    --bg-color: #175241;
-    --link-color: #18aa85;
-  }
+  --logo-path: #23324e;
+  --logo-text: #ca3148;
+
+  color-scheme: light;
+}
+
+@mixin darkCommon {
+  @include themeCommon();
+  --fg-color: var(--light-color);
+  --bg-color: var(--dark-color);
+
+  --logo-path: #FF7AF6;
+  --logo-text: #fa0d64;
+  --logo-text-bg: var(--bg-color);
+
+  color-scheme: dark;
+}
+
+@mixin lightRegular {
+  @include lightCommon();
+  --light-color: var(--light-bg);
+  --dark-color: #3d3b49;
+  --bg-hoverable: #00000004;
+  --bg-hover: #0000000a;
+  --bg-selected: #00a6ff1c;
+  --bg-selected-hover: #00a6ff37;
+  --highlight-color: #22a887;
+  --link-color: #229a7c;
+  --link-color-visited: #0b7057;
+  --button-border-unselected: #00000010;
+  --button-border-hover: #0000001e;
+}
+
+.theme-light {
+  @include lightRegular();
+}
+
+.theme-dark {
+  @include darkCommon();
+
+  --light-color: #ddddd7;
+  --dark-color: var(--dark-bg);
+  --fg-color: var(--light-color);
+  --bg-color: var(--dark-bg);
+  --bg-hoverable: #36363d;
+  --bg-hover: #474750;
+  --bg-selected: #00a6ff1c;
+  --bg-selected-hover: #00a6ff37;
+  --link-color: #229a7c;
+  --link-color-visited: #0e8b6c;
+  --button-border-unselected: #727171;
+  --button-border-hover: #8c8b8b;
+
+  --logo-path: #FF7AF6;
+  --logo-text: #fa0d64;
+}
+
+.theme-ugly {
+  @include lightRegular();
+
+  --fg-color: var(--ugly-fg);
+  --bg-color: #fdfdff;
+  --divider-color: #273146;
+
+  --logo-path: #23324e;
+  --logo-text: #ca3148;
 }
 
 body {
+  color: var(--fg-color);
   background: var(--bg-color);
+  font-family: $bodyFont;
+  margin: 0 auto;
+  padding-top: 1rem;
+  padding-left: 15vw;
+  padding-right: 15vw;
 }
 
 body>div {
-  background: var(--bg-color);
-  color: var(--fg-color);
-  font-family: $bodyFont;
-  margin: 0 auto;
-  padding-top: 2.5rem;
-  padding-left: 15vw;
-  padding-right: 15vw;
   // The flexing is so the footer stays at the bottom
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  min-height: 90vh;
 }
 
 body a {
@@ -62,10 +125,23 @@ p {
 /// For links that change color on hover
 @mixin hover-color-transition($from, $to) {
   color: $from;
-  transition: color 0.5s;
+  transition: color $menuTransitionTime;
 
   &:hover {
     color: $to;
-    transition: color 0.5s;
+    transition: color $menuTransitionTime;
   }
+}
+
+@mixin button-unselected {
+  border-radius: 4px;
+  box-shadow: inset 0 0 3px var(--button-border-unselected);
+  background-color: var(--bg-hoverable);
+  transition: background-color 0.2s;
+}
+
+@mixin button-hover {
+  box-shadow: inset 0 0 3px var(--button-border-hover);
+  background-color: var(--bg-hover);
+  transition: background-color 0.2s;
 }
