@@ -2,7 +2,11 @@
 const themeKey = "theme";
 const lightTheme = "theme-light";
 const darkTheme = "theme-dark";
-/** CSS variables to store and reset when page loads */
+/** CSS variables to store and reset when page loads
+ * 
+ * By loading them before the body loads, we avoid the background flashing white
+ * before turning black (if dark mode is enabled)
+ */
 const cssVars = [
   "--light-color",
   "--dark-color",
