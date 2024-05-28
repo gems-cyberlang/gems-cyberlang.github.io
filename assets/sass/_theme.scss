@@ -21,6 +21,8 @@ $menuTransitionTime: 0.5s;
 
   --logo-path: #23324e;
   --logo-text: #ca3148;
+
+  color-scheme: light;
 }
 
 @mixin darkCommon {
@@ -31,6 +33,8 @@ $menuTransitionTime: 0.5s;
   --logo-path: #FF7AF6;
   --logo-text: #fa0d64;
   --logo-text-bg: var(--bg-color);
+
+  color-scheme: dark;
 }
 
 @mixin lightRegular {
