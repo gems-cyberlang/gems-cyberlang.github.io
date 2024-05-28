@@ -37,8 +37,7 @@
           <path d="M 210,410 a 260,260 0 0,0 0,-400" />
         </g>
         <text x="235" y="175" text-anchor="middle" dominant-baseline="central" fill="#ca3148" stroke="none"
-          font-size="52" style="font-family: SuperLegendBoy; filter:url(#text-shadow);"
-          transform="scale(1, 1.2)">
+          font-size="52" style="font-family: SuperLegendBoy; filter:url(#text-shadow);" transform="scale(1, 1.2)">
           <!-- scale(1, 1.2) stretches the text vertically -->
           CYB3RL4NG
         </text>
@@ -81,11 +80,27 @@
   <!-- TODO add aria attributes? I assume changing the theme *probably* won't be too useful
   if you're using assistive technologies so not a huge priority -->
   <div id="theme-dropdown">
-    <div>Theme:</div>
+    <div id="theme-display">
+      Theme
+      <i id="theme-dropdown-arrow" class="fa-solid fa-chevron-down"></i>
+    </div>
     <div id="theme-options">
-      <div class="theme-option" onclick="setTheme('theme-light')">Light</div>
-      <div class="theme-option" onclick="setTheme('theme-dark')">Dark</div>
-      <div class="theme-option" onclick="setTheme('theme-ugly')">Ugly</div>
+      <div class="theme-option" onclick="setTheme(null)">
+        <i class="fa-solid fa-circle-half-stroke system-theme-icon"></i>
+        Sync with system
+      </div>
+      <div class="theme-option" onclick="setTheme('theme-light')" theme="theme-light">
+        <i class="fa-solid fa-circle light-theme-icon"></i>
+        Light
+      </div>
+      <div class="theme-option" onclick="setTheme('theme-dark')" theme="theme-dark">
+        <i class="fa-solid fa-circle dark-theme-icon"></i>
+        Dark
+      </div>
+      <div class="theme-option" onclick="setTheme('theme-ugly')" theme="theme-ugly">
+        <i class="fa-solid fa-circle ugly-theme-icon"></i>
+        Ugly
+      </div>
     </div>
   </div>
 </header>

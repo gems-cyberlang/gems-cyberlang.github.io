@@ -5,11 +5,21 @@ $bodyFont: Roboto, Consolas, sans-serif; //-apple-system, BlinkMacSystemFont, "S
 
 $menuTransitionTime: 0.5s;
 
+:root {
+  --light-bg: #fdfdff;
+  --dark-bg: #0f0f23;
+  --ugly-fg: #ED7797;
+}
+
 @mixin lightVars {
-  --light-color: #fdfdff;
+  --light-color: var(--light-bg);
   --dark-color: #3d3b49;
   --fg-color: var(--dark-color);
-  --bg-color: var(--light-color);
+  --bg-color: var(--light-bg);
+  --bg-hoverable: #00000004;
+  --bg-hover: #0000000a;
+  --bg-selected: #00a6ff1c;
+  --bg-selected-hover: #00a6ff37;
   --highlight-color: #22a887;
   --link-color: #229a7c;
   --link-color-visited: #0b7057;
@@ -21,6 +31,7 @@ $menuTransitionTime: 0.5s;
 }
 
 :root {
+  // By default, use light mode (in case JS takes a while to load)
   @include lightVars();
 }
 
@@ -32,9 +43,9 @@ $menuTransitionTime: 0.5s;
   @include lightVars();
 
   --light-color: #ddddd7;
-  --dark-color: #0f0f23;
+  --dark-color: var(--dark-bg);
   --fg-color: var(--light-color);
-  --bg-color: var(--dark-color);
+  --bg-color: var(--dark-bg);
   --link-color-visited: #0e8b6c;
 
   --logo-path: #FF7AF6;
@@ -44,7 +55,7 @@ $menuTransitionTime: 0.5s;
 .theme-ugly {
   @include lightVars();
 
-  --fg-color: #ED7797;
+  --fg-color: var(--ugly-fg);
   --bg-color: #fdfdff;
   --divider-color: #273146;
 

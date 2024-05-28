@@ -108,20 +108,100 @@ header {
 
   #theme-dropdown {
     display: inline-block;
+    position: relative;
+
+    #theme-display {
+      cursor: default;
+
+      background-color: var(--bg-hoverable);
+      transition: background-color 0.2s;
+
+      border-color: #0000001e;
+      border-radius: 3px;
+      border-style: solid;
+      border-width: 1px;
+
+      padding: 0.2rem 0.4rem;
+
+      &:hover {
+        background-color: var(--bg-hover);
+        transition: background-color 0.2s;
+      }
+    }
 
     #theme-options {
-      display: none;
+      display: flex;
+      flex-direction: column;
       position: absolute;
+      right: 0;
+      background-color: var(--bg-color);
+
+      // TODO this wipe is pretty janky
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s;
 
       .theme-option {
+        // display: none;
+        cursor: pointer;
         z-index: 1;
+        background-color: var(--bg-hoverable);
+        padding: 0.3rem 0.5rem;
+        white-space: nowrap;
+        transition: background-color 0.3s;
+
+        &:hover {
+          background-color: var(--bg-hover);
+          transition: background-color 0.3s;
+        }
+
+        &.selected {
+          background-color: var(--bg-selected);
+        }
+
+        &:hover.selected {
+          background-color: var(--bg-selected-hover);
+          transition: background-color 0.3s;
+        }
       }
+    }
+
+    #theme-dropdown-arrow {
+      transition: transform 0.5s;
     }
 
     &:hover {
       #theme-options {
-        display: block;
+        max-height: 200px;
+        transition: max-height 0.5s;
+      }
+
+      #theme-dropdown-arrow {
+        transform: rotate(180deg);
+        transition: transform 0.5s;
       }
     }
+  }
+
+  @mixin themeIcon($stroke, $fill) {
+    color: $stroke;
+    background-color: $fill;
+    clip-path: circle();
+  }
+
+  .system-theme-icon {
+    @include themeIcon(var(--dark-bg), var(--light-bg));
+  }
+
+  .light-theme-icon {
+    @include themeIcon(var(--light-bg), var(--bg-color));
+  }
+
+  .dark-theme-icon {
+    @include themeIcon(var(--dark-bg), var(--bg-color));
+  }
+
+  .ugly-theme-icon {
+    @include themeIcon(var(--ugly-fg), var(--bg-color));
   }
 }
