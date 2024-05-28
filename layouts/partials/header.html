@@ -5,7 +5,7 @@
         <use href="/img/logo.svg#document"></use>
       </svg> -->
       <!-- <object data="/img/logo.svg" type="image/svg+xml" width="30" class="svg-logo"></object> -->
-
+      <!-- The loo -->
       <svg aria-label="CYB3RL4NG logo" xmlns="http://www.w3.org/2000/svg" width="70" viewBox="0 0 470 420"
         class="svg-logo">
         <defs>
@@ -47,34 +47,34 @@
       <span class="site-title">{{ .Site.Title }}</span>
     </a>
   </div>
-  <nav class="menu mt-md-0 ms-md-auto">
+  <nav class="menu">
     {{ $currPage := .Page }}
     {{ $site := .Site }}
     {{ range .Site.Data.settings.menu }}
-    {{ $targetPage := ($site.GetPage .name) }}
-    {{ if eq $currPage.Title .name }}
-    <a class="me-3 py-2 menu-item-selected" href="{{ $targetPage.RelPermalink }}" title="{{ .name }}">
-      {{ .leetName }}
-    </a>
-    {{ else if and (eq .name "Blog") (eq $currPage.Section "blog") }}
-    <a class="me-3 py-2 menu-item-selected" href="{{ $targetPage.RelPermalink }}" title="{{ .name }}">
-      {{ .leetName }}
-    </a>
-    {{ else if eq .name "Blog" }}
-    <!-- TODO avoid hardcoding blog URL -->
-    <a class="me-3 py-2 menu-item-unselected" href="/blog" title="{{ .name }}">
-      {{ .leetName }}
-    </a>
-    {{ else }}
-    <a class="me-3 py-2 menu-item-unselected" href="{{ $targetPage.RelPermalink }}" title="{{ .name }}">
-      {{ .leetName }}
-    </a>
-    {{ end }}
+      {{ $targetPage := ($site.GetPage .name) }}
+      {{ if eq $currPage.Title .name }}
+        <a class="menu-item-selected" href="{{ $targetPage.RelPermalink }}" title="{{ .name }}">
+          {{ .leetName }}
+        </a>
+      {{ else if and (eq .name "Blog") (eq $currPage.Section "blog") }}
+        <a class="menu-item-selected" href="{{ $targetPage.RelPermalink }}" title="{{ .name }}">
+          {{ .leetName }}
+        </a>
+      {{ else if eq .name "Blog" }}
+        <!-- TODO avoid hardcoding blog URL -->
+        <a class="menu-item-unselected" href="/blog" title="{{ .name }}">
+          {{ .leetName }}
+        </a>
+      {{ else }}
+        <a class="menu-item-unselected" href="{{ $targetPage.RelPermalink }}" title="{{ .name }}">
+          {{ .leetName }}
+        </a>
+      {{ end }}
     {{ end }}
   </nav>
   <div class="text-start social-media-icons">
     {{ range .Site.Data.settings.social }}
-    <a href="{{ .link }}" class="ms-3 fs-5"><i class="menu-icon {{ .faClass }}" title="{{ .title }}"></i></a>
+    <a href="{{ .link }}" class="fs-5"><i class="menu-icon {{ .faClass }}" title="{{ .title }}"></i></a>
     {{ end }}
   </div>
 

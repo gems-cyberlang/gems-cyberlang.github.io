@@ -8,6 +8,7 @@ header {
   border-color: var(--divider-color);
   padding-bottom: 0.75rem;
   margin-bottom: 1.5rem;
+  gap: 1.7rem;
 
   .svg-logo {
     margin-right: 10px;
@@ -43,6 +44,8 @@ header {
 
   .menu {
     display: inline-flex;
+    margin-left: auto;
+    gap: 1rem;
   }
 
   %menu-item {
@@ -52,6 +55,8 @@ header {
     position: relative;
     text-decoration: none;
     font-size: larger;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
   }
 
   // Style for the underline pseudo-element
@@ -90,6 +95,11 @@ header {
   .menu-item-unselected:hover::after {
     transform: scaleX(1);
     transform-origin: bottom center;
+  }
+
+  .social-media-icons {
+    display: inline-flex;
+    gap: 0.8rem;
   }
 
   .menu-icon {

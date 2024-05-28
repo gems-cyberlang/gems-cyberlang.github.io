@@ -5,12 +5,14 @@ $bodyFont: Roboto, Consolas, sans-serif; //-apple-system, BlinkMacSystemFont, "S
 
 $menuTransitionTime: 0.5s;
 
-.theme-light {
-  --fg-color: #3d3b49;
-  --bg-color: #fdfdff;
-  --highlight-color: rgb(34, 168, 135);
-  --link-color: rgb(34, 154, 124);
-  --link-color-visited: rgb(11, 112, 87);
+@mixin lightVars {
+  --light-color: #fdfdff;
+  --dark-color: #3d3b49;
+  --fg-color: var(--dark-color);
+  --bg-color: var(--light-color);
+  --highlight-color: #22a887;
+  --link-color: #229a7c;
+  --link-color-visited: #0b7057;
   --divider-color: var(--fg-color);
 
   --logo-path: #23324e;
@@ -18,48 +20,53 @@ $menuTransitionTime: 0.5s;
   --logo-text-bg: var(--bg-color);
 }
 
+:root {
+  @include lightVars();
+}
+
+.theme-light {
+  @include lightVars();
+}
+
 .theme-dark {
-  --fg-color: #ddddd7;
-  --bg-color: #0f0f23;
-  --highlight-color: rgb(34, 168, 135);
-  --link-color: #1bc097;
-  --link-color-visited: rgb(13, 143, 110);
-  --divider-color: var(--fg-color);
+  @include lightVars();
+
+  --light-color: #ddddd7;
+  --dark-color: #0f0f23;
+  --fg-color: var(--light-color);
+  --bg-color: var(--dark-color);
+  --link-color-visited: #0e8b6c;
 
   --logo-path: #FF7AF6;
   --logo-text: #fa0d64;
-  --logo-text-bg: var(--bg-color);
 }
 
 .theme-ugly {
+  @include lightVars();
+
   --fg-color: #ED7797;
   --bg-color: #fdfdff;
-  --highlight-color: rgb(34, 168, 135);
-  --link-color: rgb(34, 154, 124);
-  --link-color-visited: rgb(11, 112, 87);
   --divider-color: #273146;
 
   --logo-path: #23324e;
   --logo-text: #ca3148;
-  --logo-text-bg: var(--bg-color);
 }
 
 body {
+  color: var(--fg-color);
   background: var(--bg-color);
+  font-family: $bodyFont;
+  margin: 0 auto;
+  padding-top: 1rem;
+  padding-left: 15vw;
+  padding-right: 15vw;
 }
 
 body>div {
-  background: var(--bg-color);
-  color: var(--fg-color);
-  font-family: $bodyFont;
-  margin: 0 auto;
-  padding-top: 2.5rem;
-  padding-left: 15vw;
-  padding-right: 15vw;
   // The flexing is so the footer stays at the bottom
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  min-height: 90vh;
 }
 
 body a {
