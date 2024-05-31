@@ -33,7 +33,7 @@ $borderWidth: 4px;
   box-sizing: content-box;
 
   z-index: 1;
-  background-color: white;
+  background-color: var(--bg-color);
 }
 
 .timeline-item:nth-child(odd) {
