@@ -50,6 +50,8 @@ $menuTransitionTime: 0.5s;
   --link-color-visited: #0b7057;
   --button-border-unselected: #6d6d6d77;
   --button-border-hover: #0000001e;
+
+  --timeline-color: #d96404;
 }
 
 .theme-light {
@@ -74,6 +76,8 @@ $menuTransitionTime: 0.5s;
 
   --logo-path: #FF7AF6;
   --logo-text: #fa0d64;
+
+  --timeline-color: #ff9900;
 }
 
 .theme-ugly {
@@ -85,6 +89,8 @@ $menuTransitionTime: 0.5s;
 
   --logo-path: #23324e;
   --logo-text: #ca3148;
+
+  --timeline-color: #273146;
 }
 
 body {
