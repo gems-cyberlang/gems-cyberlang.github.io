@@ -33,7 +33,7 @@
   </nav>
   <div class="text-start social-media-icons">
     {{ range .Site.Data.settings.social }}
-    <a href="{{ .link }}" class="fs-5"><i class="menu-icon {{ .faClass }}" title="{{ .title }}"></i></a>
+    <a href="{{ .link }}"><i class="menu-icon {{ .faClass }}" title="{{ .title }}"></i></a>
     {{ end }}
   </div>
 

@@ -104,6 +104,7 @@ header {
 
   .menu-icon {
     @include hover-color-transition(var(--fg-color), var(--link-color));
+    font-size: 1.25rem;
   }
 
   #theme-dropdown {
