@@ -12,6 +12,11 @@
     </a>
     <div id="content">
       <h1>{{ .Page.Title }}</h1>
+      By {{ .Params.Author }}
+      <br>
+      Posted {{ .Params.Date.Format "02 January, 2006" }} | Last modified {{ .Params.LastMod.Format "02 January, 2006" }}
+      <br>
+      <br>
       {{ .Content }}
     </div>
     {{ partial "partials/footer.html" . }}

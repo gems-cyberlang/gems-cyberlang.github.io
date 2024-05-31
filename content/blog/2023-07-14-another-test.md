@@ -2,6 +2,7 @@
 layout: post
 title: "Another test"
 date: 2023-07-14
+author: Alice
 ---
 
 Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
