@@ -112,6 +112,7 @@ header {
 
     #theme-display {
       @include button-unselected();
+      white-space: nowrap;
 
       cursor: default;
 
