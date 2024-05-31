@@ -128,7 +128,8 @@ header {
       position: absolute;
       right: 0;
       background-color: var(--bg-color);
-      border-radius: 5px;
+      border-radius: 8px;
+      margin-top: 0.5rem;
 
       // TODO this wipe is pretty janky
       max-height: 0;
