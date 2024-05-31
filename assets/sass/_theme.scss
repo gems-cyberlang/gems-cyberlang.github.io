@@ -48,8 +48,10 @@ $menuTransitionTime: 0.5s;
   --highlight-color: #22a887;
   --link-color: #229a7c;
   --link-color-visited: #0b7057;
-  --button-border-unselected: #00000010;
+  --button-border-unselected: #6d6d6d77;
   --button-border-hover: #0000001e;
+
+  --timeline-color: #d96404;
 }
 
 .theme-light {
@@ -63,17 +65,19 @@ $menuTransitionTime: 0.5s;
   --dark-color: var(--dark-bg);
   --fg-color: var(--light-color);
   --bg-color: var(--dark-bg);
-  --bg-hoverable: #36363d;
-  --bg-hover: #474750;
+  --bg-hoverable: #42424a;
+  --bg-hover: #323234;
   --bg-selected: #00a6ff1c;
   --bg-selected-hover: #00a6ff37;
   --link-color: #229a7c;
   --link-color-visited: #0e8b6c;
-  --button-border-unselected: #727171;
-  --button-border-hover: #8c8b8b;
+  --button-border-unselected: #d6d6d6;
+  --button-border-hover: #858585;
 
   --logo-path: #FF7AF6;
   --logo-text: #fa0d64;
+
+  --timeline-color: #d35901;
 }
 
 .theme-ugly {
@@ -85,6 +89,8 @@ $menuTransitionTime: 0.5s;
 
   --logo-path: #23324e;
   --logo-text: #ca3148;
+
+  --timeline-color: #273146;
 }
 
 body {
@@ -95,6 +101,7 @@ body {
   padding-top: 1rem;
   padding-left: 15vw;
   padding-right: 15vw;
+  min-height: 1vh;
 }
 
 body>div {
@@ -135,13 +142,13 @@ p {
 
 @mixin button-unselected {
   border-radius: 4px;
-  box-shadow: inset 0 0 3px var(--button-border-unselected);
+  box-shadow: 0 0 1px var(--button-border-unselected);
   background-color: var(--bg-hoverable);
   transition: background-color 0.2s;
 }
 
 @mixin button-hover {
-  box-shadow: inset 0 0 3px var(--button-border-hover);
+  box-shadow: inset 0 0 5px var(--button-border-hover);
   background-color: var(--bg-hover);
   transition: background-color 0.2s;
 }
