@@ -1,0 +1,54 @@
+$dotSize: 15px;
+$gap: 3px;
+
+.timeline-wrapper {
+  background-color: red;
+}
+
+.timeline {
+  display: grid;
+  // Make both columns equally wide
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: $gap;
+
+  background-color: red;
+}
+
+.timeline-item::before {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+
+  content: "";
+  height: $dotSize;
+  width: $dotSize;
+
+  border: 3px solid black;
+  border-radius: 50%;
+  box-sizing: content-box;
+}
+
+.timeline-item {
+  position: relative;
+  background-color: var(--bg-color);
+}
+
+.timeline-item:nth-child(odd) {
+  grid-column: 1;
+  grid-column: span 2;
+  grid-row: span 2;
+
+  &::before {
+    left: 50%;
+    transform: translateX(-50%) translateX($gap / 2);
+  }
+}
+
+.timeline-item:nth-child(even) {
+  grid-column: 2;
+
+  &::before {
+    left: 0;
+    margin-left: -$dotSize / 2 - $gap;
+  }
+}
