@@ -5,6 +5,13 @@ $bodyFont: Roboto, Consolas, sans-serif; //-apple-system, BlinkMacSystemFont, "S
 
 $menuTransitionTime: 0.5s;
 
+/** Any width above this means a nice wide laptop */
+$bigLaptopWidth: 1400px;
+/** Any width above this can be treated as a laptop */
+$laptopMinWidth: 1000px;
+/** Any width above this can be treated as a tablet */
+$tabletMinWidth: 600px;
+
 @mixin themeCommon {
   --light-bg: #fdfdff;
   --dark-bg: #0f0f23;
@@ -99,9 +106,21 @@ body {
   font-family: $bodyFont;
   margin: 0 auto;
   padding-top: 1rem;
-  padding-left: 15vw;
-  padding-right: 15vw;
   min-height: 1vh;
+
+  // Padding for very small screens (phones in portrait orientation)
+  padding-left: 5vw;
+  padding-right: 5vw;
+
+  @media (min-width: $laptopMinWidth) {
+    padding-left: 10vw;
+    padding-right: 10vw;
+  }
+
+  @media (min-width: $bigLaptopWidth) {
+    padding-left: 15vw;
+    padding-right: 15vw;
+  }
 }
 
 body>div {
