@@ -42,7 +42,7 @@ Be the first here!
 
 ?
 
-<!-- todo thank the Drs.L too? Maybe email -->
+todo thank the Drs.L too? Maybe email
 
 Here's the Gemstone and the Honors College logos, because Gemstone asked us to put them there.
 They were mildly annoying to center. It would also be nice if the fill inside the g
