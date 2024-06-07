@@ -43,32 +43,6 @@ Be the first here!
 ?
 
 todo thank the Drs.L too? Maybe email
-
-Here's the Gemstone and the Honors College logos, because Gemstone asked us to put them there.
-They were mildly annoying to center. It would also be nice if the fill inside the g
-were transparent too, to match the background outside. Would be even better if
-we'd gotten an SVG of the logo, so we could change the foreground too. We should
-probably contact Gemstone about that but we don't feel like it so we'll just leave this
-up until one of us objects to it. We totally appreciate Gemstone, though. The program
-is slay and gorg and stuff. Ellicott sucks, though. We heard a rumor that Gemstone
-had the chance to move into one of the new buildings near Yahentamitsi but the Gemstone
-staff to chose to stay in Ellicott because they didn't feel like moving. Is that true?
-Because if it is, we are rather disappointed in you guys. Ellicott felt more like a mental
-asylum than a real dorm, literally every place was super cramped, especially the
-basement rooms, and the lack of A/C did not help (and we know everyone's like "oh
-it's actually an advantage because everyone goes out of their rooms and makes friends"
-but we did not come here to make friends. We came because we were unable to get into
-ACES and our parents still wanted us to go to an honors program, any honors program,
-because it would supposedly help get jobs or whatever, so we yielded (like we always do,
-we don't know if it's an Indian parent thing or what but it's harder to move them than
-the doors at Iribe (although maybe that's only hard to do because we're out of shape))
-and ended up going into Gemstone because it was the only one vaguely aligned with our interests). If
-we had to list a single bad thing about Ellicott, we would be unable to, because
-we would either freeze up trying to find the worst of the infinite list of problems
-with Ellicott, or we would unleash a string of obscenities while also trying to
-enumerate that infinite list, unable to stop after just one bad thing.
-
-We still appreciate Gemstone though 💞. Also, thanks for the money, we really appreciate it.
 -->
 
 <sub>The primary web liaison for our team is Akhilesh Puranam. Feel free to reach out to him about any issues regarding this website.</sub>
