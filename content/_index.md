@@ -17,8 +17,28 @@ Team CYB3RL4NG aims to explore this concept with mental health terminology coine
 
 We will download comments from all of Reddit and use embeddings and co-word analysis to study semantic bleaching.
 
+## Funding
+
+Fund us from our [LaunchUMD page](/ "todo put the link here")!
+
+### Sponsors
+
+Be the first here!
+
+TODO thank the Drs. L? Maybe email to ask if they want to be put up here.
+
+Sample logo:
+<div>
+  <a href="https://example.com/">
+    <img src="/img/sample-logo.png" alt="Sample logo" height="200" style="border-radius: 100px 80px 110px 90px">
+  </a>
+</div>
+
 <br>
 <br>
+
+Here's the Gemstone and the Honors College logos, because Gemstone asked us to put them there.
+They were mildly annoying to center. We do appreciate Gemstone, though.
 
 <div style="display: flex; width: 100%; align-items: center; justify-content: space-around;">
   <div><a href="https://gemstone.umd.edu/"><img src="/img/gemstone.png" alt="Gemstone logo" class="gemstone-logo"></a></div>
