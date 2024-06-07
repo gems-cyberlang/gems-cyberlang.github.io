@@ -33,7 +33,7 @@ Sample logo:
 <br>
 <br>
 
-<!-
+<!--
 Should write
 
 Gemstone (gemstone logo)
