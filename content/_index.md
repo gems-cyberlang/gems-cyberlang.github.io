@@ -15,7 +15,7 @@ Team CYB3RL4NG aims to explore this concept with mental health terminology coine
 
 ## Methodology
 
-We will download comments from all of Reddit and use embeddings and co-word analysis to study semantic bleaching.
+We will download comments from Reddit and use embeddings and co-word analysis to study semantic bleaching.
 
 ## Funding
 
