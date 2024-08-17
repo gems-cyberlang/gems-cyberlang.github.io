@@ -1,0 +1,28 @@
+---
+import { CONTACT_EMAIL, CONTACT_NAME } from "../consts";
+---
+
+<footer>
+  <p class="contact-header">Contact</p>
+  <p class="contact-name">{CONTACT_NAME}</p>
+  <p>Email: <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a></p>
+</footer>
+
+<style>
+  footer {
+    margin-top: auto;
+    color: rgba(var(--fg-color), 0.7); /* Mute the text */
+    border-top: solid;
+    border-color: var(--divider-color); /* Don't mute the border */
+    padding-top: 2.5rem;
+    margin-top: 2rem;
+  }
+
+  .contact-header {
+    font-size: x-large;
+  }
+
+  .contact-name {
+    margin: 0;
+  }
+</style>
