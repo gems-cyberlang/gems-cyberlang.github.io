@@ -15,41 +15,12 @@
   --box-shadow: 0 2px 6px rgba(var(--gray), 25%),
     0 8px 24px rgba(var(--gray), 33%), 0 16px 32px rgba(var(--gray), 33%);
 
-
   /** Any width above this means a nice wide laptop */
-  --bigLaptopWidth: 1400px;
+  --big-laptop-width: 1400px;
   /** Any width above this can be treated as a laptop */
-  --laptopMinWidth: 1000px;
+  --laptop-min-width: 1000px;
   /** Any width above this can be treated as a tablet */
-  --tabletMinWidth: 600px;
-}
-
-@font-face {
-  font-family: "PixeloidMono";
-  src: url("/fonts/pixeloid/woff/PixeloidMono.woff");
-  src: url("/fonts/pixeloid/woff/PixeloidMono.woff") format("woff"),
-    url("/fonts/pixeloid/woff/PixeloidMono.woff2") format("woff2"),
-    url("/fonts/pixeloid/otf/PixeloidMono.otf") format("opentype"),
-    url("/fonts/pixeloid/ttf/PixeloidMono.ttf") format("truetype");
-}
-
-@font-face {
-  font-family: "PixeloidSans";
-  src: url("/fonts/pixeloid/woff/PixeloidSans.woff");
-  src: url("/fonts/pixeloid/woff/PixeloidSans.woff") format("woff"),
-    url("/fonts/pixeloid/woff/PixeloidSans.woff2") format("woff2"),
-    url("/fonts/pixeloid/otf/PixeloidSans.otf") format("opentype"),
-    url("/fonts/pixeloid/ttf/PixeloidSans.ttf") format("truetype");
-}
-
-@font-face {
-  font-family: "PixeloidSans";
-  font-weight: bold;
-  src: url("/fonts/pixeloid/woff/PixeloidSans-Bold.woff");
-  src: url("/fonts/pixeloid/woff/PixeloidSans-Bold.woff") format("woff"),
-    url("/fonts/pixeloid/woff/PixeloidSans-Bold.woff2") format("woff2"),
-    url("/fonts/pixeloid/otf/PixeloidSans-Bold.otf") format("opentype"),
-    url("/fonts/pixeloid/ttf/PixeloidSans-Bold.ttf") format("truetype");
+  --tablet-min-width: 600px;
 }
 
 body {
@@ -57,8 +28,7 @@ body {
   /* text-align: left; */
   /* word-wrap: break-word;
   overflow-wrap: break-word; */
-  /* font-size: 20px;
-  line-height: 1.7; */
+  /* line-height: 1.7; */
 
   color: var(--fg-color);
   background: var(--bg-color);
@@ -66,26 +36,30 @@ body {
   padding-top: 1rem;
   min-height: 1vh;
 
+  font-size: 20px;
+
   /* Padding for very small screens (phones in portrait orientation) */
   padding-left: 5vw;
   padding-right: 5vw;
 
-  @media (min-width: var(--laptopMinWidth)) {
+  @media (min-width: var(--laptop-min-width)) {
     padding-left: 10vw;
     padding-right: 10vw;
   }
 
-  @media (min-width: var(--bigLaptopWidth)) {
+  @media (min-width: var(--big-laptop-width)) {
     padding-left: 15vw;
     padding-right: 15vw;
   }
 }
+
 main {
   width: 720px;
   max-width: calc(100% - 2em);
   margin: auto;
   padding: 3em 1em;
 }
+
 h1,
 h2,
 h3,
@@ -96,78 +70,99 @@ h6 {
   color: rgb(var(--black));
   line-height: 1.2;
 }
+
 h1 {
   font-size: 3.052em;
 }
+
 h2 {
   font-size: 2.441em;
 }
+
 h3 {
   font-size: 1.953em;
 }
+
 h4 {
   font-size: 1.563em;
 }
+
 h5 {
   font-size: 1.25em;
 }
+
 strong,
 b {
   font-weight: 700;
 }
+
 a {
   color: var(--accent);
 }
+
 a:hover {
   color: var(--accent);
 }
+
 p {
   margin-bottom: 1em;
 }
+
 .prose p {
   margin-bottom: 2em;
 }
+
 textarea {
   width: 100%;
   font-size: 16px;
 }
+
 input {
   font-size: 16px;
 }
+
 table {
   width: 100%;
 }
+
 img {
   max-width: 100%;
   height: auto;
   border-radius: 8px;
 }
+
 code {
   padding: 2px 5px;
   background-color: rgb(var(--gray-light));
   border-radius: 2px;
 }
+
 pre {
   padding: 1.5em;
   border-radius: 8px;
 }
+
 pre > code {
   all: unset;
 }
+
 blockquote {
   border-left: 4px solid var(--accent);
   padding: 0 0 0 20px;
   margin: 0px;
   font-size: 1.333em;
 }
+
 hr {
   border: none;
   border-top: 1px solid rgb(var(--gray-light));
 }
+
 @media (max-width: 720px) {
   body {
     font-size: 18px;
   }
+
   main {
     padding: 1em;
   }

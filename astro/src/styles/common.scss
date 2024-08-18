@@ -1,0 +1,12 @@
+@mixin button-unselected {
+  border-radius: 4px;
+  box-shadow: 0 0 1px var(--button-border-unselected);
+  background-color: var(--bg-hoverable);
+  transition: background-color 0.2s;
+}
+
+@mixin button-hover {
+  box-shadow: inset 0 0 5px var(--button-border-hover);
+  background-color: var(--bg-hover);
+  transition: background-color 0.2s;
+}

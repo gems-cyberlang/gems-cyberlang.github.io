@@ -1,0 +1,30 @@
+@font-face {
+  font-family: "PixeloidMono";
+  src: url("/fonts/pixeloid/woff/PixeloidMono.woff");
+  src:
+    url("/fonts/pixeloid/woff/PixeloidMono.woff") format("woff"),
+    url("/fonts/pixeloid/woff/PixeloidMono.woff2") format("woff2"),
+    url("/fonts/pixeloid/otf/PixeloidMono.otf") format("opentype"),
+    url("/fonts/pixeloid/ttf/PixeloidMono.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "PixeloidSans";
+  src: url("/fonts/pixeloid/woff/PixeloidSans.woff");
+  src:
+    url("/fonts/pixeloid/woff/PixeloidSans.woff") format("woff"),
+    url("/fonts/pixeloid/woff/PixeloidSans.woff2") format("woff2"),
+    url("/fonts/pixeloid/otf/PixeloidSans.otf") format("opentype"),
+    url("/fonts/pixeloid/ttf/PixeloidSans.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "PixeloidSans";
+  font-weight: bold;
+  src: url("/fonts/pixeloid/woff/PixeloidSans-Bold.woff");
+  src:
+    url("/fonts/pixeloid/woff/PixeloidSans-Bold.woff") format("woff"),
+    url("/fonts/pixeloid/woff/PixeloidSans-Bold.woff2") format("woff2"),
+    url("/fonts/pixeloid/otf/PixeloidSans-Bold.otf") format("opentype"),
+    url("/fonts/pixeloid/ttf/PixeloidSans-Bold.ttf") format("truetype");
+}

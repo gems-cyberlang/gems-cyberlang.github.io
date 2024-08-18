@@ -1,0 +1,173 @@
+// Adapted from lenpaul's academic theme's sass
+// https://github.com/LeNPaul/academic/blob/gh-pages/_sass/main.scss
+
+@import "common.scss";
+
+$bodyFont: Roboto, Consolas, sans-serif; //-apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+
+/** Any width above this means a nice wide laptop */
+$bigLaptopWidth: 1400px;
+/** Any width above this can be treated as a laptop */
+$laptopMinWidth: 1000px;
+/** Any width above this can be treated as a tablet */
+$tabletMinWidth: 600px;
+
+@mixin themeCommon {
+  --light-bg: #fdfdff;
+  --dark-bg: #0f0f23;
+  --ugly-fg: #ED7797;
+
+  --divider-color: var(--fg-color);
+  --logo-text-bg: var(--bg-color);
+}
+
+@mixin lightCommon {
+  @include themeCommon();
+  --fg-color: var(--dark-color);
+  --bg-color: var(--light-color);
+
+  --logo-path: #23324e;
+  --logo-text: #ca3148;
+
+  color-scheme: light;
+}
+
+@mixin darkCommon {
+  @include themeCommon();
+  --fg-color: var(--light-color);
+  --bg-color: var(--dark-color);
+
+  --logo-path: #FF7AF6;
+  --logo-text: #fa0d64;
+  --logo-text-bg: var(--bg-color);
+
+  color-scheme: dark;
+}
+
+@mixin lightRegular {
+  @include lightCommon();
+  --light-color: var(--light-bg);
+  --dark-color: #3d3b49;
+  --bg-hoverable: #00000004;
+  --bg-hover: #0000000a;
+  --bg-selected: #00a6ff1c;
+  --bg-selected-hover: #00a6ff37;
+  --highlight-color: #22a887;
+  --link-color: #229a7c;
+  --link-color-visited: #0b7057;
+  --button-border-unselected: #6d6d6d77;
+  --button-border-hover: #0000001e;
+
+  --timeline-color: #d96404;
+}
+
+.theme-light {
+  @include lightRegular();
+}
+
+.theme-dark {
+  @include darkCommon();
+
+  --light-color: #ddddd7;
+  --dark-color: var(--dark-bg);
+  --fg-color: var(--light-color);
+  --bg-color: var(--dark-bg);
+  --bg-hoverable: #42424a;
+  --bg-hover: #323234;
+  --bg-selected: #00a6ff1c;
+  --bg-selected-hover: #00a6ff37;
+  --link-color: #229a7c;
+  --link-color-visited: #0e8b6c;
+  --button-border-unselected: #d6d6d6;
+  --button-border-hover: #858585;
+
+  --logo-path: #FF7AF6;
+  --logo-text: #fa0d64;
+
+  --timeline-color: #d35901;
+}
+
+.theme-ugly {
+  @include lightRegular();
+
+  --fg-color: var(--ugly-fg);
+  --bg-color: #fdfdff;
+  --divider-color: #273146;
+
+  --logo-path: #23324e;
+  --logo-text: #ca3148;
+
+  --timeline-color: #273146;
+}
+
+body {
+  color: var(--fg-color);
+  background: var(--bg-color);
+  font-family: $bodyFont;
+  margin: 0 auto;
+  padding-top: 1rem;
+  min-height: 1vh;
+
+  // Padding for very small screens (phones in portrait orientation)
+  padding-left: 5vw;
+  padding-right: 5vw;
+
+  @media (min-width: $laptopMinWidth) {
+    padding-left: 10vw;
+    padding-right: 10vw;
+  }
+
+  @media (min-width: $bigLaptopWidth) {
+    padding-left: 15vw;
+    padding-right: 15vw;
+  }
+}
+
+body>div {
+  // The flexing is so the footer stays at the bottom
+  display: flex;
+  flex-direction: column;
+  min-height: 90vh;
+}
+
+body a {
+  color: var(--link-color);
+}
+
+body a:visited {
+  color: var(--link-color-visited);
+}
+
+// This is so the footer stays at the bottom
+// See _layouts/default.html for usage
+#content {
+  flex: 1;
+}
+
+p {
+  font-size: large;
+}
+
+/// For links that change color on hover
+@mixin hover-color-transition($from, $to) {
+  color: $from;
+  transition: color $menuTransitionTime;
+
+  &:hover {
+    color: $to;
+    transition: color $menuTransitionTime;
+  }
+}
+
+@mixin button-unselected {
+  border-radius: 4px;
+  box-shadow: 0 0 1px var(--button-border-unselected);
+  background-color: var(--bg-hoverable);
+  transition: background-color 0.2s;
+}
+
+@mixin button-hover {
+  box-shadow: inset 0 0 5px var(--button-border-hover);
+  background-color: var(--bg-hover);
+  transition: background-color 0.2s;
+}

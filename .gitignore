@@ -1,6 +1,4 @@
 .sass-cache
 
-# Hugo build output
-public/
 resources/
 .hugo_build.lock
