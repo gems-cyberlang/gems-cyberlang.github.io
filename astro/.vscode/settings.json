@@ -1,7 +1,0 @@
-{
-  "eslint.validate": [
-    "javascript",
-    "astro", // Enable .astro
-    "typescript"
-  ]
-}
