@@ -1,12 +1,14 @@
 ---
 import { PAGES, SITE_TITLE, SOCIAL_MEDIA_ICONS } from "../../consts";
+import Logo from "../Logo.astro";
+import ThemeDropdown from "./ThemeDropdown.astro";
 ---
 
 <header>
   <div>
     <a href="/" class="site-title-link" title="Home">
       <!-- The logo -->
-      <!-- {{ partial "partials/logo.svg" . }} -->
+      <Logo />
       <span class="site-title">{SITE_TITLE}</span>
     </a>
   </div>
@@ -21,32 +23,7 @@ import { PAGES, SITE_TITLE, SOCIAL_MEDIA_ICONS } from "../../consts";
     ))}
   </div>
 
-  <!-- TODO add aria attributes? I assume changing the theme *probably* won't be too useful
-  if you're using assistive technologies so not a huge priority -->
-  <div id="theme-dropdown">
-    <div id="theme-display">
-      Theme
-      <i id="theme-dropdown-arrow" class="fa-solid fa-chevron-down"></i>
-    </div>
-    <div id="theme-options">
-      <div class="theme-option" onclick="setTheme(null)">
-        <i class="fa-solid fa-circle-half-stroke system-theme-icon"></i>
-        Sync with system
-      </div>
-      <div class="theme-option" onclick="setTheme('theme-light')" theme="theme-light">
-        <i class="fa-solid fa-circle light-theme-icon"></i>
-        Light
-      </div>
-      <div class="theme-option" onclick="setTheme('theme-dark')" theme="theme-dark">
-        <i class="fa-solid fa-circle dark-theme-icon"></i>
-        Dark
-      </div>
-      <div class="theme-option" onclick="setTheme('theme-ugly')" theme="theme-ugly">
-        <i class="fa-solid fa-circle ugly-theme-icon"></i>
-        Ugly
-      </div>
-    </div>
-  </div>
+  <ThemeDropdown />
 </header>
 
 <style lang="scss">
@@ -63,20 +40,6 @@ import { PAGES, SITE_TITLE, SOCIAL_MEDIA_ICONS } from "../../consts";
     gap: 1.7rem;
 
     transition-duration: 0.5s;
-  }
-
-  .svg-logo {
-    margin-right: 10px;
-    color: var(--logo-text-bg);
-
-    g {
-      color: var(--logo-path);
-      transition-property: color;
-    }
-
-    text {
-      fill: var(--logo-text);
-    }
   }
 
   /// For links that change color on hover
@@ -96,7 +59,7 @@ import { PAGES, SITE_TITLE, SOCIAL_MEDIA_ICONS } from "../../consts";
     text-decoration: none;
     align-items: center;
 
-    &:hover>.svg-logo>g {
+    &:global(:hover>.svg-logo>g) {
       color: var(--link-color);
       transition-property: color;
     }
@@ -171,100 +134,5 @@ import { PAGES, SITE_TITLE, SOCIAL_MEDIA_ICONS } from "../../consts";
   .menu-icon {
     @include hover-color-transition(var(--fg-color), var(--link-color));
     font-size: 1.25rem;
-  }
-
-  #theme-dropdown {
-    display: inline-block;
-    position: relative;
-
-    #theme-display {
-      @include button-unselected();
-      white-space: nowrap;
-
-      cursor: default;
-
-      padding: 0.2rem 0.4rem;
-    }
-
-    &:hover>#theme-display {
-      @include button-hover();
-    }
-
-    #theme-options {
-      display: flex;
-      flex-direction: column;
-      position: absolute;
-      right: 0;
-      background-color: var(--bg-color);
-      border-radius: 8px;
-      margin-top: 0.5rem;
-
-      // TODO this wipe is pretty janky
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.5s;
-
-      .theme-option {
-        // display: none;
-        cursor: pointer;
-        z-index: 1;
-        background-color: var(--bg-hoverable);
-        padding: 0.3rem 0.5rem;
-        white-space: nowrap;
-        transition: background-color 0.3s;
-
-        &:hover {
-          background-color: var(--bg-hover);
-          transition: background-color 0.3s;
-        }
-
-        &.selected {
-          background-color: var(--bg-selected);
-        }
-
-        &:hover.selected {
-          background-color: var(--bg-selected-hover);
-          transition: background-color 0.3s;
-        }
-      }
-    }
-
-    #theme-dropdown-arrow {
-      transition: transform 0.5s;
-    }
-
-    &:hover {
-      #theme-options {
-        max-height: 200px;
-        transition: max-height 0.5s;
-      }
-
-      #theme-dropdown-arrow {
-        transform: rotate(180deg);
-        transition: transform 0.5s;
-      }
-    }
-  }
-
-  @mixin themeIcon($stroke, $fill) {
-    color: $stroke;
-    background-color: $fill;
-    clip-path: circle();
-  }
-
-  .system-theme-icon {
-    @include themeIcon(var(--dark-bg), var(--light-bg));
-  }
-
-  .light-theme-icon {
-    @include themeIcon(var(--light-bg), var(--bg-color));
-  }
-
-  .dark-theme-icon {
-    @include themeIcon(var(--dark-bg), var(--bg-color));
-  }
-
-  .ugly-theme-icon {
-    @include themeIcon(var(--ugly-fg), var(--bg-color));
   }
 </style>

@@ -1,0 +1,76 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+---
+<BaseLayout><slot /></BaseLayout>
+
+<style lang="scss">
+  $dotSize: 12px;
+  $row-gap: 1rem;
+  $col-gap: 1rem;
+  $borderWidth: 4px;
+
+  :global(.timeline) {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+
+    width: 100%;
+  }
+
+  :global(.timeline-item) {
+    display: block;
+    position: relative;
+    min-width: 50%;
+    max-width: 50%;
+    padding-top: $row-gap;
+  }
+
+  @mixin timeline-dot {
+    position: absolute;
+    top: $row-gap;
+
+    content: "";
+    height: $dotSize;
+    width: $dotSize;
+
+    border: 4px solid var(--timeline-color);
+    border-radius: 50%;
+    box-sizing: content-box;
+
+    z-index: 1;
+    background-color: var(--bg-color);
+  }
+
+  :global(.timeline-item:nth-child(odd)) {
+    text-align: right;
+    margin-left: 0;
+    margin-right: auto;
+    padding-right: $col-gap;
+
+    border-right: $borderWidth solid var(--timeline-color);
+
+    &::after {
+      @include timeline-dot();
+      right: -$dotSize;
+    }
+  }
+
+  :global(.timeline-item:nth-child(even)) {
+    text-align: left;
+    margin-left: auto;
+    margin-right: 0;
+    padding-left: $col-gap;
+
+    box-shadow: -$borderWidth 0px var(--timeline-color);
+
+    &::before {
+      @include timeline-dot();
+      left: -$dotSize;
+    }
+  }
+
+  .timeline-item>h2 {
+    font-weight: 600;
+    font-size: large;
+  }
+</style>
