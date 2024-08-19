@@ -1,26 +1,24 @@
 ---
-import { PAGES, SITE_TITLE, SOCIAL_MEDIA_ICONS } from "../../consts";
-import Logo from "../Logo.astro";
+import { PAGES, SOCIAL_MEDIA_ICONS } from "../../consts";
+import HeaderLink from "./HeaderLink.astro";
+import HomeLink from "./HomeLink.astro";
+import MenuItem from "./MenuItem.astro";
 import ThemeDropdown from "./ThemeDropdown.astro";
 ---
 
 <header>
-  <div>
-    <a href="/" class="site-title-link" title="Home">
-      <!-- The logo -->
-      <Logo />
-      <span class="site-title">{SITE_TITLE}</span>
-    </a>
-  </div>
+  <HomeLink />
   <nav class="menu">
-    {PAGES.map(([url, name, leetName]) => (
-      <a href={url} title={name}>{leetName}</a>
-    ))}
+    {PAGES.map((page) => <MenuItem {...page} />)}
   </nav>
   <div class="text-start social-media-icons">
-    {SOCIAL_MEDIA_ICONS.map(({faClass, link, title}) => (
-      <a href={link}><i class={`menu-icon ${faClass}`} title={title} /></a>
-    ))}
+    {
+      SOCIAL_MEDIA_ICONS.map(({ faClass, link, title }) => (
+        <HeaderLink link={link} title={title}>
+          <i class={`social-media-icon ${faClass}`} />
+        </HeaderLink>
+      ))
+    }
   </div>
 
   <ThemeDropdown />
@@ -29,7 +27,7 @@ import ThemeDropdown from "./ThemeDropdown.astro";
 <style lang="scss">
   @import "../../styles/common.scss";
 
-  header {
+  :global(header) {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -38,37 +36,6 @@ import ThemeDropdown from "./ThemeDropdown.astro";
     padding-bottom: 0.75rem;
     margin-bottom: 1.5rem;
     gap: 1.7rem;
-
-    transition-duration: 0.5s;
-  }
-
-  /// For links that change color on hover
-  @mixin hover-color-transition($from, $to) {
-    color: $from;
-    transition-property: color;
-
-    &:hover {
-      color: $to;
-      transition-property: color;
-    }
-  }
-
-  .site-title-link {
-    @include hover-color-transition(var(--fg-color) !important, var(--link-color) !important);
-    display: flex;
-    text-decoration: none;
-    align-items: center;
-
-    &:global(:hover>.svg-logo>g) {
-      color: var(--link-color);
-      transition-property: color;
-    }
-  }
-
-  .site-title {
-    font-family: "PixeloidMono";
-    font-weight: bold;
-    font-size: xx-large;
   }
 
   .menu {
@@ -77,62 +44,12 @@ import ThemeDropdown from "./ThemeDropdown.astro";
     gap: 1rem;
   }
 
-  %menu-item {
-    @include hover-color-transition(var(--fg-color) !important, var(--link-color) !important);
-    font-family: "PixeloidMono";
-    display: inline-block;
-    position: relative;
-    text-decoration: none;
-    font-size: larger;
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
-  }
-
-  // Style for the underline pseudo-element
-  %menu-item-underline {
-    content: "";
-    position: absolute;
-    width: 100%;
-    bottom: 0;
-    left: 0;
-    background-color: var(--highlight-color);
-  }
-
-  .menu-item-selected {
-    @extend %menu-item;
-    font-weight: 900;
-  }
-
-  .menu-item-selected::after {
-    @extend %menu-item-underline;
-    height: 3px;
-    transform: scaleX(1);
-  }
-
-  .menu-item-unselected {
-    @extend %menu-item;
-  }
-
-  .menu-item-unselected::after {
-    @extend %menu-item-underline;
-    height: 2px;
-    transform: scaleX(0);
-    transform-origin: bottom center;
-    transition: transform 0.25s ease-out;
-  }
-
-  .menu-item-unselected:hover::after {
-    transform: scaleX(1);
-    transform-origin: bottom center;
-  }
-
   .social-media-icons {
     display: inline-flex;
     gap: 0.8rem;
   }
 
-  .menu-icon {
-    @include hover-color-transition(var(--fg-color), var(--link-color));
+  .social-media-icon {
     font-size: 1.25rem;
   }
 </style>

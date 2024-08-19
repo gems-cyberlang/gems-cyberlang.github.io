@@ -1,5 +1,27 @@
 ---
-const { link, title } = Astro.props;
+interface Props {
+  link: string;
+  title: string;
+  class?: string;
+}
+
+const { link, title, class: className } = Astro.props;
 ---
 
-<a href={link} title={title}><slot /></a>
+<a class:list={["header-link", className]} href={link} title={title}>
+  <slot />
+</a>
+
+<style>
+  :global(.header-link) {
+    color: var(--fg-color) !important;
+    text-decoration: none;
+    transition: color 0.5s;
+  }
+
+  :global(.header-link:hover) {
+    color: var(--link-color) !important;
+    text-decoration: none;
+    transition: color 0.5s;
+  }
+</style>

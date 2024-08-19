@@ -1,0 +1,39 @@
+---
+import { SITE_TITLE } from "../../consts";
+import HeaderLink from "./HeaderLink.astro";
+import Logo from "../Logo.astro";
+
+
+---
+<HeaderLink link="/" class="site-title-link" title="Home">
+  <!-- The logo -->
+  <Logo />
+  <span class="site-title">{SITE_TITLE}</span>
+</HeaderLink>
+
+<style>
+  :global(.site-title-link) {
+    display: flex;
+    align-items: center;
+  }
+
+  :global(.site-title-link:hover) {
+    cursor: pointer !important;
+  }
+
+  :global(.site-title-link > .svg-logo > g) {
+    color: var(--logo-path) !important;
+    transition: color 0.5s;
+  }
+
+  :global(.site-title-link:hover > .svg-logo > g) {
+    color: var(--link-color) !important;
+    transition: color 0.5s;
+  }
+
+  .site-title {
+    font-family: "PixeloidMono";
+    font-weight: bold;
+    font-size: xx-large;
+  }
+</style>

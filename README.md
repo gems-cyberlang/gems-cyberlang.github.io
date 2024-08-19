@@ -3,6 +3,7 @@
 We use [Hugo](https://gohugo.io/) to generate the website. Use `hugo server` to try out locally.
 
 Project structure:
+
 - If you want to change the actual text content of the website, go to [`content`](/content)
   - Homepage: [`content/_index.md`](/content/_index.md)
   - About page: [`content/about.md`](/content/about.md)

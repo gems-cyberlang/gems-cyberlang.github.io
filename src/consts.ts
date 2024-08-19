@@ -8,25 +8,25 @@ export const CONTACT_NAME = "Team Liaison";
 export const CONTACT_EMAIL = "someone@example.com";
 
 export const PAGES = [
-  ["/about", "About", "AB0UT"],
-  ["/timeline", "Timeline", "T1M3L1N3"],
-  ["/blog", "Blog", "B10G"],
-]
+  { link: "/about", name: "About", leetName: "AB0UT" },
+  { link: "/timeline", name: "Timeline", leetName: "T1M3L1N3" },
+  { link: "/blog", name: "Blog", leetName: "B10G" },
+] as const;
 
 export const SOCIAL_MEDIA_ICONS = [
   {
     faClass: "fab fa-github",
     link: "https://github.com/gems-cyberlang",
-    title: "CYB3RL4NG's GitHub organization"
+    title: "CYB3RL4NG's GitHub organization",
   },
   {
     faClass: "fab fa-instagram",
     link: "https://instagram.com/cyb3rl4ng",
-    title: "CYB3RL4NG's Instagram"
+    title: "CYB3RL4NG's Instagram",
   },
   {
     faClass: "fa-solid fa-rss",
     link: "/index.xml",
-    title: "RSS feed"
-  }
-]
+    title: "RSS feed",
+  },
+];

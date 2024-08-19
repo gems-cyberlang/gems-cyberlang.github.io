@@ -1,3 +1,11 @@
+
+/** Any width above this means a nice wide laptop */
+$bigLaptopWidth: 1400px;
+/** Any width above this can be treated as a laptop */
+$laptopMinWidth: 1000px;
+/** Any width above this can be treated as a tablet */
+$tabletMinWidth: 600px;
+
 @mixin button-unselected {
   border-radius: 4px;
   box-shadow: 0 0 1px var(--button-border-unselected);
