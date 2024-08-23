@@ -1,0 +1,56 @@
+---
+import { PAGES, SOCIAL_MEDIA_ICONS } from "../../consts";
+import HeaderLink from "./HeaderLink.astro";
+import MenuItem from "./MenuItem.astro";
+import ThemeDropdown from "./ThemeDropdown.astro";
+---
+
+<div id="laptop-header" class="header">
+  <nav class="menu">
+    {PAGES.map((page) => <MenuItem {...page} />)}
+  </nav>
+  <div class="text-start social-media-icons">
+    {
+      SOCIAL_MEDIA_ICONS.map(({ faClass, link, title }) => (
+        <HeaderLink link={link} title={title}>
+          <i class={`social-media-icon ${faClass}`} />
+        </HeaderLink>
+      ))
+    }
+  </div>
+
+  <ThemeDropdown />
+</div>
+
+<style lang="scss">
+  @import "../../styles/common.scss";
+
+  #laptop-header {
+    display: flex;
+    margin-left: auto;
+    flex-direction: row;
+    align-items: center;
+    gap: 1.7rem;
+  }
+
+  @media (max-width: ($tabletMinWidth - 1)) {
+    #laptop-header {
+      display: none;
+    }
+  }
+
+  .menu {
+    display: inline-flex;
+    margin-left: auto;
+    gap: 1rem;
+  }
+
+  .social-media-icons {
+    display: inline-flex;
+    gap: 0.8rem;
+  }
+
+  .social-media-icon {
+    font-size: 1.25rem;
+  }
+</style>

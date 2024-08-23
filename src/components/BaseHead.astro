@@ -1,0 +1,199 @@
+---
+// Import the global.css file here so that it is included on
+// all pages through the use of the <BaseHead /> component.
+import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
+import "../styles/fonts.css";
+import "../styles/global.css";
+
+interface Props {
+  title: string;
+  description?: string;
+  image?: string;
+}
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+
+const {
+  title,
+  description = SITE_DESCRIPTION,
+  image = "/blog-placeholder-1.jpg",
+} = Astro.props;
+---
+
+<script>
+  import { loadTheme } from "../theme";
+
+  loadTheme();
+</script>
+
+<!-- Global Metadata -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="generator" content={Astro.generator} />
+
+<link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png" />
+<link rel="manifest" href="/img/site.webmanifest" />
+<link rel="shortcut icon" href="/favicon.ico" />
+
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+/>
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css"
+/>
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,700;1,400&display=swap"
+  rel="stylesheet"
+/>
+<link
+  href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+  rel="stylesheet"
+/>
+
+<!-- Font preloads -->
+<link
+  rel="preload"
+  href="/fonts/pixeloid/woff/PixeloidMono.woff"
+  as="font"
+  type="font/woff"
+  crossorigin
+/>
+<link
+  rel="preload"
+  href="/fonts/pixeloid/woff/PixeloidSans.woff"
+  as="font"
+  type="font/woff"
+  crossorigin
+/>
+<link
+  rel="preload"
+  href="/fonts/super-legend-boy/woff/SuperLegendBoy.woff"
+  as="font"
+  type="font/woff"
+  crossorigin
+/>
+
+<!-- Canonical URL -->
+<link rel="canonical" href={canonicalURL} />
+
+<!-- Primary Meta Tags -->
+<!-- For the home page, just show the site title -->
+<title>{title ? `${title} | ${SITE_TITLE}` : SITE_TITLE}</title>
+<meta name="title" content={title} />
+<meta name="description" content={description} />
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content={Astro.url} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={new URL(image, Astro.url)} />
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:url" content={Astro.url} />
+<meta property="twitter:title" content={title} />
+<meta property="twitter:description" content={description} />
+<meta property="twitter:image" content={new URL(image, Astro.url)} />
+
+<style lang="scss">
+  // Adapted from lenpaul's academic theme's sass
+  // https://github.com/LeNPaul/academic/blob/gh-pages/_sass/main.scss
+  @import "../styles/common.scss";
+
+  // Stuff common to all themes
+  @mixin themeCommon {
+    --light-bg: #fdfdff;
+    --dark-bg: #0f0f23;
+    --ugly-fg: #ed7797;
+
+    --divider-color: var(--fg-color);
+    --logo-text-bg: var(--bg-color);
+  }
+
+  @mixin lightCommon {
+    @include themeCommon();
+    --fg-color: var(--dark-color);
+    --bg-color: var(--light-color);
+
+    --logo-path: #23324e;
+    --logo-text: #ca3148;
+
+    color-scheme: light;
+  }
+
+  @mixin darkCommon {
+    @include themeCommon();
+    --fg-color: var(--light-color);
+    --bg-color: var(--dark-color);
+
+    --logo-path: #ff7af6;
+    --logo-text: #fa0d64;
+    --logo-text-bg: var(--bg-color);
+
+    color-scheme: dark;
+  }
+
+  @mixin lightRegular {
+    @include lightCommon();
+    --light-color: var(--light-bg);
+    --dark-color: #3d3b49;
+    --bg-hoverable: #00000004;
+    --bg-hover: #0000000a;
+    --bg-selected: #00a6ff1c;
+    --bg-selected-hover: #00a6ff37;
+    --highlight-color: #22a887;
+    --link-color: #229a7c;
+    --link-color-visited: #0b7057;
+    --button-border-unselected: #6d6d6d77;
+    --button-border-hover: #0000001e;
+
+    --timeline-color: #d96404;
+  }
+
+  :global(.theme-light) {
+    @include lightRegular();
+  }
+
+  :global(.theme-dark) {
+    @include darkCommon();
+
+    --light-color: #ddddd7;
+    --dark-color: var(--dark-bg);
+    --fg-color: var(--light-color);
+    --bg-color: var(--dark-bg);
+    --bg-hoverable: #42424a;
+    --bg-hover: #323234;
+    --bg-selected: #00a6ff1c;
+    --bg-selected-hover: #00a6ff37;
+    --link-color: #229a7c;
+    --link-color-visited: #0e8b6c;
+    --button-border-unselected: #d6d6d6;
+    --button-border-hover: #858585;
+
+    --logo-path: #ff7af6;
+    --logo-text: #fa0d64;
+
+    --timeline-color: #d35901;
+  }
+
+  :global(.theme-ugly) {
+    @include lightRegular();
+
+    --fg-color: var(--ugly-fg);
+    --bg-color: #fdfdff;
+    --divider-color: #273146;
+
+    --logo-path: #23324e;
+    --logo-text: #ca3148;
+
+    --timeline-color: #273146;
+  }
+</style>

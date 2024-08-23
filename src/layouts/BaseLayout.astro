@@ -1,0 +1,96 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import Footer from "../components/Footer.astro";
+import HomeLink from "../components/header/HomeLink.astro";
+import LaptopHeader from "../components/header/LaptopHeader.astro";
+import MobileHeader from "../components/header/MobileHeader.astro";
+
+const { frontmatter } = Astro.props;
+let { title } = Astro.props;
+// If a title wasn't explicitly passed in, get it from the frontmatter
+if (!title && frontmatter && "title" in frontmatter) {
+  title = frontmatter.title;
+}
+// The home page will have no extra title
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead title={title} />
+  </head>
+  <body>
+    <header>
+      <HomeLink />
+      <MobileHeader />
+      <LaptopHeader />
+    </header>
+    <main>
+      {title && <h1>{title}</h1>}
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>
+
+<style lang="scss">
+  @import "../styles/common.scss";
+
+  :global(body) {
+    color: var(--fg-color);
+    background: var(--bg-color);
+    font-family: Roboto, Consolas, sans-serif;
+    margin: 0 auto;
+    padding-top: 1rem;
+    min-height: 1vh;
+
+    // Padding for very small screens (phones in portrait orientation)
+    padding-left: 5vw;
+    padding-right: 5vw;
+
+    @media (min-width: $laptopMinWidth) {
+      padding-left: 10vw;
+      padding-right: 10vw;
+    }
+
+    @media (min-width: $bigLaptopWidth) {
+      padding-left: 15vw;
+      padding-right: 15vw;
+    }
+  }
+
+  :global(body > div) {
+    // The flexing is so the footer stays at the bottom
+    display: flex;
+    flex-direction: column;
+    min-height: 90vh;
+  }
+
+  :global(body a) {
+    color: var(--link-color);
+
+    &:hover {
+      color: var(--link-color);
+    }
+
+    &:visited {
+      color: var(--link-color-visited);
+    }
+  }
+
+  :global(p) {
+    font-size: large;
+  }
+
+  // Header stuff
+  header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-bottom: solid;
+    border-color: var(--divider-color);
+    padding-bottom: 0.75rem;
+    margin-bottom: 1.5rem;
+    gap: 1.7rem;
+  }
+</style>

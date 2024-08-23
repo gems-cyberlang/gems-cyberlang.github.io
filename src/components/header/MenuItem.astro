@@ -1,0 +1,60 @@
+---
+import HeaderLink from "./HeaderLink.astro";
+
+interface Props {
+  link: string;
+  name: string;
+  leetName: string;
+}
+
+const { link, name, leetName } = Astro.props;
+---
+
+<HeaderLink link={link} title={name}>
+  <span class="item" class:list={[{ selected: Astro.url.pathname == link }]}>
+    {leetName}
+  </span>
+</HeaderLink>
+
+<style>
+  .item {
+    font-family: "PixeloidMono";
+    font-size: larger;
+
+    display: inline-block;
+    position: relative;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+
+    font-weight: 200;
+    text-decoration: none;
+  }
+  .item::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    background-color: var(--highlight-color);
+
+    height: 2px;
+    transform: scaleX(0);
+    transform-origin: bottom center;
+    transition: transform 0.3s ease-out;
+  }
+  .item:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom center;
+  }
+
+  .item.selected {
+    font-weight: 900;
+  }
+  .item.selected::after {
+    height: 3px;
+    transform: scaleX(1);
+  }
+  .item.selected:hover::after {
+    transform: none;
+  }
+</style>
