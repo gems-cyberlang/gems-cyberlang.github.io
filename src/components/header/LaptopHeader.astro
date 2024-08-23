@@ -1,13 +1,11 @@
 ---
 import { PAGES, SOCIAL_MEDIA_ICONS } from "../../consts";
 import HeaderLink from "./HeaderLink.astro";
-import HomeLink from "./HomeLink.astro";
 import MenuItem from "./MenuItem.astro";
 import ThemeDropdown from "./ThemeDropdown.astro";
 ---
 
-<header>
-  <HomeLink />
+<div id="laptop-header" class="header">
   <nav class="menu">
     {PAGES.map((page) => <MenuItem {...page} />)}
   </nav>
@@ -22,20 +20,23 @@ import ThemeDropdown from "./ThemeDropdown.astro";
   </div>
 
   <ThemeDropdown />
-</header>
+</div>
 
 <style lang="scss">
   @import "../../styles/common.scss";
 
-  :global(header) {
+  #laptop-header {
     display: flex;
+    margin-left: auto;
     flex-direction: row;
     align-items: center;
-    border-bottom: solid;
-    border-color: var(--divider-color);
-    padding-bottom: 0.75rem;
-    margin-bottom: 1.5rem;
     gap: 1.7rem;
+  }
+
+  @media (max-width: ($tabletMinWidth - 1)) {
+    #laptop-header {
+      display: none;
+    }
   }
 
   .menu {

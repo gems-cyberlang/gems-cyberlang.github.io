@@ -20,6 +20,12 @@ const {
 } = Astro.props;
 ---
 
+<script>
+  import { loadTheme } from "../theme";
+
+  loadTheme();
+</script>
+
 <!-- Global Metadata -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -97,8 +103,97 @@ const {
 <meta property="twitter:description" content={description} />
 <meta property="twitter:image" content={new URL(image, Astro.url)} />
 
-<script>
-  import { loadTheme } from "../theme";
+<style lang="scss">
+  // Adapted from lenpaul's academic theme's sass
+  // https://github.com/LeNPaul/academic/blob/gh-pages/_sass/main.scss
+  @import "../styles/common.scss";
 
-  loadTheme();
-</script>
+  // Stuff common to all themes
+  @mixin themeCommon {
+    --light-bg: #fdfdff;
+    --dark-bg: #0f0f23;
+    --ugly-fg: #ed7797;
+
+    --divider-color: var(--fg-color);
+    --logo-text-bg: var(--bg-color);
+  }
+
+  @mixin lightCommon {
+    @include themeCommon();
+    --fg-color: var(--dark-color);
+    --bg-color: var(--light-color);
+
+    --logo-path: #23324e;
+    --logo-text: #ca3148;
+
+    color-scheme: light;
+  }
+
+  @mixin darkCommon {
+    @include themeCommon();
+    --fg-color: var(--light-color);
+    --bg-color: var(--dark-color);
+
+    --logo-path: #ff7af6;
+    --logo-text: #fa0d64;
+    --logo-text-bg: var(--bg-color);
+
+    color-scheme: dark;
+  }
+
+  @mixin lightRegular {
+    @include lightCommon();
+    --light-color: var(--light-bg);
+    --dark-color: #3d3b49;
+    --bg-hoverable: #00000004;
+    --bg-hover: #0000000a;
+    --bg-selected: #00a6ff1c;
+    --bg-selected-hover: #00a6ff37;
+    --highlight-color: #22a887;
+    --link-color: #229a7c;
+    --link-color-visited: #0b7057;
+    --button-border-unselected: #6d6d6d77;
+    --button-border-hover: #0000001e;
+
+    --timeline-color: #d96404;
+  }
+
+  :global(.theme-light) {
+    @include lightRegular();
+  }
+
+  :global(.theme-dark) {
+    @include darkCommon();
+
+    --light-color: #ddddd7;
+    --dark-color: var(--dark-bg);
+    --fg-color: var(--light-color);
+    --bg-color: var(--dark-bg);
+    --bg-hoverable: #42424a;
+    --bg-hover: #323234;
+    --bg-selected: #00a6ff1c;
+    --bg-selected-hover: #00a6ff37;
+    --link-color: #229a7c;
+    --link-color-visited: #0e8b6c;
+    --button-border-unselected: #d6d6d6;
+    --button-border-hover: #858585;
+
+    --logo-path: #ff7af6;
+    --logo-text: #fa0d64;
+
+    --timeline-color: #d35901;
+  }
+
+  :global(.theme-ugly) {
+    @include lightRegular();
+
+    --fg-color: var(--ugly-fg);
+    --bg-color: #fdfdff;
+    --divider-color: #273146;
+
+    --logo-path: #23324e;
+    --logo-text: #ca3148;
+
+    --timeline-color: #273146;
+  }
+</style>

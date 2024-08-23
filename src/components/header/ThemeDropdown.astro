@@ -13,15 +13,15 @@
       <i class="fa-solid fa-circle-half-stroke system-theme-icon"></i>
       Sync with system
     </div>
-    <div class="theme-option" theme="theme-light">
+    <div class="theme-option" x-theme="theme-light">
       <i class="fa-solid fa-circle light-theme-icon"></i>
       Light
     </div>
-    <div class="theme-option" theme="theme-dark">
+    <div class="theme-option" x-theme="theme-dark">
       <i class="fa-solid fa-circle dark-theme-icon"></i>
       Dark
     </div>
-    <div class="theme-option" theme="theme-ugly">
+    <div class="theme-option" x-theme="theme-ugly">
       <i class="fa-solid fa-circle ugly-theme-icon"></i>
       Ugly
     </div>
@@ -35,7 +35,7 @@
   const buttons = document.getElementsByClassName("theme-option");
   for (const button of buttons) {
     button.addEventListener("click", () => {
-      setTheme(button.getAttribute("theme"));
+      setTheme(button.getAttribute("x-theme"));
     });
   }
 </script>

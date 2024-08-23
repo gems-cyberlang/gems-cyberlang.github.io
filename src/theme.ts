@@ -37,15 +37,6 @@ function getSystemTheme() {
   }
 }
 
-function getTheme() {
-  const stored = localStorage.getItem(themeKey);
-  if (stored !== null) {
-    return stored;
-  } else {
-    return getSystemTheme();
-  }
-}
-
 export function setTheme(theme: string | null) {
   if (theme === null) {
     document.body.className = getSystemTheme();
