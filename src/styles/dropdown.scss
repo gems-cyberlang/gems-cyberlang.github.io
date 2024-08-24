@@ -1,6 +1,6 @@
 @mixin dropdown-options-open {
   max-height: 100vh;
-  transition: max-height 1s ease-in;
+  transition: max-height 0.5s;
 }
 
 .dropdown {
@@ -12,9 +12,10 @@
     position: absolute;
     right: 0;
 
+    height: fit-content;
     overflow: hidden;
     max-height: 0vh;
-    transition: max-height 0.75s ease-out;
+    transition: max-height 0.5s;
 
     .dropdown-option {
       cursor: pointer;
@@ -24,6 +25,12 @@
   }
 
   &:hover {
+    .dropdown-options {
+      @include dropdown-options-open();
+    }
+  }
+  
+  &.active {
     .dropdown-options {
       @include dropdown-options-open();
     }

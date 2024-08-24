@@ -1,48 +1,42 @@
 ---
-
+import { themes } from "../../../theme";
 ---
 
 <!-- TODO add aria attributes? I assume changing the theme *probably* won't be too useful
   if you're using assistive technologies so not a huge priority -->
-<div class="dropdown">
+<div id="theme-dropdown" class="dropdown">
   <div class="dropdown-display">
     Theme
     <i id="theme-dropdown-arrow" class="fa-solid fa-chevron-down"></i>
   </div>
   <div class="dropdown-options">
-    <div class="dropdown-option theme-option">
-      <i class="fa-solid fa-circle-half-stroke system-theme-icon"></i>
-      Sync with system
-    </div>
-    <div class="dropdown-option theme-option" x-theme="theme-light">
-      <i class="fa-solid fa-circle light-theme-icon"></i>
-      Light
-    </div>
-    <div class="dropdown-option theme-option" x-theme="theme-dark">
-      <i class="fa-solid fa-circle dark-theme-icon"></i>
-      Dark
-    </div>
-    <div class="dropdown-option theme-option" x-theme="theme-ugly">
-      <i class="fa-solid fa-circle ugly-theme-icon"></i>
-      Ugly
-    </div>
+    {
+      themes.map(({ name, theme, faClass, iconClass }) => (
+        <div class="dropdown-option theme-option" x-theme={theme}>
+          <i class={`${faClass} ${iconClass}`} />
+          {name}
+        </div>
+      ))
+    }
   </div>
 </div>
 
 <script>
-  import { setTheme } from "../../theme";
+  import { getStoredTheme, setTheme } from "../../../theme";
 
-  const buttons = document.getElementsByClassName("theme-option");
+  const themeDropdown = document.getElementById("theme-dropdown")!;
+  const buttons = themeDropdown.getElementsByClassName("theme-option");
   for (const button of buttons) {
-    button.addEventListener("click", () => {
-      setTheme(button.getAttribute("x-theme"));
-    });
+    const themeName = button.getAttribute("x-theme");
+    button.addEventListener("click", () => setTheme(themeName));
   }
+
+  setTheme(getStoredTheme());
 </script>
 
 <style lang="scss">
-  @import "../../styles/common.scss";
-  @import "../../styles/dropdown.scss";
+  @import "../../../styles/common.scss";
+  @import "../../../styles/dropdown.scss";
 
   .dropdown {
     .dropdown-display {

@@ -1,13 +1,33 @@
 ---
-
+import { PAGES } from "../../../consts";
 ---
 
 <div id="mobile-header" class="header">
-  <i class="burger fa-solid fa-bars"></i>
+  <div id="mobile-nav-dropdown" class="dropdown">
+    <i id="burger-menu-icon" class="fa-solid fa-bars"></i>
+    <nav class="dropdown-options">
+      {
+        PAGES.map(({ link, name, leetName }) => (
+          <a class:list="dropdown-option" href={link} title={name}>
+            {leetName}
+          </a>
+        ))
+      }
+    </nav>
+  </div>
 </div>
+
+<script>
+  const dropdown = document.getElementById("mobile-nav-dropdown")!;
+  const burgerIcon = document.getElementById("burger-menu-icon")!;
+  burgerIcon.addEventListener("click", () =>
+    dropdown.classList.toggle("active")
+  );
+</script>
 
 <style lang="scss">
   @import "../../../styles/common.scss";
+  @import "../../../styles/dropdown.scss";
 
   @media (min-width: $tabletMinWidth) {
     #mobile-header {
@@ -17,5 +37,9 @@
 
   #mobile-header {
     margin-left: auto;
+  }
+
+  .dropdown-options {
+    background-color: var(--bg-hoverable);
   }
 </style>

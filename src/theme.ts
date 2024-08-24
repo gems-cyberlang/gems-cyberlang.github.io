@@ -25,7 +25,34 @@ const cssVars = [
   "--logo-text-bg",
 ];
 
-function getStoredTheme() {
+export const themes = [
+  {
+    name: "Sync with system",
+    theme: null,
+    faClass: "fa-solid fa-circle-half-stroke",
+    iconClass: "system-theme-icon",
+  },
+  {
+    name: "Light",
+    theme: "theme-light",
+    faClass: "fa-solid fa-circle",
+    iconClass: "light-theme-icon",
+  },
+  {
+    name: "Dark",
+    theme: "theme-dark",
+    faClass: "fa-solid fa-circle",
+    iconClass: "dark-theme-icon",
+  },
+  {
+    name: "Ugly",
+    theme: "theme-ugly",
+    faClass: "fa-solid fa-circle",
+    iconClass: "ugly-theme-icon",
+  },
+];
+
+export function getStoredTheme() {
   return localStorage.getItem(themeKey);
 }
 
@@ -50,11 +77,12 @@ export function setTheme(theme: string | null) {
     localStorage.setItem(varName, style.getPropertyValue(varName));
   }
 
+  // This should go in the theme dropdown component, not here
   for (const elem of document.getElementsByClassName("theme-option")) {
-    const themeAttr = elem.attributes.getNamedItem("theme");
+    const themeAttr = elem.getAttribute("x-theme");
     if (themeAttr === null && theme === null) {
       elem.classList.add("selected");
-    } else if (themeAttr !== null && themeAttr.value === theme) {
+    } else if (themeAttr !== null && themeAttr === theme) {
       elem.classList.add("selected");
     } else {
       elem.classList.remove("selected");
