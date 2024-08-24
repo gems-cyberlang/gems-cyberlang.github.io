@@ -9,10 +9,10 @@ import { themes } from "../../../theme";
     Theme
     <i id="theme-dropdown-arrow" class="fa-solid fa-chevron-down"></i>
   </div>
-  <div class="dropdown-options">
+  <div class="dropdown-items">
     {
       themes.map(({ name, theme, faClass, iconClass }) => (
-        <div class="dropdown-option theme-option" x-theme={theme}>
+        <div class="dropdown-item theme-option" x-theme={theme}>
           <i class={`${faClass} ${iconClass}`} />
           {name}
         </div>
@@ -50,12 +50,12 @@ import { themes } from "../../../theme";
       @include button-hover();
     }
 
-    .dropdown-options {
+    .dropdown-items {
       background-color: var(--bg-color);
       border-radius: 8px;
       margin-top: 0.5rem;
 
-      .dropdown-option {
+      .dropdown-item {
         background-color: var(--bg-hoverable);
         padding: 0.3rem 0.5rem;
         transition: background-color 0.3s;

@@ -1,28 +1,47 @@
 ---
 import { PAGES } from "../../../consts";
+import { themes } from "../../../theme";
 ---
 
 <div id="mobile-header" class="header">
   <div id="mobile-nav-dropdown" class="dropdown">
     <i id="burger-menu-icon" class="fa-solid fa-bars"></i>
-    <nav class="dropdown-options">
-      {
-        PAGES.map(({ link, name, leetName }) => (
-          <a class:list="dropdown-option" href={link} title={name}>
-            {leetName}
-          </a>
-        ))
-      }
-    </nav>
+    <div class="dropdown-items">
+      <nav class="dropdown-item">
+        {
+          PAGES.map(({ link, name, leetName }) => (
+            <a href={link} title={name}>
+              {leetName}
+            </a>
+          ))
+        }
+      </nav>
+      <div class="dropdown-item">
+        <label for="theme">Theme:</label>
+        <select name="theme" id="theme-select">
+          {
+            themes.map(({ name, theme }) => (
+              <option value={theme}>{name}</option>
+            ))
+          }
+        </select>
+      </div>
+    </div>
   </div>
 </div>
 
 <script>
+  import { setTheme } from "../../../theme";
+
   const dropdown = document.getElementById("mobile-nav-dropdown")!;
   const burgerIcon = document.getElementById("burger-menu-icon")!;
   burgerIcon.addEventListener("click", () =>
     dropdown.classList.toggle("active")
   );
+
+  document.getElementById("theme-select")!.addEventListener("change", (e) => {
+    setTheme(e.currentTarget.value);
+  });
 </script>
 
 <style lang="scss">
@@ -39,7 +58,16 @@ import { PAGES } from "../../../consts";
     margin-left: auto;
   }
 
-  .dropdown-options {
+  .dropdown-items {
+    background-color: var(--bg-color);
+  }
+
+  .dropdown-item {
     background-color: var(--bg-hoverable);
+  }
+
+  nav {
+    display: flex;
+    flex-direction: column;
   }
 </style>

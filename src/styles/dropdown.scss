@@ -1,4 +1,4 @@
-@mixin dropdown-options-open {
+@mixin dropdown-items-open {
   max-height: 100vh;
   transition: max-height 0.5s;
 }
@@ -6,7 +6,7 @@
 .dropdown {
   position: relative;
 
-  .dropdown-options {
+  .dropdown-items {
     display: flex;
     flex-direction: column;
     position: absolute;
@@ -17,7 +17,7 @@
     max-height: 0vh;
     transition: max-height 0.5s;
 
-    .dropdown-option {
+    .dropdown-item {
       cursor: pointer;
       z-index: 1;
       white-space: nowrap;
@@ -25,14 +25,14 @@
   }
 
   &:hover {
-    .dropdown-options {
-      @include dropdown-options-open();
+    .dropdown-items {
+      @include dropdown-items-open();
     }
   }
   
   &.active {
-    .dropdown-options {
-      @include dropdown-options-open();
+    .dropdown-items {
+      @include dropdown-items-open();
     }
   }
 }
