@@ -2,15 +2,16 @@
 import { SITE_TITLE } from "../../consts";
 import HeaderLink from "./HeaderLink.astro";
 import Logo from "../Logo.astro";
-
-
 ---
+
 <HeaderLink link="/" class="site-title-link" title="Home">
   <Logo />
   <span class="site-title">{SITE_TITLE}</span>
 </HeaderLink>
 
-<style>
+<style lang="scss">
+  @import "../../styles/common.scss";
+
   :global(.site-title-link) {
     display: flex;
     align-items: center;
@@ -20,12 +21,12 @@ import Logo from "../Logo.astro";
     cursor: pointer !important;
   }
 
-  :global(.site-title-link > .svg-logo > g) {
+  :global(.site-title-link > svg > g) {
     color: var(--logo-path) !important;
     transition: color 0.5s;
   }
 
-  :global(.site-title-link:hover > .svg-logo > g) {
+  :global(.site-title-link:hover > svg > g) {
     color: var(--link-color) !important;
     transition: color 0.5s;
   }
@@ -33,6 +34,26 @@ import Logo from "../Logo.astro";
   .site-title {
     font-family: "PixeloidMono";
     font-weight: bold;
-    font-size: xx-large;
+  }
+
+  // This is for phones
+  .site-title {
+    font-size: x-large;
+  }
+  :global(.site-title-link > svg) {
+    width: 40px;
+    height: 40px;
+  }
+
+  // For tablets and up
+  @media (min-width: $tabletMinWidth) {
+    .site-title {
+      font-size: xx-large;
+    }
+
+    :global(.site-title-link > svg) {
+      width: 70px;
+      height: 70px;
+    }
   }
 </style>

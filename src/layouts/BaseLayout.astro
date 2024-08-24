@@ -2,8 +2,8 @@
 import BaseHead from "../components/BaseHead.astro";
 import Footer from "../components/Footer.astro";
 import HomeLink from "../components/header/HomeLink.astro";
-import LaptopHeader from "../components/header/LaptopHeader.astro";
-import MobileHeader from "../components/header/MobileHeader.astro";
+import TabletHeader from "../components/header/tablet/Menu.astro";
+import MobileHeader from "../components/header/mobile/Menu.astro";
 
 const { frontmatter } = Astro.props;
 let { title } = Astro.props;
@@ -23,7 +23,7 @@ if (!title && frontmatter && "title" in frontmatter) {
     <header>
       <HomeLink />
       <MobileHeader />
-      <LaptopHeader />
+      <TabletHeader />
     </header>
     <main>
       {title && <h1>{title}</h1>}

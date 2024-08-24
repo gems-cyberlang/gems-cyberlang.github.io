@@ -1,0 +1,31 @@
+@mixin dropdown-options-open {
+  max-height: 100vh;
+  transition: max-height 1s ease-in;
+}
+
+.dropdown {
+  position: relative;
+
+  .dropdown-options {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    right: 0;
+
+    overflow: hidden;
+    max-height: 0vh;
+    transition: max-height 0.75s ease-out;
+
+    .dropdown-option {
+      cursor: pointer;
+      z-index: 1;
+      white-space: nowrap;
+    }
+  }
+
+  &:hover {
+    .dropdown-options {
+      @include dropdown-options-open();
+    }
+  }
+}

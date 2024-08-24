@@ -1,33 +1,33 @@
 ---
+
 ---
 
 <!-- TODO add aria attributes? I assume changing the theme *probably* won't be too useful
   if you're using assistive technologies so not a huge priority -->
-<div id="theme-dropdown">
-  <div id="theme-display">
+<div class="dropdown">
+  <div class="dropdown-display">
     Theme
     <i id="theme-dropdown-arrow" class="fa-solid fa-chevron-down"></i>
   </div>
-  <div id="theme-options">
-    <div class="theme-option">
+  <div class="dropdown-options">
+    <div class="dropdown-option theme-option">
       <i class="fa-solid fa-circle-half-stroke system-theme-icon"></i>
       Sync with system
     </div>
-    <div class="theme-option" x-theme="theme-light">
+    <div class="dropdown-option theme-option" x-theme="theme-light">
       <i class="fa-solid fa-circle light-theme-icon"></i>
       Light
     </div>
-    <div class="theme-option" x-theme="theme-dark">
+    <div class="dropdown-option theme-option" x-theme="theme-dark">
       <i class="fa-solid fa-circle dark-theme-icon"></i>
       Dark
     </div>
-    <div class="theme-option" x-theme="theme-ugly">
+    <div class="dropdown-option theme-option" x-theme="theme-ugly">
       <i class="fa-solid fa-circle ugly-theme-icon"></i>
       Ugly
     </div>
   </div>
 </div>
-
 
 <script>
   import { setTheme } from "../../theme";
@@ -42,45 +42,28 @@
 
 <style lang="scss">
   @import "../../styles/common.scss";
+  @import "../../styles/dropdown.scss";
 
-  #theme-dropdown {
-    display: inline-block;
-    position: relative;
-
-    #theme-display {
+  .dropdown {
+    .dropdown-display {
       @include button-unselected();
       white-space: nowrap;
-
       cursor: default;
-
       padding: 0.2rem 0.4rem;
     }
 
-    &:hover > #theme-display {
+    &:hover > .dropdown-display {
       @include button-hover();
     }
 
-    #theme-options {
-      display: flex;
-      flex-direction: column;
-      position: absolute;
-      right: 0;
+    .dropdown-options {
       background-color: var(--bg-color);
       border-radius: 8px;
       margin-top: 0.5rem;
 
-      // TODO this wipe is pretty janky
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.5s;
-
-      .theme-option {
-        // display: none;
-        cursor: pointer;
-        z-index: 1;
+      .dropdown-option {
         background-color: var(--bg-hoverable);
         padding: 0.3rem 0.5rem;
-        white-space: nowrap;
         transition: background-color 0.3s;
 
         &:hover {
@@ -104,11 +87,6 @@
     }
 
     &:hover {
-      #theme-options {
-        max-height: 200px;
-        transition: max-height 0.5s;
-      }
-
       #theme-dropdown-arrow {
         transform: rotate(180deg);
         transition: transform 0.5s;
