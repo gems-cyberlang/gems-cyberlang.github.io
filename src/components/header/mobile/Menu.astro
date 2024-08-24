@@ -39,7 +39,7 @@ import { themes } from "../../../theme";
     dropdown.classList.toggle("active")
   );
 
-  document.getElementById("theme-select")!.addEventListener("change", (e) => {
+  document.getElementById("theme-select")!.addEventListener("change", (e: any) => {
     setTheme(e.currentTarget.value);
   });
 </script>
