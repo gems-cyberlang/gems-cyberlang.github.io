@@ -1,10 +1,11 @@
 ---
-import BaseLayout from "./BaseLayout.astro";
-
-const { frontmatter } = Astro.props;
+const { title } = Astro.props;
 ---
 
-<BaseLayout title={frontmatter.title}><slot /></BaseLayout>
+<div>
+  <h2>{title}</h2>
+  <slot />
+</div>
 
 <style lang="scss">
   $dotSize: 12px;
@@ -12,15 +13,7 @@ const { frontmatter } = Astro.props;
   $col-gap: 1rem;
   $borderWidth: 4px;
 
-  :global(.timeline) {
-    display: flex;
-    flex-direction: column;
-    position: relative;
-
-    width: 100%;
-  }
-
-  :global(.timeline-item) {
+  div {
     display: block;
     position: relative;
     min-width: 50%;
@@ -44,7 +37,7 @@ const { frontmatter } = Astro.props;
     background-color: var(--bg-color);
   }
 
-  :global(.timeline-item:nth-child(odd)) {
+  div:nth-child(odd) {
     text-align: right;
     margin-left: 0;
     margin-right: auto;
@@ -58,7 +51,7 @@ const { frontmatter } = Astro.props;
     }
   }
 
-  :global(.timeline-item:nth-child(even)) {
+  div:nth-child(even) {
     text-align: left;
     margin-left: auto;
     margin-right: 0;
@@ -72,8 +65,8 @@ const { frontmatter } = Astro.props;
     }
   }
 
-  .timeline-item > h2 {
+  h2 {
     font-weight: 600;
-    font-size: large;
+    font-size: 1.7rem;
   }
 </style>

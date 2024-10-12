@@ -1,44 +1,39 @@
 ---
-layout: ../layouts/TimelineLayout.astro
 title: Timeline
+layout: ../layouts/BaseLayout.astro
 ---
+import Timeline from "../components/timeline/Timeline.astro"
+import TimelineItem from "../components/timeline/TimelineItem.astro"
+import { Files } from "../consts"
 
 Gemstone is a 4-year program, so we plan to finish our research by spring 2026.
 Below is a rough expected timeline of our research.
 
-todo make cards with multiple bullet points per semester instead?
+{/* todo make cards with multiple bullet points per semester instead? */}
 
-<div class="timeline">
-  <div class="timeline-item">
-    <h2>December 2023</h2>
-    Proposal draft (todo upload our proposal draft and link to it?)
-  </div>
-  <div class="timeline-item">
-    <h2>February 2024</h2>
-    Proposal defense
-  </div>
-  <div class="timeline-item">
-    <h2>Fall 2024</h2>
+<Timeline>
+  <TimelineItem title="December 2023">
+    Proposal draft
+  </TimelineItem>
+  <TimelineItem title="February 2024">
+    Proposal defense. Our proposal is <a href={Files.Proposal}>here</a>.
+  </TimelineItem>
+  <TimelineItem title="Fall 2024">
     Data collection
-  </div>
-  <div class="timeline-item">
-    <h2>Spring 2025</h2>
+  </TimelineItem>
+  <TimelineItem title="Spring 2025">
     Data analysis
-  </div>
-  <div class="timeline-item">
-    <h2>Late Spring 2025</h2>
+  </TimelineItem>
+  <TimelineItem title="Late Spring 2025">
     Start thesis
-  </div>
-  <div class="timeline-item">
-    <h2>Fall 2025</h2>
+  </TimelineItem>
+  <TimelineItem title="Fall 2025">
     Finish thesis
-  </div>
-  <div class="timeline-item">
-    <h2>Late Fall 2025</h2>
+  </TimelineItem>
+  <TimelineItem title="Late Fall 2025">
     Publish thesis and apply to conferences
-  </div>
-  <div class="timeline-item">
-    <h2>May 2026</h2>
+  </TimelineItem>
+  <TimelineItem title="Spring 2026">
     Gemstone thesis conference
-  </div>
-</div>
+  </TimelineItem>
+</Timeline>

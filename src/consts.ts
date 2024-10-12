@@ -27,6 +27,8 @@ interface SocialMediaLink {
   footerText: string;
 }
 
+export const RSS_LINK = "/feed.xml";
+
 export const SOCIAL_MEDIA_LINKS: SocialMediaLink[] = [
   {
     faClass: "fab fa-github",
@@ -42,8 +44,15 @@ export const SOCIAL_MEDIA_LINKS: SocialMediaLink[] = [
   },
   {
     faClass: "fa-solid fa-rss",
-    link: "/feed.xml",
+    link: RSS_LINK,
     hoverText: "RSS feed for our blog",
     footerText: "RSS feed",
   },
 ];
+
+export const Files = {
+  /**
+   * The Spring 2023 paper (the one we defended)
+   */
+  Proposal: "/files/Proposal.pdf",
+};
