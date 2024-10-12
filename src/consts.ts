@@ -26,7 +26,7 @@ export const SOCIAL_MEDIA_ICONS = [
   },
   {
     faClass: "fa-solid fa-rss",
-    link: "/index.xml",
+    link: "/feed.xml",
     title: "RSS feed",
   },
 ];

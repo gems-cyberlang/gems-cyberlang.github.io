@@ -2,9 +2,19 @@
 layout: ../layouts/BaseLayout.astro
 title: About
 ---
+import Member from "../components/about/Member.astro"
+import Members from "../components/about/Members.astro"
 
 Team CYB3RL4NG is a class of 2026 Gemstone team at the University of Maryland.
 
 ## Members
 
-Coming soon
+<Members>
+  <Member name="Oliver D'Esposito" position="Financial Liaison" />
+  <Member name="Tzipporah Harker" position="Mentor Liaison" />
+  <Member name="Dr. Erik Nesse" position="Mentor" />
+  <Member name="Terranova Oh" position="Team Liaison" />
+  <Member name="Akhilesh Puranam" position="Web Liaison" />
+  <Member name="Yash Thakur" position="Web Liaison" />
+  <Member name="Nevenka Zdravkovska" position="Librarian" />
+</Members>

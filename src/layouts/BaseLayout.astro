@@ -26,7 +26,6 @@ if (!title && frontmatter && "title" in frontmatter) {
       <TabletHeader />
     </header>
     <main>
-      {title && <h1>{title}</h1>}
       <slot />
     </main>
     <Footer />
@@ -41,9 +40,37 @@ if (!title && frontmatter && "title" in frontmatter) {
     background: var(--bg-color);
     font-family: Roboto, Consolas, sans-serif;
     margin: 0 auto;
-    padding-top: 1rem;
     min-height: 1vh;
+  }
 
+  body > header {
+    // Padding for very small screens (phones in portrait orientation)
+    padding-left: 5vw;
+    padding-right: 5vw;
+
+    @media (min-width: $laptopMinWidth) {
+      padding-left: 4vw;
+      padding-right: 4vw;
+    }
+  }
+
+  body > main {
+    // Padding for very small screens (phones in portrait orientation)
+    padding-left: 5vw;
+    padding-right: 5vw;
+
+    @media (min-width: $laptopMinWidth) {
+      padding-left: 10vw;
+      padding-right: 10vw;
+    }
+
+    @media (min-width: $bigLaptopWidth) {
+      padding-left: 15vw;
+      padding-right: 15vw;
+    }
+  }
+
+  :global(body > footer) {
     // Padding for very small screens (phones in portrait orientation)
     padding-left: 5vw;
     padding-right: 5vw;
@@ -88,8 +115,9 @@ if (!title && frontmatter && "title" in frontmatter) {
     flex-direction: row;
     align-items: center;
     border-bottom: solid;
-    border-color: var(--divider-color);
-    padding-bottom: 0.75rem;
+    border-color: var(--divider-color); // Divider between header and content
+    padding-top: 0.7rem;
+    padding-bottom: 0.7rem;
     margin-bottom: 1.5rem;
     gap: 1.7rem;
   }

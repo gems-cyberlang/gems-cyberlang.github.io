@@ -1,8 +1,9 @@
 ---
 layout: ../layouts/BaseLayout.astro
 ---
+import Sponsor from "../components/index/Sponsor.astro";
 
-Team CYB3RL4NG is an undergraduate research team that is part of the Gemstone Program at the University of Maryland.
+Team CYB3RL4NG is an undergraduate research team that is part of the [Gemstone Program](https://gemstone.umd.edu/) at the University of Maryland.
 Our goal is to study semantic bleaching of mental health terms used online.
 
 ## Research Question
@@ -17,50 +18,22 @@ Team CYB3RL4NG aims to explore this concept with mental health terminology coine
 
 We will download comments from Reddit and use embeddings and co-word analysis to study semantic bleaching.
 
-## Funding
+{/* ## Funding
 
-Fund us from our [LaunchUMD page](/ "todo put the link here")!
+Fund us from our [LaunchUMD page](https://launch.umd.edu/project/40208)!
+*/}
 
-### Sponsors
+## Sponsors
 
-Sample logo:
+If you sponsor us, we can advertise you here. Be the first here!
 
-<div>
-  <a href="https://example.com/">
-    <img
-      src="/img/sample-logo.png"
-      alt="Sample logo"
-      height="200"
-      style="border-radius: 100px 80px 110px 90px"
-    />
-  </a>
-</div>
-
-<br></br>
-<br></br>
-
-{/* Should write
-
-Gemstone (gemstone logo)
-OR
-Be the first here!
-
-?
-
-todo thank the Drs.L too? Maybe email */}
-
-The primary web liaison for our team is Akhilesh Puranam. Feel free to reach
-out to him about any issues regarding this website.
+We are grateful to the Gemstone program for giving us the opportunity to work on this project.
 
 <div style="display: flex; width: 100%; align-items: center; justify-content: space-around;">
-  <div>
-    <a href="https://gemstone.umd.edu/">
-      <img src="/img/gemstone.png" alt="Gemstone logo" class="gemstone-logo" />
-    </a>
-  </div>
-  <div>
-    <a href="https://honors.umd.edu/">
-      <img src="/img/umdhonors.png" alt="Honors College logo" />
-    </a>
-  </div>
+  <Sponsor name="Gemstone Program" url="https://gemstone.umd.edu/">
+    <img src="/img/gemstone.png" alt="Gemstone logo" />
+  </Sponsor>
+  <Sponsor name="Honors College" url="https://honors.umd.edu/">
+    <img src="/img/umdhonors.png" alt="Honors College logo" />
+  </Sponsor>
 </div>

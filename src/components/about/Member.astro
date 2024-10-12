@@ -1,0 +1,22 @@
+---
+const { name, position } = Astro.props;
+---
+
+<div>
+  <div class="name">{name}</div>
+  <p>{position}</p>
+</div>
+
+<style>
+  div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .name {
+    font-weight: 600;
+    font-size: 1.25rem;
+  }
+</style>

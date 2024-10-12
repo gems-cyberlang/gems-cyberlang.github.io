@@ -8,7 +8,9 @@ const posts = (await getCollection("blog")).sort(
 );
 ---
 
-<BaseLayout>
+<BaseLayout title="Blog">
+  <h1>Blog</h1>
+  <p>This is where we post about our progress and findings. Stay tuned!</p>
   <ul>
     {
       posts.map((post) => (
@@ -42,17 +44,6 @@ const posts = (await getCollection("blog")).sort(
   ul li * {
     text-decoration: none;
     transition: 0.2s ease;
-  }
-  ul li:first-child {
-    width: 100%;
-    margin-bottom: 1rem;
-    text-align: center;
-  }
-  ul li:first-child img {
-    width: 100%;
-  }
-  ul li:first-child .title {
-    font-size: 2.369rem;
   }
   ul li img {
     margin-bottom: 0.5rem;

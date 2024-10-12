@@ -1,0 +1,22 @@
+---
+/**
+ * For a sponsor's logo and image. The slot is where you put the sponsor's logo image
+ */
+
+const { name, url } = Astro.props;
+---
+
+<div>
+  <a href={url}>
+    <slot />
+  </a>
+  {name}
+</div>
+
+<style>
+  div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+</style>
