@@ -1,14 +1,30 @@
 ---
-import { CONTACT_EMAIL, CONTACT_NAME } from "../consts";
+import { CONTACT_EMAIL, CONTACT_NAME, SOCIAL_MEDIA_LINKS } from "../consts";
 ---
 
 <footer>
-  <p class="contact-header">Contact</p>
-  <p class="contact-name">{CONTACT_NAME}</p>
-  <p>Email: <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a></p>
+  <div>
+    <p class="contact-header">Contact</p>
+    <p class="contact-name">{CONTACT_NAME}</p>
+    <p>Email: <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a></p>
+  </div>
+  <div class="social-links">
+    <p class="contact-header">Follow us</p>
+    {
+      SOCIAL_MEDIA_LINKS.map(({ faClass, link, hoverText: footerText }) => (
+        <div>
+          <a href={link}>
+            {footerText}: {" "}<i class={`social-media-icon ${faClass}`} />
+          </a>
+        </div>
+      ))
+    }
+  </div>
 </footer>
 
-<style>
+<style lang="scss">
+  @import "../styles/common.scss";
+
   footer {
     margin-top: 2rem;
     padding-top: 0.8rem;
@@ -16,6 +32,16 @@ import { CONTACT_EMAIL, CONTACT_NAME } from "../consts";
     color: rgba(var(--fg-color), 0.7); /* Mute the text */
     border-top: solid;
     border-color: var(--divider-color); /* Don't mute the border */
+
+    display: flex;
+
+    // For phones, put Contact section above Follow us section
+    flex-direction: column;
+
+    // For laptops, put Contact and Follow us side-by-side
+    @media (min-width: $tabletMinWidth) {
+      flex-direction: row;
+    }
   }
 
   .contact-header {
@@ -24,5 +50,23 @@ import { CONTACT_EMAIL, CONTACT_NAME } from "../consts";
 
   .contact-name {
     margin: 0;
+  }
+
+  .social-links {
+    // For phones, Follow us is below Contact. But for laptops, they're side-by-side,
+    // so the Follow us section needs to be right-aligned
+    @media (min-width: $tabletMinWidth) {
+      margin-left: auto;
+    }
+
+    font-size: 1.1rem;
+
+    a {
+      text-decoration: none !important;
+    }
+  }
+
+  .social-media-icon {
+    font-size: 1.25rem;
   }
 </style>

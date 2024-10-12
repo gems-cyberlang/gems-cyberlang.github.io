@@ -1,5 +1,5 @@
 ---
-import { PAGES, SOCIAL_MEDIA_ICONS } from "../../../consts";
+import { PAGES, SOCIAL_MEDIA_LINKS } from "../../../consts";
 import HeaderLink from "../HeaderLink.astro";
 import MenuItem from "./MenuItem.astro";
 import ThemeDropdown from "./ThemeDropdown.astro";
@@ -11,8 +11,8 @@ import ThemeDropdown from "./ThemeDropdown.astro";
   </nav>
   <div class="text-start social-media-icons">
     {
-      SOCIAL_MEDIA_ICONS.map(({ faClass, link, title }) => (
-        <HeaderLink link={link} title={title}>
+      SOCIAL_MEDIA_LINKS.map(({ faClass, link, hoverText }) => (
+        <HeaderLink link={link} title={hoverText}>
           <i class={`social-media-icon ${faClass}`} />
         </HeaderLink>
       ))

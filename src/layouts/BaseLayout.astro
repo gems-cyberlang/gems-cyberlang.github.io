@@ -75,14 +75,19 @@ if (!title && frontmatter && "title" in frontmatter) {
     padding-left: 5vw;
     padding-right: 5vw;
 
+    @media (min-width: $tabletMinWidth) {
+      padding-left: 12vw;
+      padding-right: 12vw;
+    }
+
     @media (min-width: $laptopMinWidth) {
-      padding-left: 10vw;
-      padding-right: 10vw;
+      padding-left: 15vw;
+      padding-right: 15vw;
     }
 
     @media (min-width: $bigLaptopWidth) {
-      padding-left: 15vw;
-      padding-right: 15vw;
+      padding-left: 24vw;
+      padding-right: 24vw;
     }
   }
 

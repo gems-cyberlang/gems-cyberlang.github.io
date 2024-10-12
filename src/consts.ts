@@ -13,20 +13,37 @@ export const PAGES = [
   { link: "/blog", name: "Blog", leetName: "B10G" },
 ] as const;
 
-export const SOCIAL_MEDIA_ICONS = [
+interface SocialMediaLink {
+  /**
+   * FontAwesome classes to use for the icon
+   */
+  faClass: string;
+  link: string;
+  hoverText: string;
+  /**
+   * Text to use when displaying in the footer. This is different from the
+   * hovertext because the hovertext can be more descriptive.
+   */
+  footerText: string;
+}
+
+export const SOCIAL_MEDIA_LINKS: SocialMediaLink[] = [
   {
     faClass: "fab fa-github",
     link: "https://github.com/gems-cyberlang",
-    title: "CYB3RL4NG's GitHub organization",
+    hoverText: "GitHub organization",
+    footerText: "GitHub",
   },
   {
     faClass: "fab fa-instagram",
     link: "https://instagram.com/cyb3rl4ng",
-    title: "CYB3RL4NG's Instagram",
+    hoverText: "Instagram",
+    footerText: "Instagram",
   },
   {
     faClass: "fa-solid fa-rss",
     link: "/feed.xml",
-    title: "RSS feed",
+    hoverText: "RSS feed for our blog",
+    footerText: "RSS feed",
   },
 ];
