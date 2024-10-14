@@ -8,6 +8,8 @@ const { title } = Astro.props;
 </div>
 
 <style lang="scss">
+  @import "../../styles/common.scss";
+
   $dotSize: 12px;
   $row-gap: 1rem;
   $col-gap: 1rem;
@@ -16,9 +18,12 @@ const { title } = Astro.props;
   div {
     display: block;
     position: relative;
-    min-width: 50%;
-    max-width: 50%;
     padding-top: $row-gap;
+  }
+
+  h2 {
+    font-weight: 600;
+    font-size: 1.7rem;
   }
 
   @mixin timeline-dot {
@@ -37,36 +42,59 @@ const { title } = Astro.props;
     background-color: var(--bg-color);
   }
 
-  div:nth-child(odd) {
-    text-align: right;
-    margin-left: 0;
-    margin-right: auto;
-    padding-right: $col-gap;
+  // Styling for phones: put the line on the left and put all the text on the right
+  @media (max-width: $tabletMinWidth) {
+    div {
+      text-align: left;
+      margin-left: 0.75rem;
+      padding-left: $col-gap;
 
-    border-right: $borderWidth solid var(--timeline-color);
+      box-shadow: -$borderWidth 0px var(--timeline-color);
 
-    &::after {
-      @include timeline-dot();
-      right: -$dotSize;
+      &::before {
+        @include timeline-dot();
+        left: -$dotSize;
+      }
     }
   }
 
-  div:nth-child(even) {
-    text-align: left;
-    margin-left: auto;
-    margin-right: 0;
-    padding-left: $col-gap;
-
-    box-shadow: -$borderWidth 0px var(--timeline-color);
-
-    &::before {
-      @include timeline-dot();
-      left: -$dotSize;
+  // Styling for tablets and bigger screens: put the line in the middle and put the
+  // text on the left and right of the line, alternating
+  @media (min-width: $tabletMinWidth) {
+    div {
+      display: block;
+      position: relative;
+      min-width: 50%;
+      max-width: 50%;
+      padding-top: $row-gap;
     }
-  }
 
-  h2 {
-    font-weight: 600;
-    font-size: 1.7rem;
+    div:nth-child(odd) {
+      text-align: right;
+      margin-left: 0;
+      margin-right: auto;
+      padding-right: $col-gap;
+
+      border-right: $borderWidth solid var(--timeline-color);
+
+      &::after {
+        @include timeline-dot();
+        right: -$dotSize;
+      }
+    }
+
+    div:nth-child(even) {
+      text-align: left;
+      margin-left: auto;
+      margin-right: 0;
+      padding-left: $col-gap;
+
+      box-shadow: -$borderWidth 0px var(--timeline-color);
+
+      &::before {
+        @include timeline-dot();
+        left: -$dotSize;
+      }
+    }
   }
 </style>

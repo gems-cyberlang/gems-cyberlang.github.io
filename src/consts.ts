@@ -4,8 +4,8 @@
 export const SITE_TITLE = "CYB3RL4NG";
 export const SITE_DESCRIPTION = "Website for Team CYB3RL4NG";
 
-export const CONTACT_NAME = "Team Liaison";
-export const CONTACT_EMAIL = "someone@example.com";
+export const CONTACT_NAME = "Terra Oh";
+export const CONTACT_EMAIL = "toh12@terpmail.umd.edu";
 
 export const PAGES = [
   { link: "/about", name: "About", leetName: "AB0UT" },
