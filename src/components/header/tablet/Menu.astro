@@ -3,11 +3,24 @@ import { PAGES, SOCIAL_MEDIA_LINKS } from "../../../consts";
 import HeaderLink from "../HeaderLink.astro";
 import MenuItem from "./MenuItem.astro";
 import ThemeDropdown from "./ThemeDropdown.astro";
+
+interface Props {
+  /**
+   * The title of the current page
+   */
+  title: string;
+  /**
+   * Whether the current page is a blog post
+   */
+  isBlogPost: boolean;
+}
+
+const { title, isBlogPost } = Astro.props;
 ---
 
 <div id="laptop-header" class="header">
   <nav class="menu">
-    {PAGES.map((page) => <MenuItem {...page} />)}
+    {PAGES.map((page) => <MenuItem curr={title} isBlogPost={isBlogPost} {...page} />)}
   </nav>
   <div class="text-start social-media-icons">
     {

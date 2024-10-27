@@ -5,7 +5,13 @@ import HomeLink from "../components/header/HomeLink.astro";
 import TabletHeader from "../components/header/tablet/Menu.astro";
 import MobileHeader from "../components/header/mobile/Menu.astro";
 
-const { frontmatter } = Astro.props;
+interface Props {
+  frontmatter?: { title: string };
+  title: string;
+  isBlogPost: boolean;
+}
+
+const { frontmatter, isBlogPost } = Astro.props;
 let { title } = Astro.props;
 // If a title wasn't explicitly passed in, get it from the frontmatter
 if (!title && frontmatter && "title" in frontmatter) {
@@ -23,7 +29,7 @@ if (!title && frontmatter && "title" in frontmatter) {
     <header>
       <HomeLink />
       <MobileHeader />
-      <TabletHeader />
+      <TabletHeader title={title} isBlogPost={isBlogPost} />
     </header>
     <main>
       <slot />

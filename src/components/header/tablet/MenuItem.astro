@@ -4,16 +4,25 @@
 import HeaderLink from "../HeaderLink.astro";
 
 interface Props {
+  /**
+   * The title of the current page
+   */
+  curr: string;
+  /**
+   * Whether the current page is a blog post
+   */
+  isBlogPost: boolean;
   link: string;
   name: string;
   leetName: string;
 }
 
-const { link, name, leetName } = Astro.props;
+const { curr, isBlogPost, link, name, leetName } = Astro.props;
+const selected = curr === name || (isBlogPost && name === "Blog");
 ---
 
 <HeaderLink link={link} title={name}>
-  <span class="item" class:list={[{ selected: Astro.url.pathname == link }]}>
+  <span class="item" class:list={[{ selected }]}>
     {leetName}
   </span>
 </HeaderLink>
