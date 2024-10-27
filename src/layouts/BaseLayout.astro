@@ -7,13 +7,14 @@ import MobileHeader from "../components/header/mobile/Menu.astro";
 
 interface Props {
   title: string;
-  isBlogPost: boolean;
+  isBlogPost?: boolean;
   frontmatter?: { title: string };
-  description: string;
+  description?: string;
 }
 
-const { frontmatter, isBlogPost } = Astro.props;
-let { title } = Astro.props;
+const { frontmatter} = Astro.props;
+let { title, isBlogPost } = Astro.props;
+isBlogPost = isBlogPost ?? false;
 // If a title wasn't explicitly passed in, get it from the frontmatter
 if (!title && frontmatter && "title" in frontmatter) {
   title = frontmatter.title;

@@ -1,0 +1,20 @@
+---
+interface Props {
+  link: string;
+  name: string;
+  leetName: string;
+}
+
+const { link, name, leetName } = Astro.props;
+---
+
+<a href={link} title={name}>
+  {leetName}
+</a>
+
+<style>
+  :global(a) {
+    font-family: "PixeloidMono";
+    text-decoration: none;
+  }
+</style>

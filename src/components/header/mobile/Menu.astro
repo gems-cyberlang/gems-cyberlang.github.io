@@ -1,6 +1,7 @@
 ---
 import { PAGES } from "../../../consts";
 import { themes } from "../../../theme";
+import PageLink from "./PageLink.astro";
 ---
 
 <div id="mobile-header" class="header">
@@ -8,15 +9,9 @@ import { themes } from "../../../theme";
     <i id="burger-menu-icon" class="fa-solid fa-bars"></i>
     <div class="dropdown-items">
       <nav class="dropdown-item">
-        {
-          PAGES.map(({ link, name, leetName }) => (
-            <a href={link} title={name}>
-              {leetName}
-            </a>
-          ))
-        }
+        {PAGES.map((pageProps) => <PageLink {...pageProps} />)}
       </nav>
-      <div class="dropdown-item">
+      <div id="theme-row" class="dropdown-item">
         <label for="theme">Theme:</label>
         <select name="theme" id="theme-select">
           {
@@ -36,12 +31,14 @@ import { themes } from "../../../theme";
   const dropdown = document.getElementById("mobile-nav-dropdown")!;
   const burgerIcon = document.getElementById("burger-menu-icon")!;
   burgerIcon.addEventListener("click", () =>
-    dropdown.classList.toggle("active")
+    dropdown.classList.toggle("active"),
   );
 
-  document.getElementById("theme-select")!.addEventListener("change", (e: any) => {
-    setTheme(e.currentTarget.value);
-  });
+  document
+    .getElementById("theme-select")!
+    .addEventListener("change", (e: any) => {
+      setTheme(e.currentTarget.value);
+    });
 </script>
 
 <style lang="scss">
@@ -60,14 +57,24 @@ import { themes } from "../../../theme";
 
   .dropdown-items {
     background-color: var(--bg-color);
+    padding-top: 15px;
+    background-clip: padding-box;
   }
 
   .dropdown-item {
     background-color: var(--bg-hoverable);
+    padding-left: 15px;
+    padding-right: 15px
   }
 
   nav {
     display: flex;
     flex-direction: column;
+    padding-top: 15px;
+    padding-bottom: 10px;
+  }
+
+  #theme-row {
+    padding-bottom: 15px;
   }
 </style>
