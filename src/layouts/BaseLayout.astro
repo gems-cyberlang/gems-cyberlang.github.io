@@ -6,9 +6,10 @@ import TabletHeader from "../components/header/tablet/Menu.astro";
 import MobileHeader from "../components/header/mobile/Menu.astro";
 
 interface Props {
-  frontmatter?: { title: string };
   title: string;
   isBlogPost: boolean;
+  frontmatter?: { title: string };
+  description: string;
 }
 
 const { frontmatter, isBlogPost } = Astro.props;
