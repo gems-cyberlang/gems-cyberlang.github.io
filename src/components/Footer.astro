@@ -27,8 +27,6 @@ import { CONTACT_EMAIL, CONTACT_NAME, SOCIAL_MEDIA_LINKS } from "../consts";
 
   footer {
     margin-top: 2rem;
-    padding-top: 1rem;
-    padding-bottom: 1.2rem;
     border-top: solid;
     border-width: thin;
     border-color: var(--divider-color); /* Don't mute the border */
@@ -37,10 +35,16 @@ import { CONTACT_EMAIL, CONTACT_NAME, SOCIAL_MEDIA_LINKS } from "../consts";
 
     // For phones, put Contact section above Follow us section
     flex-direction: column;
+    // Mobile-specific
+    padding-top: 1rem;
+    padding-bottom: 1.2rem;
 
-    // For laptops, put Contact and Follow us side-by-side
     @media (min-width: $tabletMinWidth) {
+      // For tablets and up, put Contact and Follow us side-by-side
       flex-direction: row;
+
+      padding-top: 3rem;
+      padding-bottom: 4rem;
     }
   }
 
