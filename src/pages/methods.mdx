@@ -1,0 +1,33 @@
+---
+title: Methods
+layout: ../layouts/BaseLayout.astro
+---
+
+We will be analyzing comments from Reddit, a popular social media platform.
+Reddit has a sizable, though not particularly diverse, user base, a significant portion
+of which is human. Additionally, it has data stretching back to 2007, all of which can
+be accessed for free. We will request data from 2010 to 2023.
+
+Once we collect our data, we will pick some commonly used mental health related words to study,
+such as "trauma" and "depression." Then, we will conduct three different analyses on it.
+
+The first will be a quali-quantitative co-word analysis, which will help us gain an understanding of the semantic
+change in the words we are studying.
+
+The second will be a quantitative analysis based on Word2vec embeddings of the words we are studying.
+We will slice up the time range under study. Within each time slice, we will generate
+Word2vec embeddings of the words under study. These embeddings will be generated in a way
+that embeddings for the same word from two different time slices can be compared.
+The comparison will be simple cosine similarity between vectors, and will allow us to quantify
+semantic change in each word between any two time slices.
+
+The third will be a quali-quantiative analysis based on BERT embeddings of the words we are studying.
+For each of the words under study, we will cluster all of its embeddings within each time slice.
+Each cluster should represent a different sense of the word, allowing us to track how each
+individual sense of the word has changed over time.
+
+Since this would be entirely unsupervised, we need to ensure that humans are in the loop.
+Threfore, we will then manually check that these clusters make sense and regenerate them
+using different hyperparamets if necessary.
+
+Finally, we will put together all of the information we have gleaned. How? I have no idea.

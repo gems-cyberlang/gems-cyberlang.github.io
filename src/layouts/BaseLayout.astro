@@ -48,7 +48,7 @@ if (!title && frontmatter && "title" in frontmatter) {
     background: var(--bg-color);
     font-family: Roboto, Consolas, sans-serif;
     margin: 0 auto;
-    min-height: 1vh;
+    height: 1vh;
   }
 
   body > header {
@@ -127,11 +127,16 @@ if (!title && frontmatter && "title" in frontmatter) {
     display: flex;
     flex-direction: row;
     align-items: center;
-    border-bottom: solid;
-    border-color: var(--divider-color); // Divider between header and content
+
     padding-top: 0.7rem;
     padding-bottom: 0.7rem;
     margin-bottom: 1.5rem;
     gap: 1.7rem;
+
+    border-bottom: solid;
+    border-width: thin;
+    border-color: var(--divider-color); // Divider between header and content
+
+    background-color: var(--bg-header);
   }
 </style>
