@@ -63,23 +63,26 @@ if (!title && frontmatter && "title" in frontmatter) {
   }
 
   body > main {
-    // Padding for very small screens (phones in portrait orientation)
-    padding-left: 5vw;
-    padding-right: 5vw;
+    margin-left: auto;
+    margin-right: auto;
+    // Max width for laptops
+    max-width: 100ch;
 
     @media (min-width: $tabletMinWidth) {
       margin-top: 4rem;
       margin-bottom: 6rem;
     }
 
-    @media (min-width: $laptopMinWidth) {
+    @media (max-width: $laptopMinWidth) {
+      // Make it smaller for tablets
       padding-left: 10vw;
       padding-right: 10vw;
     }
 
-    @media (min-width: $bigLaptopWidth) {
-      padding-left: 15vw;
-      padding-right: 15vw;
+    @media (max-width: $tabletMinWidth) {
+      // Make it smaller for phones
+      padding-left: 5vw;
+      padding-right: 5vw;
     }
   }
 
@@ -121,6 +124,11 @@ if (!title && frontmatter && "title" in frontmatter) {
     &:visited {
       color: var(--link-color-visited);
     }
+  }
+
+  :global(h1) {
+    text-align: center;
+    padding-bottom: 1rem;
   }
 
   :global(p) {
