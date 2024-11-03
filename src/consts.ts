@@ -8,9 +8,9 @@ export const CONTACT_NAME = "Terra Oh";
 export const CONTACT_EMAIL = "toh12@terpmail.umd.edu";
 
 export const PAGES = [
-  { link: "/about", name: "About", leetName: "ABOUT" },
   { link: "/methods", name: "Methods", leetName: "METHODS" },
   { link: "/timeline", name: "Timeline", leetName: "TIMELINE" },
+  { link: "/team", name: "Team", leetName: "TEAM" },
   { link: "/blog", name: "Blog", leetName: "BLOG" },
 ] as const;
 
