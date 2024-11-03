@@ -12,7 +12,7 @@ interface Props {
   description?: string;
 }
 
-const { frontmatter} = Astro.props;
+const { frontmatter } = Astro.props;
 let { title, isBlogPost } = Astro.props;
 isBlogPost = isBlogPost ?? false;
 // If a title wasn't explicitly passed in, get it from the frontmatter
