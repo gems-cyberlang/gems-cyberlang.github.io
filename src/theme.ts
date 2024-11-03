@@ -45,10 +45,10 @@ export const themes = [
     iconClass: "dark-theme-icon",
   },
   {
-    name: "Ugly",
-    theme: "theme-ugly",
+    name: "CYB3RL4NG",
+    theme: "theme-cyberlang",
     faClass: "fa-solid fa-circle",
-    iconClass: "ugly-theme-icon",
+    iconClass: "cyberlang-theme-icon",
   },
 ];
 

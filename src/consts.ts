@@ -8,9 +8,10 @@ export const CONTACT_NAME = "Terra Oh";
 export const CONTACT_EMAIL = "toh12@terpmail.umd.edu";
 
 export const PAGES = [
-  { link: "/about", name: "About", leetName: "AB0UT" },
-  { link: "/timeline", name: "Timeline", leetName: "T1M3L1N3" },
-  { link: "/blog", name: "Blog", leetName: "B10G" },
+  { link: "/about", name: "About", leetName: "ABOUT" },
+  { link: "/methods", name: "Methods", leetName: "METHODS" },
+  { link: "/timeline", name: "Timeline", leetName: "TIMELINE" },
+  { link: "/blog", name: "Blog", leetName: "BLOG" },
 ] as const;
 
 interface SocialMediaLink {

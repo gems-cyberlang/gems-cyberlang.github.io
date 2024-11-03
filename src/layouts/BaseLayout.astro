@@ -12,7 +12,7 @@ interface Props {
   description?: string;
 }
 
-const { frontmatter} = Astro.props;
+const { frontmatter } = Astro.props;
 let { title, isBlogPost } = Astro.props;
 isBlogPost = isBlogPost ?? false;
 // If a title wasn't explicitly passed in, get it from the frontmatter
@@ -48,7 +48,7 @@ if (!title && frontmatter && "title" in frontmatter) {
     background: var(--bg-color);
     font-family: Roboto, Consolas, sans-serif;
     margin: 0 auto;
-    min-height: 1vh;
+    height: 1vh;
   }
 
   body > header {
@@ -63,18 +63,26 @@ if (!title && frontmatter && "title" in frontmatter) {
   }
 
   body > main {
-    // Padding for very small screens (phones in portrait orientation)
-    padding-left: 5vw;
-    padding-right: 5vw;
+    margin-left: auto;
+    margin-right: auto;
+    // Max width for laptops
+    max-width: 100ch;
 
-    @media (min-width: $laptopMinWidth) {
+    @media (min-width: $tabletMinWidth) {
+      margin-top: 4rem;
+      margin-bottom: 6rem;
+    }
+
+    @media (max-width: $laptopMinWidth) {
+      // Make it smaller for tablets
       padding-left: 10vw;
       padding-right: 10vw;
     }
 
-    @media (min-width: $bigLaptopWidth) {
-      padding-left: 15vw;
-      padding-right: 15vw;
+    @media (max-width: $tabletMinWidth) {
+      // Make it smaller for phones
+      padding-left: 5vw;
+      padding-right: 5vw;
     }
   }
 
@@ -118,6 +126,11 @@ if (!title && frontmatter && "title" in frontmatter) {
     }
   }
 
+  :global(h1) {
+    text-align: center;
+    padding-bottom: 1rem;
+  }
+
   :global(p) {
     font-size: large;
   }
@@ -127,11 +140,16 @@ if (!title && frontmatter && "title" in frontmatter) {
     display: flex;
     flex-direction: row;
     align-items: center;
-    border-bottom: solid;
-    border-color: var(--divider-color); // Divider between header and content
+
     padding-top: 0.7rem;
     padding-bottom: 0.7rem;
     margin-bottom: 1.5rem;
     gap: 1.7rem;
+
+    border-bottom: solid;
+    border-width: thin;
+    border-color: var(--divider-color); // Divider between header and content
+
+    background-color: var(--bg-header);
   }
 </style>

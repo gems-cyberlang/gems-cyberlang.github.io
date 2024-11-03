@@ -1,9 +1,8 @@
 ---
-// Import the global.css file here so that it is included on
+// Import the fonts.css file here so that it is included on
 // all pages through the use of the <BaseHead /> component.
 import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
 import "../styles/fonts.css";
-import "../styles/global.css";
 
 interface Props {
   title: string;
@@ -112,9 +111,8 @@ const {
   @mixin themeCommon {
     --light-bg: #fdfdff;
     --dark-bg: #0f0f23;
-    --ugly-fg: #ed7797;
+    --cyberlang-fg: #ed7797;
 
-    --divider-color: var(--fg-color);
     --logo-text-bg: var(--bg-color);
   }
 
@@ -122,6 +120,7 @@ const {
     @include themeCommon();
     --fg-color: var(--dark-color);
     --bg-color: var(--light-color);
+    --bg-header: #00000004; // Background for header and footer
 
     --logo-path: #23324e;
     --logo-text: #ca3148;
@@ -133,6 +132,8 @@ const {
     @include themeCommon();
     --fg-color: var(--light-color);
     --bg-color: var(--dark-color);
+    --bg-header: #2e2c2c; // Background for header and footer
+    --divider-color: #d3d1d157;
 
     --logo-path: #ff7af6;
     --logo-text: #fa0d64;
@@ -167,7 +168,7 @@ const {
 
     --light-color: #ddddd7;
     --dark-color: var(--dark-bg);
-    --fg-color: var(--light-color);
+    --fg-color: #b2b8d0;
     --bg-color: var(--dark-bg);
     --bg-hoverable: #42424a;
     --bg-hover: #323234;
@@ -184,10 +185,10 @@ const {
     --timeline-color: #d35901;
   }
 
-  :global(.theme-ugly) {
+  :global(.theme-cyberlang) {
     @include lightRegular();
 
-    --fg-color: var(--ugly-fg);
+    --fg-color: var(--cyberlang-fg);
     --bg-color: #fdfdff;
     --divider-color: #273146;
 
