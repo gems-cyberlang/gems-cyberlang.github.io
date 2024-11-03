@@ -13,7 +13,7 @@ import PageLink from "./PageLink.astro";
     <div id="theme-row" class="dropdown-item">
       <label for="theme">Theme:</label>
       <select name="theme" id="theme-select">
-        {themes.map(({ name, theme }) => <option value={theme}>{name}</option>)}
+        {themes.map(({ name, theme }) => <option value={theme ?? "Sync"}>{name}</option>)}
       </select>
     </div>
   </div>
@@ -43,7 +43,7 @@ import PageLink from "./PageLink.astro";
   document
     .getElementById("theme-select")!
     .addEventListener("change", (e: any) => {
-      setTheme(e.currentTarget.value);
+      setTheme(e.currentTarget.value === "Sync" ? null : e.currentTarget.value);
     });
 </script>
 

@@ -52,13 +52,13 @@ if (!title && frontmatter && "title" in frontmatter) {
   }
 
   body > header {
-    // Padding for very small screens (phones in portrait orientation)
+    // Less padding for phones and tablets
     padding-left: 5vw;
     padding-right: 5vw;
 
     @media (min-width: $laptopMinWidth) {
-      padding-left: 4vw;
-      padding-right: 4vw;
+      padding-left: 8vw;
+      padding-right: 8vw;
     }
   }
 

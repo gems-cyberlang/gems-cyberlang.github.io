@@ -20,7 +20,11 @@ const { title, isBlogPost } = Astro.props;
 
 <div id="laptop-header" class="header">
   <nav class="menu">
-    {PAGES.map((page) => <MenuItem curr={title} isBlogPost={isBlogPost} {...page} />)}
+    {
+      PAGES.map((page) => (
+        <MenuItem curr={title} isBlogPost={isBlogPost} {...page} />
+      ))
+    }
   </nav>
   <div class="text-start social-media-icons">
     {
@@ -39,23 +43,29 @@ const { title, isBlogPost } = Astro.props;
   @import "../../../styles/common.scss";
 
   #laptop-header {
-    display: flex;
+    display: none;
+
+    @media (min-width: $tabletMinWidth) {
+      display: flex;
+    }
+  }
+
+  #laptop-header {
     margin-left: auto;
     flex-direction: row;
     align-items: center;
     gap: 1.7rem;
   }
 
-  @media (max-width: ($tabletMinWidth - 1)) {
-    #laptop-header {
-      display: none;
-    }
-  }
-
   .menu {
     display: inline-flex;
     margin-left: auto;
-    gap: 1rem;
+
+    gap: 1.5ch;
+
+    @media (min-width: $laptopMinWidth) {
+      gap: 2ch;
+    }
   }
 
   .social-media-icons {
