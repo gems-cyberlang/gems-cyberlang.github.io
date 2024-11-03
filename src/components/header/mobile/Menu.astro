@@ -5,22 +5,16 @@ import PageLink from "./PageLink.astro";
 ---
 
 <div id="mobile-header" class="header">
-  <div id="mobile-nav-dropdown" class="dropdown">
-    <i id="burger-menu-icon" class="fa-solid fa-bars"></i>
-    <div class="dropdown-items">
-      <nav class="dropdown-item">
-        {PAGES.map((pageProps) => <PageLink {...pageProps} />)}
-      </nav>
-      <div id="theme-row" class="dropdown-item">
-        <label for="theme">Theme:</label>
-        <select name="theme" id="theme-select">
-          {
-            themes.map(({ name, theme }) => (
-              <option value={theme}>{name}</option>
-            ))
-          }
-        </select>
-      </div>
+  <i id="burger-menu-icon" class="fa-solid fa-bars"></i>
+  <div id="sidebar">
+    <nav class="dropdown-item">
+      {PAGES.map((pageProps) => <PageLink {...pageProps} />)}
+    </nav>
+    <div id="theme-row" class="dropdown-item">
+      <label for="theme">Theme:</label>
+      <select name="theme" id="theme-select">
+        {themes.map(({ name, theme }) => <option value={theme}>{name}</option>)}
+      </select>
     </div>
   </div>
 </div>
@@ -28,11 +22,23 @@ import PageLink from "./PageLink.astro";
 <script>
   import { setTheme } from "../../../theme";
 
-  const dropdown = document.getElementById("mobile-nav-dropdown")!;
+  const sidebar = document.getElementById("sidebar")!;
   const burgerIcon = document.getElementById("burger-menu-icon")!;
-  burgerIcon.addEventListener("click", () =>
-    dropdown.classList.toggle("active"),
-  );
+  burgerIcon.addEventListener("click", () => {
+    sidebar.classList.toggle("active");
+    if (burgerIcon.classList.contains("fa-bars")) {
+      burgerIcon.classList.replace("fa-bars", "fa-xmark");
+    } else {
+      burgerIcon.classList.replace("fa-xmark", "fa-bars");
+    }
+
+    if (sidebar.classList.contains("active")) {
+      // Defined in common.scss
+      document.body.classList.add("disable-scroll");
+    } else {
+      document.body.classList.remove("disable-scroll");
+    }
+  });
 
   document
     .getElementById("theme-select")!
@@ -55,26 +61,45 @@ import PageLink from "./PageLink.astro";
     margin-left: auto;
   }
 
-  .dropdown-items {
-    background-color: var(--bg-color);
-    padding-top: 15px;
-    background-clip: padding-box;
+  #burger-menu-icon {
+    z-index: 1000;
+    position: relative;
   }
 
-  .dropdown-item {
-    background-color: var(--bg-hoverable);
-    padding-left: 15px;
-    padding-right: 15px
+  #sidebar {
+    z-index: 100;
+    position: fixed;
+    top: 0;
+    height: 100vh;
+    width: 100vw;
+    padding-top: 4rem;
+
+    background-color: var(--bg-color);
+
+    left: 100vw;
+    transition: left 0.5s;
+
+    &.active {
+      left: 0;
+      transition: left 0.5s;
+    }
   }
 
   nav {
     display: flex;
     flex-direction: column;
-    padding-top: 15px;
-    padding-bottom: 10px;
+    padding-top: 3rem;
+    padding-bottom: 4rem;
+    gap: 0.75rem;
+
+    width: min-content;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   #theme-row {
-    padding-bottom: 15px;
+    width: min-content;
+    margin-left: auto;
+    margin-right: auto;
   }
 </style>

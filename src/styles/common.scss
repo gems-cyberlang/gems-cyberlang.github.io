@@ -17,3 +17,8 @@ $tabletMinWidth: 900px;
   background-color: var(--bg-hover);
   transition: background-color 0.2s;
 }
+
+/** This is mainly for the mobile sidebar */
+.disable-scroll {
+  overflow: hidden;
+}
