@@ -2,7 +2,7 @@
 // You can import this data from anywhere in your site by using the `import` keyword.
 
 export const SITE_TITLE = "CYB3RL4NG";
-export const SITE_DESCRIPTION = "Website for Team CYB3RL4NG";
+export const SITE_DESCRIPTION = "Team CYB3RL4NG's website";
 
 export const CONTACT_NAME = "Terra Oh";
 export const CONTACT_EMAIL = "toh12@terpmail.umd.edu";

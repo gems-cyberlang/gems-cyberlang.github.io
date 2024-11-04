@@ -12,7 +12,7 @@ import PageLink from "./PageLink.astro";
     </nav>
     <div id="theme-row" class="dropdown-item">
       <label for="theme">Theme:</label>
-      <select name="theme" id="theme-select">
+      <select name="theme" id="theme-select" aria-label="Theme picker">
         {themes.map(({ name, theme }) => <option value={theme ?? "Sync"}>{name}</option>)}
       </select>
     </div>

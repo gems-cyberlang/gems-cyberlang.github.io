@@ -10,12 +10,10 @@ interface Props {
   image?: string;
 }
 
-const canonicalURL = new URL(Astro.url.pathname, Astro.site);
-
 const {
   title,
   description = SITE_DESCRIPTION,
-  image = "/blog-placeholder-1.jpg",
+  image = "/cyberlang-logo.png",
 } = Astro.props;
 ---
 
@@ -78,9 +76,6 @@ const {
   type="font/woff"
   crossorigin
 />
-
-<!-- Canonical URL -->
-<link rel="canonical" href={canonicalURL} />
 
 <!-- Primary Meta Tags -->
 <!-- For the home page, just show the site title -->

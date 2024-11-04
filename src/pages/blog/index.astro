@@ -12,79 +12,65 @@ const posts = (await getCollection("blog")).sort(
 <BaseLayout title="Blog">
   <h1>Blog</h1>
   <p>
-    This is where we post about our progress and findings.
-    If you want updates, you can track our <a href={RSS_LINK}>RSS feed</a>.
+    This is where we post about our progress and findings. If you want updates,
+    you can track our <a href={RSS_LINK}>RSS feed</a>.
   </p>
-  <ul>
-    {
-      posts.map((post) => (
-        <li>
-          <h2>
-            <a href={`/blog/${post.slug}`}>{post.data.title}</a>
-          </h2>
-          Posted <FormattedDate date={post.data.pubDate} />
-          <p>{post.data.description}</p>
-        </li>
-      ))
-    }
-  </ul>
+  <div class="center-posts-container">
+    <div class="posts">
+      {
+        posts.map((post) => (
+          <div class="post">
+            <h2>
+              <a href={`/blog/${post.slug}`}>{post.data.title}</a>
+            </h2>
+            Posted <FormattedDate date={post.data.pubDate} />
+            <p>{post.data.description}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
 </BaseLayout>
 
-<style>
-  main {
-    width: 960px;
-  }
-  ul {
+<style lang="scss">
+  @import "../../styles/common.scss";
+
+  .center-posts-container {
     display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
   }
-  ul li {
-    width: calc(50% - 1rem);
+
+  .posts {
+    row-gap: 1rem;
+    column-gap: 5ch;
+
+    margin-left: auto;
+    margin-right: auto;
   }
-  ul li * {
-    text-decoration: none;
-    transition: 0.2s ease;
-  }
-  ul li img {
-    margin-bottom: 0.5rem;
-    border-radius: 12px;
-  }
-  ul li a {
-    display: block;
-  }
-  .title {
-    margin: 0;
-    color: rgb(var(--black));
-    line-height: 1;
-  }
-  .date {
-    margin: 0;
-    color: rgb(var(--gray));
-  }
-  ul li a:hover h4,
-  ul li a:hover .date {
-    color: rgb(var(--accent));
-  }
-  ul a:hover img {
-    box-shadow: var(--box-shadow);
-  }
-  @media (max-width: 720px) {
-    ul {
-      gap: 0.5em;
+
+  .posts {
+    // Single column for phones
+    display: flex;
+    flex-direction: column;
+
+    // Two columns for tablets and up
+    @media (min-width: $tabletMinWidth) {
+      display: grid;
+      grid-template-columns: auto auto;
     }
-    ul li {
+  }
+
+  .post {
+    width: max-content;
+
+    a {
+      text-decoration: none;
+    }
+  }
+
+  @media (max-width: ($tabletMinWidth - 0.5)) {
+    .post {
       width: 100%;
       text-align: center;
-    }
-    ul li:first-child {
-      margin-bottom: 0;
-    }
-    ul li:first-child .title {
-      font-size: 1.563em;
     }
   }
 </style>
