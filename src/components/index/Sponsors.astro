@@ -1,0 +1,24 @@
+---
+
+---
+
+<div>
+  <slot />
+</div>
+
+<style lang="scss">
+  @import "../../styles/common.scss";
+
+  div {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    justify-content: space-around;
+
+    @media (min-width: $tabletMinWidth) {
+      // For tablets and up, put sponsors side by side
+      flex-direction: row;
+    }
+  }
+</style>

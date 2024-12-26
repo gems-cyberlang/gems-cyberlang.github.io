@@ -2,6 +2,7 @@
 layout: ../layouts/BaseLayout.astro
 ---
 import Sponsor from "../components/index/Sponsor.astro";
+import Sponsors from "../components/index/Sponsors.astro";
 import { CONTACT_EMAIL } from "../consts";
 
 Team CYB3RL4NG is an undergraduate research team that is part of the [Gemstone Program](https://gemstone.umd.edu/) at the University of Maryland.
@@ -31,11 +32,22 @@ Contact our team liaison, Terra, at {CONTACT_EMAIL} for details.
 
 We are grateful to the Gemstone program for giving us the opportunity to work on this project.
 
-<div style="display: flex; width: 100%; align-items: center; justify-content: space-around;">
+<Sponsors>
   <Sponsor name="Gemstone Program" url="https://gemstone.umd.edu/">
-    <img loading="lazy" src="/img/gemstone.png" alt="Gemstone logo" style="background-color: white;" />
+    <img
+      loading="lazy"
+      src="/img/gemstone.png"
+      alt="Gemstone logo"
+      style="background-color: white; height: 100%;" />
   </Sponsor>
   <Sponsor name="Honors College" url="https://honors.umd.edu/">
-    <img loading="lazy" src="/img/umdhonors.png" alt="Honors College logo" />
+    <img loading="lazy" src="/img/umdhonors.png" alt="Honors College logo" style="height: 100%;" />
   </Sponsor>
-</div>
+  <Sponsor name="Startup Shell" url="https://startupshell.org/">
+    <img
+      loading="lazy"
+      src="https://startupshell.org/assets/startup-shell-logo-red-7a7fb14b.svg"
+      alt="Startup Shell logo"
+      width="250px;" />
+  </Sponsor>
+</Sponsors>
