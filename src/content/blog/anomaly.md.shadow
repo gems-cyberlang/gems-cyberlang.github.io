@@ -81,18 +81,34 @@ sns.lineplot(
 )
 ```
 
-It's true that this will slightly undercount the number of misses in each time period. We now have a way to account for it, but as you can see below, the anomaly is apparent even with this imperfect calculation. There is a very noticeable spike in the miss rate around 2019/2020. It starts off well under 0.1, and at some point in 2018, it starts increasing, shooting up to around 0.35 before settling back down around 2021.
+It's true that this will slightly undercount the number of misses in each time period. We've since figured out how to fix that, but as you can see below, the anomaly is apparent even with this imperfect calculation. There is a very noticeable spike in the miss rate around 2019/2020. It starts off well under 0.1, and at some point in 2018, it starts increasing, shooting up to around 0.35 before settling back down around 2021.
 
 ![Miss rate over time](./img/anomaly-miss-rate.png)
 
 ## The Great Ban
 
-A former team member found that in 2020, many subreddits were banned. In fact, around 2000 subreddits were banned in order to make Reddit a safer, more inclusive space, as is discussed in [this paper](https://arxiv.org/abs/2401.11254v1). This decision came after years of investigation by Reddit, who discovered that subreddits dedicated to racism, sexism, anti-Semitism, transphobia, and so on were often filled with racism, sexism, anti-Semitism, transphobia, and so on.
+The reason for this spike is probably "The Great Ban." A former team member found that in 2020, around 2000 subreddits were banned in order to make Reddit a safer, more inclusive space [^great_ban].
 
-Many of these subreddits were quite popular, such as r/The_Donald ([subreddit stats](https://subredditstats.com/r/the_donald)). When these subreddits were banned, their comments became inaccessible through Reddit's API. This explains why our miss rate was so much higher around 2019-2020. TODO find out if Reddit continued heavier moderation after 2020. Would help explain why miss rate is still high in early 2021.
+Many of these subreddits were quite popular, such as r/ChapoTrapHouse and r/The_Donald. r/ChapoTrapHouse was a far left subreddit that appears to have been banned because it advocated for violence against conservatives [^out_of_the_loop_chapo]. r/The_Donald was a right-wing subreddit that was banned because, among other reasons, it hosted racist, anti-Semitic, and Islamophobic content [^donald_chapo_banned], as well as Russian election disinformation [^history_of_donald]. It appears that after years of analysis, Reddit discovered that subreddits dedicated to racism, sexism, anti-Semitism, transphobia, glorification of violence, and so on were often filled with racism, sexism, anti-Semitism, transphobia, glorification of violence, and so on.
 
-As for why the miss rate only spiked around 2019-2020 despite many of the banned subreddits existing well before then, this was probably because they wereasdfasdf todo write this
+When these subreddits were banned, their comments became inaccessible through Reddit's API. For us, this means that a great many IDs around 2018-2021, when requested, will not return anything because they belong to comments from these banned subreddits. This explains why our miss rate was so much higher around 2019-2020.
+
+After 2020, Reddit seems to have eased off on banning subreddits. Although they did ban thrice as many subreddits in 2021 as they did in 2020, most of these bans were for unmoderated subreddits [^transparency_2021]. There was a decrease in subreddit bans for hateful content and harrassment. This explains why the miss rate came back down in 2021.
+
+Why did the miss rate only start spiking around 2019 despite many of the banned subreddits existing well before then? This is probably because most of them did not become popular until 2019. We can observe this using [Subreddit Stats](https://subredditstats.com). As some cherry-picked examples, take r/ChapoTrapHouse, r/DarkHumorAndMemes, r/GenderCritical, r/soyboys, and r/wojak. Although Subreddit Stats does not show comment data before 2019, it does show the number of subscribers to each subreddit over time. In terms of subscribers, all of these subreddits didn't really take off until around 2019, and presumably, many/most of the comments in these subreddits were also posted around 2019.
+
+The users in these subreddits are another thing to consider. 15.6% of users from banned subreddits left Reddit after the ban [^great_ban], and these users may have mass-deleted their most recent comments in protest before leaving. This would again contribute to a higher miss rate around 2018-2021. This is just a theory, however.
+
+Ultimately, the cause of the anomaly isn't as important as the way we handle it.
 
 ## Dealing with the anomaly
 
 todo write this
+
+## References
+
+[^great_ban]: https://arxiv.org/abs/2401.11254v1
+[^out_of_the_loop_chapo]: https://www.reddit.com/r/OutOfTheLoop/comments/bp7w6p/
+[^donald_chapo_banned]: https://web.archive.org/web/20201118112258/https://www.theatlantic.com/technology/archive/2020/06/reddit-ban-the-donald-chapo-content-policy/613639
+[^history_of_donald]: https://web.archive.org/web/20201108095845/https://www.fastcompany.com/90244757/the-inside-story-of-reddits-struggle-to-deal-with-its-most-toxic-pro-trump-users
+[^transparency_2021]: https://redditinc.com/policies/transparency-report-2021-2
