@@ -1,0 +1,98 @@
+---
+title: "An Anomaly in Reddit's Data"
+pubDate: "December 26, 2024"
+author: Yash Thakur
+description: "Looking into why many comments from around 2019 are inaccessible"
+---
+
+We get our data by randomly sampling comments from Reddit. To do this, we randomly generate and request comment IDs (e.g. `t1_d123abc`). Some of these IDs correspond to comments that are deleted or in private subreddits, and so we get nothing back for these IDs. We do get back comments for most IDs, but we saw that around 2019/2020, there was a significant spike in the number of inaccessible comments.
+
+We believe it was caused by the banning of a massive number of subreddits in 2020. This blog post will go over how we found the anomaly and what we will be doing to account for it.
+
+## Finding the anomaly
+
+When we started trying out Reddit's API, we simply generated comments between two IDs, one corresponding to a comment at the beginning of our time range and the other corresponding to a comment at the end of our time range. At the time, we had to find these comments manually, though we now have a script to do it automatically (TODO reference other blog post here).
+
+The below code uses this approach to obtain a list of IDs for successfully requested comment and a corresponding list of their timestamps. It also creates a list of IDs for inaccessible comments.
+
+```python
+from datetime import datetime
+import numpy as np
+
+first_id = int("cnas8zz", 36) # ID of comment from 2015-01-01 00:00:00+00:00
+last_id = int("kfrowyo", 36) # ID of comment from 2024-01-01 00:00:00+00:00
+
+ids: list[int] = []
+times: list[datetime] = []
+misses: list[int] = []
+
+for _ in range(1000):
+    rand_ids = np.random.randint(first_id, last_id, size=100)
+    fullnames = [f"t1_{np.base_repr(id, 36).lower()}" for id in rand_ids]
+    possible_misses = set(rand_ids)
+    for comment in reddit.info(fullnames=fullnames):
+        id = int(comment.id, 36)
+        ids.append(id)
+        times.append(datetime.fromtimestamp(comment.created_utc))
+        possible_misses.remove(id)
+    misses.extend(possible_misses)
+```
+
+Let's see the distribution of the timestamps of these comments. We can aggregate in 3-month chunks and then see how many comments we got from each 3-month-long time period.
+
+```python
+import polars as pl
+import seaborn as sns
+
+df = pl.DataFrame({"id": ids, "Time": times})
+df = df.sort(by="Time")
+time_groups = df.group_by_dynamic("Time", every="3mo")
+sns.lineplot(
+    data=time_groups.agg(Count=pl.len()),
+    x="Time",
+    y="Count",
+)
+```
+
+No surprises here. The number of comments is increasing over time, which is to be expected, given that Reddit's popularity has increased over time.
+
+![Number of hits over time period](./img/anomaly-num-hits.png)
+
+But we also wanted to know how many of our requests were failing, because at the time, we weren't sure if the generate-an-ID-and-hope-it-exists approach was viable. So we calculated this miss rate by taking the number of misses between the start and end ID of each of the 3-month time periods created above and dividing it by the total number of comments requested in that period.
+
+```python
+with_bounds = time_groups.agg(
+    start=pl.col("id").min(),
+    end=pl.col("id").max(),
+    hits=pl.len(),
+)
+
+def miss_rate(row):
+    _, start_id, end_id, num_hits = row
+    num_misses = len([miss for miss in misses if start_id < miss < end_id])
+    return num_misses / (num_hits + num_misses) if num_misses else 0.0
+
+sns.lineplot(
+    data=with_bounds.with_columns(with_bounds.map_rows(miss_rate)).rename(
+        {"map": "Miss rate"}
+    ),
+    x="Time",
+    y="Miss rate",
+)
+```
+
+It's true that this will slightly undercount the number of misses in each time period. We now have a way to account for it, but as you can see below, the anomaly is apparent even with this imperfect calculation. There is a very noticeable spike in the miss rate around 2019/2020. It starts off well under 0.1, and at some point in 2018, it starts increasing, shooting up to around 0.35 before settling back down around 2021.
+
+![Miss rate over time](./img/anomaly-miss-rate.png)
+
+## The Great Ban
+
+A former team member found that in 2020, many subreddits were banned. In fact, around 2000 subreddits were banned in order to make Reddit a safer, more inclusive space, as is discussed in [this paper](https://arxiv.org/abs/2401.11254v1). This decision came after years of investigation by Reddit, who discovered that subreddits dedicated to racism, sexism, anti-Semitism, transphobia, and so on were often filled with racism, sexism, anti-Semitism, transphobia, and so on.
+
+Many of these subreddits were quite popular, such as r/The_Donald ([subreddit stats](https://subredditstats.com/r/the_donald)). When these subreddits were banned, their comments became inaccessible through Reddit's API. This explains why our miss rate was so much higher around 2019-2020. TODO find out if Reddit continued heavier moderation after 2020. Would help explain why miss rate is still high in early 2021.
+
+As for why the miss rate only spiked around 2019-2020 despite many of the banned subreddits existing well before then, this was probably because they wereasdfasdf todo write this
+
+## Dealing with the anomaly
+
+todo write this
